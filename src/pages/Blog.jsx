@@ -1,39 +1,9 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { BLOG_POSTS } from '../data/content.js'
 
 export default function Blog() {
-  const artículos = [
-    {
-      id: 1,
-      slug: 'madurez-rrhh',
-      título: '5 Señales de que tu área de RR.HH. necesita madurar',
-      descripción: 'Identifica si tu gestión de personas es reactiva o estratégica. Descubre cómo evolucionar.',
-      fecha: '15 Ago 2026',
-      autor: 'E&T Consultores',
-      categoría: 'RR.HH.',
-      tiempo_lectura: '5 min'
-    },
-    {
-      id: 2,
-      slug: 'rotacion-talento',
-      título: '¿Cuánto te cuesta realmente la rotación de personal?',
-      descripción: 'Análisis del costo total de rotación y estrategias para reducirla. Datos y casos reales.',
-      fecha: '10 Ago 2026',
-      autor: 'E&T Consultores',
-      categoría: 'Talento',
-      tiempo_lectura: '7 min'
-    },
-    {
-      id: 3,
-      slug: 'clima-organizacional',
-      título: 'Cómo medir y mejorar el clima organizacional',
-      descripción: 'Guía completa para entender el climate laboral de tu empresa y crear plan de acción.',
-      fecha: '05 Ago 2026',
-      autor: 'E&T Consultores',
-      categoría: 'Cultura',
-      tiempo_lectura: '8 min'
-    }
-  ]
+  const artículos = BLOG_POSTS
 
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-12">

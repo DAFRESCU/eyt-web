@@ -169,6 +169,57 @@ export const CONTACT = {
   locations: ['Arequipa', 'Cusco', 'Ica'],
 }
 
+export const BLOG_POSTS = [
+  {
+    id: 1,
+    slug: 'madurez-rrhh',
+    título: '5 Señales de que tu área de RR.HH. necesita madurar',
+    descripción: 'Identifica si tu gestión de personas es reactiva o estratégica. Descubre cómo evolucionar.',
+    fecha: '15 Ago 2026',
+    autor: 'E&T Consultores',
+    categoría: 'RR.HH.',
+    tiempo_lectura: '5 min',
+    contenido: [
+      'Muchas empresas en crecimiento siguen gestionando a su personal con procesos improvisados: contratos verbales, planillas armadas al último minuto y decisiones de personal que dependen del ánimo del día. Si esto te suena familiar, tu área de RR.HH. probablemente todavía es reactiva en lugar de estratégica.',
+      'La primera señal es que apagas incendios en vez de prevenirlos: renuncias sorpresivas, conflictos que escalan sin protocolo y contrataciones urgentes que terminan en malas contrataciones. La segunda es la falta de indicadores: si no sabes tu tasa de rotación, tu costo por contratación o tu clima laboral con datos concretos, estás gestionando a ciegas.',
+      'La tercera señal es la ausencia de documentos base como el MOF o un organigrama actualizado, lo que genera confusión sobre roles y responsabilidades. La cuarta es que el líder de RR.HH. (si existe) dedica el 90% de su tiempo a trámites administrativos y no a estrategia. Y la quinta es el riesgo legal acumulado: reglamentos internos desactualizados o inexistentes, y cero preparación ante una fiscalización de SUNAFIL.',
+      'La buena noticia es que madurar el área no requiere una transformación de un día para otro. Empieza por levantar un diagnóstico honesto, definir 3 a 5 indicadores clave y ordenar la documentación base. Con esos pasos, tu gestión de personas deja de ser reactiva y empieza a sostener el crecimiento del negocio en vez de frenarlo.',
+    ],
+  },
+  {
+    id: 2,
+    slug: 'rotacion-talento',
+    título: '¿Cuánto te cuesta realmente la rotación de personal?',
+    descripción: 'Análisis del costo total de rotación y estrategias para reducirla. Datos y casos reales.',
+    fecha: '10 Ago 2026',
+    autor: 'E&T Consultores',
+    categoría: 'Talento',
+    tiempo_lectura: '7 min',
+    contenido: [
+      'Cuando alguien renuncia, el costo visible es el sueldo de un mes sin producir mientras se busca reemplazo. Pero ese es apenas el 20% del costo real. El costo total de la rotación incluye el tiempo del equipo en el proceso de selección, la curva de aprendizaje del nuevo colaborador, la pérdida de productividad del equipo mientras se cubre la vacante, y en muchos casos, el conocimiento y las relaciones con clientes que se van con la persona que renuncia.',
+      'En nuestra experiencia acompañando empresas en Arequipa, Cusco e Ica, el costo total de reemplazar a un colaborador operativo puede equivaler a 3 a 6 meses de su sueldo, y para posiciones de mando puede llegar a 9 o 12 meses. Esto rara vez se mide porque no aparece como una sola línea en el estado de resultados, sino disperso entre horas de gerencia, capacitación y productividad perdida.',
+      'Las causas más comunes de rotación evitable que encontramos son: procesos de selección apurados que no validan el ajuste cultural, ausencia de un plan de onboarding estructurado, líderes sin herramientas de gestión de personas, y falta de claridad sobre las expectativas del puesto desde el día uno.',
+      'Reducir la rotación no significa retener a todos a toda costa, sino reducir la rotación evitable: la de las personas correctas que se van por razones que la empresa podía haber prevenido. Un buen punto de partida es medir tu tasa de rotación actual, segmentarla por área y antigüedad, y comparar el costo de un buen proceso de selección y onboarding contra el costo de seguir reemplazando gente cada pocos meses.',
+    ],
+  },
+  {
+    id: 3,
+    slug: 'clima-organizacional',
+    título: 'Cómo medir y mejorar el clima organizacional',
+    descripción: 'Guía completa para entender el climate laboral de tu empresa y crear plan de acción.',
+    fecha: '05 Ago 2026',
+    autor: 'E&T Consultores',
+    categoría: 'Cultura',
+    tiempo_lectura: '8 min',
+    contenido: [
+      'El clima organizacional es la percepción compartida que tienen los colaboradores sobre su ambiente de trabajo: cómo se sienten tratados, qué tan claras son las reglas, y qué tan cómodos están para expresar ideas o desacuerdos. A diferencia de la cultura (que son los valores y comportamientos de fondo), el clima es más cambiante y se puede medir con relativa facilidad en el corto plazo.',
+      'Medir el clima requiere ir más allá de la intuición del gerente o de conversaciones informales de pasillo. Una encuesta anónima y bien diseñada, con preguntas sobre liderazgo, comunicación, reconocimiento, condiciones de trabajo y proyección de carrera, entrega datos concretos que puedes comparar en el tiempo y por área.',
+      'Un error común es aplicar la encuesta y no hacer nada con los resultados. Esto genera el efecto contrario: los colaboradores sienten que su opinión no importa y el clima empeora. Por eso, cada medición debe ir seguida de una devolución de resultados al equipo y un plan de acción concreto con responsables y fechas, aunque sea con 2 o 3 iniciativas priorizadas.',
+      'Las acciones que más impacto tienen suelen ser las más simples: mejorar la comunicación de las decisiones que afectan al equipo, dar reconocimiento específico y oportuno (no solo en la fiesta de fin de año), y capacitar a los líderes de primera línea, que son quienes más influyen en la experiencia diaria de cada colaborador. Medir el clima una vez al año como trámite no genera cambio; medirlo, actuar y volver a medir sí.',
+    ],
+  },
+]
+
 export const NAV_LINKS = [
   { label: 'Inicio', to: '/' },
   { label: 'Servicios', to: '/servicios' },

@@ -7,6 +7,7 @@ import Home from './pages/Home.jsx'
 import Servicios from './pages/Servicios.jsx'
 import Herramientas from './pages/Herramientas.jsx'
 import Blog from './pages/Blog.jsx'
+import BlogPost from './pages/BlogPost.jsx'
 import Contacto from './pages/Contacto.jsx'
 import NotFound from './pages/NotFound.jsx'
 
@@ -39,6 +40,7 @@ export default function App() {
           <Route path="/servicios" element={<Servicios />} />
           <Route path="/herramientas" element={<Herramientas />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
