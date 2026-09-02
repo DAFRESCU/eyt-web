@@ -3,6 +3,7 @@ import PainPoints from '../components/PainPoints.jsx'
 import Services from '../components/Services.jsx'
 import Proceso from '../components/Proceso.jsx'
 import PorQueET from '../components/PorQueET.jsx'
+import Testimonios from '../components/Testimonios.jsx'
 import CTASection from '../components/CTASection.jsx'
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <Services />
       <Proceso />
       <PorQueET />
+      <Testimonios />
       <CTASection />
     </>
   )

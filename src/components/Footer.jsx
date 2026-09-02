@@ -46,7 +46,7 @@ export default function Footer() {
 
       <div className="container-page mt-12 border-t border-white/10 pt-6">
         <p className="text-xs text-white/50">
-          E&amp;T ESTRATEGIA Y TALENTO S.A.C. · 50% adelantado, 50% al entregar
+          © {new Date().getFullYear()} E&amp;T ESTRATEGIA Y TALENTO S.A.C. · Todos los derechos reservados
         </p>
       </div>
     </footer>

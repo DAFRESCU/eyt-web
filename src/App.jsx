@@ -2,8 +2,11 @@ import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
+import WhatsAppButton from './components/WhatsAppButton.jsx'
 import Home from './pages/Home.jsx'
 import Servicios from './pages/Servicios.jsx'
+import Herramientas from './pages/Herramientas.jsx'
+import Blog from './pages/Blog.jsx'
 import Contacto from './pages/Contacto.jsx'
 import NotFound from './pages/NotFound.jsx'
 
@@ -34,12 +37,15 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/servicios" element={<Servicios />} />
+          <Route path="/herramientas" element={<Herramientas />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   )
 }

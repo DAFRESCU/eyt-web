@@ -172,6 +172,8 @@ export const CONTACT = {
 export const NAV_LINKS = [
   { label: 'Inicio', to: '/' },
   { label: 'Servicios', to: '/servicios' },
+  { label: 'Herramientas', to: '/herramientas' },
+  { label: 'Blog', to: '/blog' },
   { label: 'Cómo Trabajamos', to: '/#como-trabajamos' },
   { label: 'Por qué E&T', to: '/#por-que-et' },
   { label: 'Contacto', to: '/contacto' },
