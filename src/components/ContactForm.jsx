@@ -28,7 +28,7 @@ export default function ContactForm() {
   const [form, setForm] = useState(initialForm)
   const [errors, setErrors] = useState({})
   const [touched, setTouched] = useState({})
-  const [status, setStatus] = useState('idle') // idle | sent
+  const [status, setStatus] = useState('idle') // idle | sending | sent | error
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -41,7 +41,7 @@ export default function ContactForm() {
     setErrors(validate({ ...form }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const validationErrors = validate(form)
     setErrors(validationErrors)
@@ -49,13 +49,32 @@ export default function ContactForm() {
 
     if (Object.keys(validationErrors).length > 0) return
 
-    // eslint-disable-next-line no-console
-    console.log('Nuevo lead E&T:', form)
+    setStatus('sending')
 
-    setStatus('sent')
-    setForm(initialForm)
-    setTouched({})
-    setErrors({})
+    try {
+      const response = await fetch('https://formspree.io/f/xbgjygkj', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+
+      if (response.ok) {
+        setStatus('sent')
+        setForm(initialForm)
+        setTouched({})
+        setErrors({})
+        // eslint-disable-next-line no-console
+        console.log('✅ Lead enviado a Formspree:', form)
+      } else {
+        setStatus('error')
+        // eslint-disable-next-line no-console
+        console.error('Error Formspree:', response.status)
+      }
+    } catch (error) {
+      setStatus('error')
+      // eslint-disable-next-line no-console
+      console.error('Error al enviar:', error)
+    }
   }
 
   const fieldClass = (name) =>
