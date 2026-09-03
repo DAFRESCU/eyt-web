@@ -1,10 +1,15 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import Seo from '../components/Seo.jsx'
 import { SERVICES } from '../data/content.js'
 
 export default function Servicios() {
   return (
     <div className="py-16 sm:py-24">
+      <Seo
+        title="Servicios de Consultoría en RR.HH. | 7 Unidades Especializadas — E&T"
+        description="Estrategia y diseño organizacional, atracción de talento, formación, bienestar, cultura, cumplimiento normativo y liderazgo público. Precios referenciales desde S/ 400, sin sorpresas."
+      />
       <div className="container-page">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

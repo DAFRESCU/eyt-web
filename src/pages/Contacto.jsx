@@ -1,9 +1,14 @@
 import { motion } from 'framer-motion'
+import Seo from '../components/Seo.jsx'
 import ContactForm from '../components/ContactForm.jsx'
 
 export default function Contacto() {
   return (
     <div className="py-16 sm:py-24">
+      <Seo
+        title="Contacto | Agenda tu Diagnóstico Gratuito de 45 min — E&T"
+        description="Solicita tu diagnóstico gratuito de RR.HH. en E&T Estrategia y Talento. Te respondemos en menos de 48 horas. Arequipa, Cusco e Ica, presencial o remoto."
+      />
       <div className="container-page">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

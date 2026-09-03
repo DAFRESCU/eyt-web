@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import Seo from '../components/Seo.jsx'
 import QuizMadurezRH from '../components/QuizMadurezRH'
 import CalculadoraRotacion from '../components/CalculadoraRotacion'
 import TestClima from '../components/TestClima'
@@ -85,11 +86,19 @@ export default function Herramientas() {
     }
   }, [searchParams])
 
+  const seo = (
+    <Seo
+      title="Herramientas Gratuitas de Diagnóstico RR.HH. | Radar 360° — E&T"
+      description="Evalúa gratis la madurez de tu gestión de personas: Radar 360°, quiz de madurez, calculadora de costo de rotación, test de clima y liderazgo, evaluador de riesgos laborales."
+    />
+  )
+
   if (selected) {
     const tool = allTools.find((h) => h.id === selected)
     const Component = tool.component
     return (
       <div className="py-16 sm:py-24">
+        {seo}
         <div className="container-page max-w-2xl">
           <motion.button
             whileHover={{ x: -3 }}
@@ -121,6 +130,7 @@ export default function Herramientas() {
 
   return (
     <div className="py-16 sm:py-24">
+      {seo}
       <div className="container-page">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

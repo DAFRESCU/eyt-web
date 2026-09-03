@@ -1,5 +1,6 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import Seo from '../components/Seo.jsx'
 import { BLOG_POSTS } from '../data/content.js'
 
 export default function BlogPost() {
@@ -12,6 +13,11 @@ export default function BlogPost() {
 
   return (
     <div className="py-16 sm:py-24">
+      <Seo
+        title={`${artículo.título} | Blog E&T`}
+        description={artículo.descripción}
+        ogType="article"
+      />
       <div className="container-page max-w-3xl">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <Link

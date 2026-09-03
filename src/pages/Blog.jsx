@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import Seo from '../components/Seo.jsx'
 import { BLOG_POSTS } from '../data/content.js'
 
 const container = {
@@ -17,6 +18,10 @@ export default function Blog() {
 
   return (
     <div className="py-16 sm:py-24">
+      <Seo
+        title="Blog E&T | Insights sobre RR.HH., Liderazgo y Estrategia Organizacional"
+        description="Artículos prácticos sobre gestión de personas, rotación de talento, clima organizacional y liderazgo, escritos por el equipo de E&T Estrategia y Talento."
+      />
       <div className="container-page">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
