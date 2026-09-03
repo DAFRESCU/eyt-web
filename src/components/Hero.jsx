@@ -86,7 +86,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="mt-10"
+          className="mt-10 flex flex-wrap items-center gap-4"
         >
           <Link to="/contacto">
             <motion.span
@@ -95,6 +95,16 @@ export default function Hero() {
               className="inline-block rounded-md bg-brand-gold px-8 py-4 text-base font-semibold text-white shadow-card-hover transition-colors duration-300 hover:bg-brand-gold-dark"
             >
               Agendar diagnóstico gratuito
+            </motion.span>
+          </Link>
+
+          <Link to="/herramientas?tool=radar360">
+            <motion.span
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 rounded-md border border-white/30 px-6 py-4 text-sm font-semibold text-white transition-colors duration-300 hover:border-white/60 hover:bg-white/10"
+            >
+              📡 Prueba el Radar 360° gratis
             </motion.span>
           </Link>
         </motion.div>

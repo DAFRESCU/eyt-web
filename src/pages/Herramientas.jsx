@@ -1,10 +1,23 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { lazy, Suspense, useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import QuizMadurezRH from '../components/QuizMadurezRH'
 import CalculadoraRotacion from '../components/CalculadoraRotacion'
 import TestClima from '../components/TestClima'
 import EvaluadorRiesgos from '../components/EvaluadorRiesgos'
 import TestLiderazgo from '../components/TestLiderazgo'
+
+const RadarMadurez = lazy(() => import('../components/RadarMadurez'))
+
+const featured = {
+  id: 'radar360',
+  icono: '📡',
+  titulo: 'Radar 360°: Diagnóstico de Madurez Organizacional',
+  description:
+    'Nuestra herramienta más completa: 14 preguntas en 6 dimensiones clave, con un mapa visual tipo radar de tu empresa y recomendaciones específicas para tu punto más débil.',
+  tiempo: '8 min',
+  component: RadarMadurez,
+}
 
 const herramientas = [
   {
@@ -49,6 +62,8 @@ const herramientas = [
   },
 ]
 
+const allTools = [featured, ...herramientas]
+
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.08 } },
@@ -61,9 +76,17 @@ const cardVariant = {
 
 export default function Herramientas() {
   const [selected, setSelected] = useState(null)
+  const [searchParams] = useSearchParams()
+
+  useEffect(() => {
+    const requested = searchParams.get('tool')
+    if (requested && allTools.some((h) => h.id === requested)) {
+      setSelected(requested)
+    }
+  }, [searchParams])
 
   if (selected) {
-    const tool = herramientas.find((h) => h.id === selected)
+    const tool = allTools.find((h) => h.id === selected)
     const Component = tool.component
     return (
       <div className="py-16 sm:py-24">
@@ -81,7 +104,15 @@ export default function Herramientas() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <Component />
+            <Suspense
+              fallback={
+                <div className="flex justify-center py-16">
+                  <div className="h-8 w-8 animate-spin rounded-full border-2 border-brand-gold border-t-transparent" />
+                </div>
+              }
+            >
+              <Component />
+            </Suspense>
           </motion.div>
         </div>
       </div>
@@ -109,12 +140,51 @@ export default function Herramientas() {
           </p>
         </motion.div>
 
+        <motion.button
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          whileHover={{ y: -4 }}
+          onClick={() => setSelected(featured.id)}
+          className="group relative mt-14 flex w-full flex-col overflow-hidden rounded-xl bg-gradient-to-br from-brand-navy to-brand-gold-dark p-8 text-left shadow-card-hover ring-1 ring-brand-navy/10 sm:flex-row sm:items-center sm:gap-8 sm:p-10"
+        >
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-[0.07]"
+            style={{
+              backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
+              backgroundSize: '24px 24px',
+            }}
+          />
+
+          <div className="relative flex-1">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+              ⭐ Herramienta insignia
+            </span>
+            <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl">
+              {featured.titulo}
+            </h2>
+            <p className="mt-3 max-w-xl text-white/80">{featured.description}</p>
+            <span className="mt-6 inline-flex items-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-semibold text-brand-navy shadow-card transition-transform duration-300 group-hover:scale-105">
+              Comenzar Radar 360° ({featured.tiempo})
+              <span aria-hidden className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </span>
+          </div>
+
+          <div className="relative mt-6 flex flex-shrink-0 items-center justify-center sm:mt-0">
+            <span className="text-8xl opacity-90 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+              {featured.icono}
+            </span>
+          </div>
+        </motion.button>
+
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.15 }}
-          className="mt-14 grid gap-6 md:grid-cols-2"
+          className="mt-8 grid gap-6 md:grid-cols-2"
         >
           {herramientas.map((h) => (
             <motion.button
