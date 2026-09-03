@@ -1,19 +1,51 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Hero() {
+  const sectionRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  })
+
+  const dotsY = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
+  const orbY = useTransform(scrollYProgress, [0, 1], ['0%', '18%'])
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '12%'])
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.4])
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-brand-navy to-brand-navy-soft py-24 text-white sm:py-28">
-      <div
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-gradient-to-br from-brand-navy to-brand-navy-soft py-24 text-white sm:py-28"
+    >
+      <motion.div
         aria-hidden
+        style={{ y: dotsY }}
         className="pointer-events-none absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
-          backgroundSize: '32px 32px',
-        }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
+            backgroundSize: '32px 32px',
+          }}
+        />
+      </motion.div>
+
+      <motion.div
+        aria-hidden
+        style={{ y: orbY }}
+        className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-brand-gold/20 blur-3xl"
       />
-      <div className="container-page relative">
+      <motion.div
+        aria-hidden
+        style={{ y: orbY }}
+        className="pointer-events-none absolute -bottom-40 -left-20 h-80 w-80 rounded-full bg-brand-rose/10 blur-3xl"
+      />
+
+      <motion.div style={{ y: contentY, opacity: contentOpacity }} className="container-page relative">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -58,7 +90,7 @@ export default function Hero() {
         >
           <Link to="/contacto">
             <motion.span
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, boxShadow: '0 12px 30px 0 rgba(0,0,0,0.25)' }}
               whileTap={{ scale: 0.95 }}
               className="inline-block rounded-md bg-brand-gold px-8 py-4 text-base font-semibold text-white shadow-card-hover transition-colors duration-300 hover:bg-brand-gold-dark"
             >
@@ -66,7 +98,7 @@ export default function Hero() {
             </motion.span>
           </Link>
         </motion.div>
-      </div>
+      </motion.div>
 
       <HeroCtaBox />
     </section>
@@ -80,7 +112,7 @@ function HeroCtaBox() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
-        whileHover={{ scale: 1.02 }}
+        whileHover={{ scale: 1.02, y: -2 }}
         className="rounded-xl bg-brand-navy/60 p-6 backdrop-blur-sm ring-1 ring-white/10 transition-colors duration-300 hover:bg-brand-navy/80 sm:p-8"
       >
         <p className="text-sm font-bold uppercase tracking-[0.15em] text-brand-rose">

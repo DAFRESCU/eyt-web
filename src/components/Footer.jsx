@@ -4,7 +4,11 @@ import { CONTACT, NAV_LINKS } from '../data/content.js'
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-navy pt-14 pb-8 text-white">
+    <footer className="relative bg-brand-navy pt-14 pb-8 text-white">
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent"
+      />
       <div className="container-page grid gap-10 sm:grid-cols-3">
         <div>
           <Logo />
@@ -20,7 +24,10 @@ export default function Footer() {
           <ul className="mt-4 space-y-2 text-sm">
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
-                <Link to={link.to} className="text-white/70 hover:text-brand-rose">
+                <Link
+                  to={link.to}
+                  className="inline-block text-white/70 transition-all duration-200 hover:translate-x-1 hover:text-brand-rose"
+                >
                   {link.label}
                 </Link>
               </li>

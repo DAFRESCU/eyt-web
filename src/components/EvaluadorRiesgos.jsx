@@ -44,8 +44,8 @@ export default function EvaluadorRiesgos() {
   const getRiskLevel = (score) => {
     if (score > 60) return { level: 'CRÍTICO', color: 'text-red-600', bg: 'bg-red-50' }
     if (score > 40) return { level: 'ALTO', color: 'text-orange-600', bg: 'bg-orange-50' }
-    if (score > 20) return { level: 'MODERADO', color: 'text-yellow-600', bg: 'bg-yellow-50' }
-    return { level: 'BAJO', color: 'text-green-600', bg: 'bg-green-50' }
+    if (score > 20) return { level: 'MODERADO', color: 'text-amber-600', bg: 'bg-amber-50' }
+    return { level: 'BAJO', color: 'text-emerald-600', bg: 'bg-emerald-50' }
   }
 
   const handleSubmit = async (e) => {
@@ -86,14 +86,15 @@ export default function EvaluadorRiesgos() {
     return (
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-full max-w-2xl mx-auto p-6">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">⚠️ Evaluador: Riesgos Laborales</h2>
-          <p className="text-gray-600 mb-6">
+          <h2 className="text-3xl font-bold text-brand-navy mb-4">⚠️ Evaluador: Riesgos Laborales</h2>
+          <p className="text-brand-ink-soft mb-6">
             Identifica vulnerabilidades legales y de cumplimiento en tu empresa.
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
             onClick={() => setStep('quiz')}
-            className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold"
+            className="px-8 py-3 bg-brand-gold text-white rounded-lg font-semibold shadow-card hover:bg-brand-gold-dark hover:shadow-card-hover transition-colors duration-300"
           >
             Comenzar Evaluación (5 min)
           </motion.button>
@@ -110,11 +111,15 @@ export default function EvaluadorRiesgos() {
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-full max-w-2xl mx-auto p-6">
         <div className="mb-6">
           <div className="flex justify-between mb-2">
-            <span className="text-sm font-semibold text-gray-700">Progreso</span>
-            <span className="text-sm text-gray-600">{answeredCount}/{riesgos.length}</span>
+            <span className="text-sm font-semibold text-brand-navy">Progreso</span>
+            <span className="text-sm text-brand-ink-soft">{answeredCount}/{riesgos.length}</span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
-            <div className="bg-blue-600 h-2 rounded-full transition-all" style={{ width: `${(answeredCount / riesgos.length) * 100}%` }}></div>
+          <div className="w-full bg-brand-navy/10 rounded-full h-2">
+            <motion.div
+              className="bg-brand-gold h-2 rounded-full"
+              animate={{ width: `${(answeredCount / riesgos.length) * 100}%` }}
+              transition={{ duration: 0.3 }}
+            ></motion.div>
           </div>
         </div>
 
@@ -125,38 +130,40 @@ export default function EvaluadorRiesgos() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: idx * 0.05 }}
-              className="bg-white p-5 rounded-lg border border-gray-200"
+              className="bg-white p-5 rounded-lg ring-1 ring-brand-navy/5 shadow-card"
             >
               <div className="flex items-start justify-between mb-2">
-                <h3 className="font-semibold text-gray-900">{r.titulo}</h3>
-                <span className={`text-xs px-2 py-1 rounded-full ${
+                <h3 className="font-semibold text-brand-navy">{r.titulo}</h3>
+                <span className={`text-xs px-2 py-1 rounded-full font-semibold ${
                   r.severidad === 'alta' ? 'bg-red-100 text-red-700' :
-                  r.severidad === 'media' ? 'bg-yellow-100 text-yellow-700' :
-                  'bg-blue-100 text-blue-700'
+                  r.severidad === 'media' ? 'bg-amber-100 text-amber-700' :
+                  'bg-brand-gold/10 text-brand-gold-dark'
                 }`}>
                   {r.severidad.toUpperCase()}
                 </span>
               </div>
-              <p className="text-sm text-gray-600 mb-4">{r.descripcion}</p>
+              <p className="text-sm text-brand-ink-soft mb-4">{r.descripcion}</p>
               <div className="flex gap-3">
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                   onClick={() => handleAnswer(r.id, true)}
-                  className={`flex-1 py-2 rounded-lg font-semibold transition ${
+                  className={`flex-1 py-2 rounded-lg font-semibold transition-colors duration-200 ${
                     answers[r.id] === true
-                      ? 'bg-green-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-emerald-600 text-white'
+                      : 'bg-brand-cream text-brand-ink hover:bg-brand-navy/10'
                   }`}
                 >
                   ✓ Sí
                 </motion.button>
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                   onClick={() => handleAnswer(r.id, false)}
-                  className={`flex-1 py-2 rounded-lg font-semibold transition ${
+                  className={`flex-1 py-2 rounded-lg font-semibold transition-colors duration-200 ${
                     answers[r.id] === false
                       ? 'bg-red-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-brand-cream text-brand-ink hover:bg-brand-navy/10'
                   }`}
                 >
                   ✗ No
@@ -170,8 +177,10 @@ export default function EvaluadorRiesgos() {
           <motion.button
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             onClick={() => setStep('result')}
-            className="w-full mt-8 px-8 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700"
+            className="w-full mt-8 px-8 py-3 bg-brand-navy text-white rounded-lg font-semibold shadow-card hover:bg-brand-navy-soft hover:shadow-card-hover transition-colors duration-300"
           >
             Ver evaluación
           </motion.button>
@@ -187,55 +196,56 @@ export default function EvaluadorRiesgos() {
     return (
       <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="w-full max-w-2xl mx-auto p-6">
         <div className={`${riskLevel.bg} p-8 rounded-lg mb-8 text-center border-l-4`}>
-          <p className="text-gray-600 text-sm mb-2">Nivel de Riesgo:</p>
+          <p className="text-brand-ink-soft text-sm mb-2">Nivel de Riesgo:</p>
           <h2 className={`text-4xl font-bold ${riskLevel.color} mb-4`}>{riskLevel.level}</h2>
-          <p className="text-2xl font-semibold text-gray-900">{risk.riskScore.toFixed(0)}%</p>
+          <p className="text-2xl font-semibold text-brand-navy">{risk.riskScore.toFixed(0)}%</p>
         </div>
 
         <div className="grid grid-cols-3 gap-4 mb-8">
-          <motion.div initial={{ y: 10, opacity: 0 }} className="bg-red-50 p-4 rounded-lg text-center">
-            <p className="text-sm text-gray-600">Riesgos Altos</p>
+          <motion.div initial={{ y: 10, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="bg-red-50 p-4 rounded-lg text-center">
+            <p className="text-sm text-brand-ink-soft">Riesgos Altos</p>
             <p className="text-3xl font-bold text-red-600">{risk.altaCount}</p>
           </motion.div>
-          <motion.div initial={{ y: 10, opacity: 0 }} transition={{ delay: 0.1 }} className="bg-yellow-50 p-4 rounded-lg text-center">
-            <p className="text-sm text-gray-600">Riesgos Medios</p>
-            <p className="text-3xl font-bold text-yellow-600">{risk.mediaCount}</p>
+          <motion.div initial={{ y: 10, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.1 }} className="bg-amber-50 p-4 rounded-lg text-center">
+            <p className="text-sm text-brand-ink-soft">Riesgos Medios</p>
+            <p className="text-3xl font-bold text-amber-600">{risk.mediaCount}</p>
           </motion.div>
-          <motion.div initial={{ y: 10, opacity: 0 }} transition={{ delay: 0.2 }} className="bg-blue-50 p-4 rounded-lg text-center">
-            <p className="text-sm text-gray-600">Riesgos Bajos</p>
-            <p className="text-3xl font-bold text-blue-600">{risk.bajaCount}</p>
+          <motion.div initial={{ y: 10, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }} className="bg-brand-cream p-4 rounded-lg text-center">
+            <p className="text-sm text-brand-ink-soft">Riesgos Bajos</p>
+            <p className="text-3xl font-bold text-brand-gold-dark">{risk.bajaCount}</p>
           </motion.div>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-gray-50 p-6 rounded-lg">
-          <h3 className="font-semibold text-gray-900 mb-4">📩 Recibe auditoría personalizada:</h3>
+        <form onSubmit={handleSubmit} className="bg-brand-cream p-6 rounded-lg">
+          <h3 className="font-semibold text-brand-navy mb-4">📩 Recibe auditoría personalizada:</h3>
           <div className="space-y-4">
             <input
               type="text"
               placeholder="Tu nombre"
               value={contactData.nombre}
               onChange={(e) => setContactData({ ...contactData, nombre: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-brand-navy/15 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold transition-shadow"
             />
             <input
               type="email"
               placeholder="Tu email"
               value={contactData.email}
               onChange={(e) => setContactData({ ...contactData, email: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-brand-navy/15 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold transition-shadow"
             />
             <input
               type="text"
               placeholder="Nombre de tu empresa"
               value={contactData.empresa}
               onChange={(e) => setContactData({ ...contactData, empresa: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-brand-navy/15 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold transition-shadow"
             />
             <motion.button
               whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={loading}
-              className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50"
+              className="w-full px-4 py-2 bg-brand-gold text-white rounded-lg font-semibold shadow-card hover:bg-brand-gold-dark hover:shadow-card-hover disabled:opacity-50 transition-colors duration-300"
             >
               {loading ? 'Enviando...' : 'Enviar evaluación'}
             </motion.button>

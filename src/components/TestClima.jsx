@@ -33,8 +33,8 @@ export default function TestClima() {
   const getLevelInfo = (average) => {
     if (average < 2) return { level: 'Crítico', color: 'text-red-600', bg: 'bg-red-50', recommendation: 'Requiere intervención urgente' }
     if (average < 3) return { level: 'Bajo', color: 'text-orange-600', bg: 'bg-orange-50', recommendation: 'Hay problemas significativos' }
-    if (average < 4) return { level: 'Moderado', color: 'text-yellow-600', bg: 'bg-yellow-50', recommendation: 'Hay oportunidades de mejora' }
-    return { level: 'Alto', color: 'text-green-600', bg: 'bg-green-50', recommendation: 'Buen clima organizacional' }
+    if (average < 4) return { level: 'Moderado', color: 'text-amber-600', bg: 'bg-amber-50', recommendation: 'Hay oportunidades de mejora' }
+    return { level: 'Alto', color: 'text-emerald-600', bg: 'bg-emerald-50', recommendation: 'Buen clima organizacional' }
   }
 
   const handleSubmit = async (e) => {
@@ -75,14 +75,15 @@ export default function TestClima() {
     return (
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-full max-w-2xl mx-auto p-6">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">😊 Test: Clima Organizacional</h2>
-          <p className="text-gray-600 mb-6">
+          <h2 className="text-3xl font-bold text-brand-navy mb-4">😊 Test: Clima Organizacional</h2>
+          <p className="text-brand-ink-soft mb-6">
             Mide cómo se sienten tus colaboradores en la empresa. 10 preguntas simples.
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
             onClick={() => setStep('quiz')}
-            className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold"
+            className="px-8 py-3 bg-brand-gold text-white rounded-lg font-semibold shadow-card hover:bg-brand-gold-dark hover:shadow-card-hover transition-colors duration-300"
           >
             Hacer Test (3 min)
           </motion.button>
@@ -99,35 +100,40 @@ export default function TestClima() {
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-full max-w-2xl mx-auto p-6">
         <div className="mb-6">
           <div className="flex justify-between mb-2">
-            <span className="text-sm font-semibold text-gray-700">Progreso</span>
-            <span className="text-sm text-gray-600">{answeredCount}/{questions.length}</span>
+            <span className="text-sm font-semibold text-brand-navy">Progreso</span>
+            <span className="text-sm text-brand-ink-soft">{answeredCount}/{questions.length}</span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
-            <div className="bg-blue-600 h-2 rounded-full transition-all" style={{ width: `${(answeredCount / questions.length) * 100}%` }}></div>
+          <div className="w-full bg-brand-navy/10 rounded-full h-2">
+            <motion.div
+              className="bg-brand-gold h-2 rounded-full"
+              animate={{ width: `${(answeredCount / questions.length) * 100}%` }}
+              transition={{ duration: 0.3 }}
+            ></motion.div>
           </div>
         </div>
 
         <div className="space-y-6">
           {questions.map((q, idx) => (
-            <motion.div key={q.id} initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: idx * 0.05 }} className="bg-white p-6 rounded-lg border border-gray-200">
-              <h3 className="font-semibold text-gray-900 mb-4">{q.text}</h3>
+            <motion.div key={q.id} initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: idx * 0.05 }} className="bg-white p-6 rounded-lg ring-1 ring-brand-navy/5 shadow-card">
+              <h3 className="font-semibold text-brand-navy mb-4">{q.text}</h3>
               <div className="flex justify-between gap-2">
                 {[1, 2, 3, 4, 5].map(val => (
                   <motion.button
                     key={val}
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{ scale: 1.08 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => handleAnswer(q.id, val)}
-                    className={`flex-1 py-2 rounded-lg font-semibold transition ${
+                    className={`flex-1 py-2 rounded-lg font-semibold transition-colors duration-200 ${
                       answers[q.id] === val
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        ? 'bg-brand-gold text-white'
+                        : 'bg-brand-cream text-brand-ink hover:bg-brand-navy/10'
                     }`}
                   >
                     {val}
                   </motion.button>
                 ))}
               </div>
-              <div className="flex justify-between text-xs text-gray-500 mt-2">
+              <div className="flex justify-between text-xs text-brand-ink-soft mt-2">
                 <span>Muy en desacuerdo</span>
                 <span>Muy de acuerdo</span>
               </div>
@@ -139,8 +145,10 @@ export default function TestClima() {
           <motion.button
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             onClick={() => setStep('result')}
-            className="w-full mt-8 px-8 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700"
+            className="w-full mt-8 px-8 py-3 bg-brand-navy text-white rounded-lg font-semibold shadow-card hover:bg-brand-navy-soft hover:shadow-card-hover transition-colors duration-300"
           >
             Ver resultado
           </motion.button>
@@ -156,10 +164,10 @@ export default function TestClima() {
     return (
       <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="w-full max-w-2xl mx-auto p-6">
         <div className={`${levelInfo.bg} p-8 rounded-lg mb-8 text-center border-l-4 border-opacity-50`} style={{ borderColor: levelInfo.color.replace('text-', '') }}>
-          <p className="text-gray-600 text-sm mb-2">Índice de Clima Organizacional:</p>
+          <p className="text-brand-ink-soft text-sm mb-2">Índice de Clima Organizacional:</p>
           <h2 className={`text-4xl font-bold ${levelInfo.color} mb-4`}>{levelInfo.level}</h2>
-          <p className="text-2xl font-semibold text-gray-900">{scores.average.toFixed(1)} / 5.0</p>
-          <p className="text-sm text-gray-600 mt-2">{levelInfo.recommendation}</p>
+          <p className="text-2xl font-semibold text-brand-navy">{scores.average.toFixed(1)} / 5.0</p>
+          <p className="text-sm text-brand-ink-soft mt-2">{levelInfo.recommendation}</p>
         </div>
 
         <div className="grid grid-cols-2 gap-4 mb-8">
@@ -169,49 +177,52 @@ export default function TestClima() {
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: idx * 0.05 }}
-              className="bg-white p-4 rounded-lg border border-gray-200"
+              className="bg-white p-4 rounded-lg ring-1 ring-brand-navy/5 shadow-card"
             >
-              <p className="text-xs text-gray-600 mb-2">Pregunta {q.id}</p>
-              <div className="relative h-2 bg-gray-200 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-blue-600 transition-all"
-                  style={{ width: `${(answers[q.id] / 5) * 100}%` }}
-                ></div>
+              <p className="text-xs text-brand-ink-soft mb-2">Pregunta {q.id}</p>
+              <div className="relative h-2 bg-brand-navy/10 rounded-full overflow-hidden">
+                <motion.div
+                  className="h-full bg-brand-gold"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${(answers[q.id] / 5) * 100}%` }}
+                  transition={{ duration: 0.5, delay: idx * 0.05 }}
+                ></motion.div>
               </div>
-              <p className="text-sm font-semibold text-gray-900 mt-2">{answers[q.id]}/5</p>
+              <p className="text-sm font-semibold text-brand-navy mt-2">{answers[q.id]}/5</p>
             </motion.div>
           ))}
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-gray-50 p-6 rounded-lg">
-          <h3 className="font-semibold text-gray-900 mb-4">📩 Recibe plan de mejora:</h3>
+        <form onSubmit={handleSubmit} className="bg-brand-cream p-6 rounded-lg">
+          <h3 className="font-semibold text-brand-navy mb-4">📩 Recibe plan de mejora:</h3>
           <div className="space-y-4">
             <input
               type="text"
               placeholder="Tu nombre"
               value={contactData.nombre}
               onChange={(e) => setContactData({ ...contactData, nombre: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-brand-navy/15 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold transition-shadow"
             />
             <input
               type="email"
               placeholder="Tu email"
               value={contactData.email}
               onChange={(e) => setContactData({ ...contactData, email: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-brand-navy/15 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold transition-shadow"
             />
             <input
               type="text"
               placeholder="Nombre de tu empresa"
               value={contactData.empresa}
               onChange={(e) => setContactData({ ...contactData, empresa: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-brand-navy/15 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold transition-shadow"
             />
             <motion.button
               whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={loading}
-              className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50"
+              className="w-full px-4 py-2 bg-brand-gold text-white rounded-lg font-semibold shadow-card hover:bg-brand-gold-dark hover:shadow-card-hover disabled:opacity-50 transition-colors duration-300"
             >
               {loading ? 'Enviando...' : 'Enviar resultado'}
             </motion.button>

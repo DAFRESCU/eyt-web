@@ -103,9 +103,9 @@ export default function QuizMadurezRH() {
 
   const getLevel = (percentage) => {
     if (percentage < 25) return { level: 'Inicial', color: 'text-red-600', bg: 'bg-red-50' }
-    if (percentage < 50) return { level: 'En Desarrollo', color: 'text-yellow-600', bg: 'bg-yellow-50' }
-    if (percentage < 75) return { level: 'Establecida', color: 'text-blue-600', bg: 'bg-blue-50' }
-    return { level: 'Madura', color: 'text-green-600', bg: 'bg-green-50' }
+    if (percentage < 50) return { level: 'En Desarrollo', color: 'text-amber-600', bg: 'bg-amber-50' }
+    if (percentage < 75) return { level: 'Establecida', color: 'text-brand-navy', bg: 'bg-brand-cream' }
+    return { level: 'Madura', color: 'text-emerald-600', bg: 'bg-emerald-50' }
   }
 
   const handleSubmit = async (e) => {
@@ -146,19 +146,20 @@ export default function QuizMadurezRH() {
     return (
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-full max-w-2xl mx-auto p-6">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">🎯 Quiz: Madurez de tu área RR.HH.</h2>
-          <p className="text-gray-600 mb-6">
+          <h2 className="text-3xl font-bold text-brand-navy mb-4">🎯 Quiz: Madurez de tu área RR.HH.</h2>
+          <p className="text-brand-ink-soft mb-6">
             Descubre en qué nivel se encuentra la gestión de personas en tu empresa.
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
             onClick={() => setStep('quiz')}
-            className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold"
+            className="px-8 py-3 bg-brand-gold text-white rounded-lg font-semibold shadow-card hover:bg-brand-gold-dark hover:shadow-card-hover transition-colors duration-300"
           >
             Comenzar Quiz (5 min)
           </motion.button>
         </div>
-        <div className="bg-blue-50 p-6 rounded-lg text-sm text-gray-700">
+        <div className="bg-brand-cream p-6 rounded-lg text-sm text-brand-ink space-y-1">
           <p>✓ 8 preguntas rápidas</p>
           <p>✓ Resultado personalizado</p>
           <p>✓ Recomendaciones específicas</p>
@@ -175,30 +176,36 @@ export default function QuizMadurezRH() {
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-full max-w-2xl mx-auto p-6">
         <div className="mb-6">
           <div className="flex justify-between mb-2">
-            <span className="text-sm font-semibold text-gray-700">Progreso</span>
-            <span className="text-sm text-gray-600">{answeredCount}/{questions.length}</span>
+            <span className="text-sm font-semibold text-brand-navy">Progreso</span>
+            <span className="text-sm text-brand-ink-soft">{answeredCount}/{questions.length}</span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
-            <div className="bg-blue-600 h-2 rounded-full transition-all" style={{ width: `${(answeredCount / questions.length) * 100}%` }}></div>
+          <div className="w-full bg-brand-navy/10 rounded-full h-2">
+            <motion.div
+              className="bg-brand-gold h-2 rounded-full"
+              animate={{ width: `${(answeredCount / questions.length) * 100}%` }}
+              transition={{ duration: 0.3 }}
+            ></motion.div>
           </div>
         </div>
 
         <div className="space-y-6">
           {questions.map((q, idx) => (
-            <motion.div key={q.id} initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: idx * 0.05 }} className="bg-white p-6 rounded-lg border border-gray-200">
-              <h3 className="font-semibold text-gray-900 mb-4">{q.question}</h3>
+            <motion.div key={q.id} initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: idx * 0.05 }} className="bg-white p-6 rounded-lg ring-1 ring-brand-navy/5 shadow-card">
+              <h3 className="font-semibold text-brand-navy mb-4">{q.question}</h3>
               <div className="space-y-2">
                 {q.options.map(opt => (
-                  <label key={opt.value} className="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition">
+                  <label key={opt.value} className={`flex items-center p-3 rounded-lg cursor-pointer transition-colors duration-200 ring-1 ${
+                    answers[q.id] === opt.value ? 'bg-brand-gold/10 ring-brand-gold' : 'ring-brand-navy/10 hover:bg-brand-cream'
+                  }`}>
                     <input
                       type="radio"
                       name={`q${q.id}`}
                       value={opt.value}
                       checked={answers[q.id] === opt.value}
                       onChange={() => handleAnswer(q.id, opt.value)}
-                      className="mr-3"
+                      className="mr-3 accent-brand-gold"
                     />
-                    <span className="text-gray-700">{opt.text}</span>
+                    <span className="text-brand-ink">{opt.text}</span>
                   </label>
                 ))}
               </div>
@@ -210,8 +217,10 @@ export default function QuizMadurezRH() {
           <motion.button
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             onClick={() => setStep('result')}
-            className="w-full mt-8 px-8 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700"
+            className="w-full mt-8 px-8 py-3 bg-brand-navy text-white rounded-lg font-semibold shadow-card hover:bg-brand-navy-soft hover:shadow-card-hover transition-colors duration-300"
           >
             Ver mi resultado
           </motion.button>
@@ -227,15 +236,15 @@ export default function QuizMadurezRH() {
     return (
       <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="w-full max-w-2xl mx-auto p-6">
         <div className={`${levelData.bg} p-8 rounded-lg mb-8 text-center`}>
-          <p className="text-gray-600 text-sm mb-2">Tu nivel actual:</p>
+          <p className="text-brand-ink-soft text-sm mb-2">Tu nivel actual:</p>
           <h2 className={`text-4xl font-bold ${levelData.color} mb-4`}>{levelData.level}</h2>
-          <p className="text-2xl font-semibold text-gray-900">{score.percentage.toFixed(0)}%</p>
-          <p className="text-sm text-gray-600 mt-2">({score.total} de {score.maxScore} puntos)</p>
+          <p className="text-2xl font-semibold text-brand-navy">{score.percentage.toFixed(0)}%</p>
+          <p className="text-sm text-brand-ink-soft mt-2">({score.total} de {score.maxScore} puntos)</p>
         </div>
 
-        <div className="bg-white p-6 rounded-lg border border-gray-200 mb-8">
-          <h3 className="font-semibold text-gray-900 mb-4">📊 Interpretación:</h3>
-          <p className="text-gray-700 mb-4">
+        <div className="bg-white p-6 rounded-lg ring-1 ring-brand-navy/5 shadow-card mb-8">
+          <h3 className="font-semibold text-brand-navy mb-4">📊 Interpretación:</h3>
+          <p className="text-brand-ink mb-4">
             {score.percentage < 25 && 'Tu empresa está en fase inicial. Hay mucho potencial de crecimiento y organización. Necesitas construir bases sólidas en RR.HH.'}
             {score.percentage >= 25 && score.percentage < 50 && 'Tienes avances, pero hay brechas significativas. Es momento de estructurar procesos y documentación.'}
             {score.percentage >= 50 && score.percentage < 75 && 'Tu gestión de personas es sólida. Ahora necesitas optimizar y alinear todo estratégicamente.'}
@@ -243,35 +252,36 @@ export default function QuizMadurezRH() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-gray-50 p-6 rounded-lg">
-          <h3 className="font-semibold text-gray-900 mb-4">📩 Recibe tu reporte completo:</h3>
+        <form onSubmit={handleSubmit} className="bg-brand-cream p-6 rounded-lg">
+          <h3 className="font-semibold text-brand-navy mb-4">📩 Recibe tu reporte completo:</h3>
           <div className="space-y-4">
             <input
               type="text"
               placeholder="Tu nombre"
               value={contactData.nombre}
               onChange={(e) => setContactData({ ...contactData, nombre: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-brand-navy/15 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold transition-shadow"
             />
             <input
               type="email"
               placeholder="Tu email"
               value={contactData.email}
               onChange={(e) => setContactData({ ...contactData, email: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-brand-navy/15 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold transition-shadow"
             />
             <input
               type="text"
               placeholder="Nombre de tu empresa"
               value={contactData.empresa}
               onChange={(e) => setContactData({ ...contactData, empresa: e.target.value })}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-brand-navy/15 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold transition-shadow"
             />
             <motion.button
               whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={loading}
-              className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50"
+              className="w-full px-4 py-2 bg-brand-gold text-white rounded-lg font-semibold shadow-card hover:bg-brand-gold-dark hover:shadow-card-hover disabled:opacity-50 transition-colors duration-300"
             >
               {loading ? 'Enviando...' : 'Enviar resultado a mi email'}
             </motion.button>

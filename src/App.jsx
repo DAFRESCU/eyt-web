@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import WhatsAppButton from './components/WhatsAppButton.jsx'
@@ -29,22 +30,39 @@ function ScrollManager() {
   return null
 }
 
+function PageTransition({ children }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.35, ease: 'easeInOut' }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
 export default function App() {
+  const location = useLocation()
+
   return (
     <div className="flex min-h-screen flex-col">
       <ScrollManager />
       <Navbar />
       <main className="flex-1">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/servicios" element={<Servicios />} />
-          <Route path="/herramientas" element={<Herramientas />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="/404" element={<NotFound />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AnimatePresence mode="wait" initial={false}>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+            <Route path="/servicios" element={<PageTransition><Servicios /></PageTransition>} />
+            <Route path="/herramientas" element={<PageTransition><Herramientas /></PageTransition>} />
+            <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
+            <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
+            <Route path="/contacto" element={<PageTransition><Contacto /></PageTransition>} />
+            <Route path="/404" element={<PageTransition><NotFound /></PageTransition>} />
+            <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+          </Routes>
+        </AnimatePresence>
       </main>
       <Footer />
       <WhatsAppButton />

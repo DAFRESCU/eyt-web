@@ -2,70 +2,121 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { BLOG_POSTS } from '../data/content.js'
 
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1 } },
+}
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 32 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
+}
+
 export default function Blog() {
   const artículos = BLOG_POSTS
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-12">
-      <div className="max-w-5xl mx-auto px-4">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Blog E&T</h1>
-          <p className="text-xl text-gray-600">
-            Insights sobre gestión de personas, liderazgo y estrategia organizacional
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {artículos.map((art, idx) => (
-            <motion.div
-              key={art.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition group cursor-pointer"
-            >
-              <div className="h-40 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center group-hover:scale-105 transition">
-                <span className="text-6xl">📄</span>
-              </div>
-
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full">{art.categoría}</span>
-                  <span className="text-xs text-gray-500">{art.tiempo_lectura}</span>
-                </div>
-
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition">
-                  {art.título}
-                </h3>
-
-                <p className="text-gray-600 text-sm mb-4">{art.descripción}</p>
-
-                <div className="flex items-center justify-between text-xs text-gray-500">
-                  <span>{art.fecha}</span>
-                  <Link to={`/blog/${art.slug}`} className="text-blue-600 font-semibold hover:underline">
-                    Leer →
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
+    <div className="py-16 sm:py-24">
+      <div className="container-page">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="text-center mt-16 bg-blue-50 p-8 rounded-lg"
+          transition={{ duration: 0.6 }}
+          className="max-w-2xl"
         >
-          <p className="text-gray-700 mb-4">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-gold-dark">
+            Blog E&amp;T
+          </p>
+          <h1 className="mt-3 text-3xl font-bold text-brand-navy sm:text-4xl">
+            Insights sobre personas y estrategia
+          </h1>
+          <p className="mt-4 text-brand-ink-soft">
+            Gestión de personas, liderazgo y estrategia organizacional, con la
+            misma mirada práctica que aplicamos en cada consultoría.
+          </p>
+        </motion.div>
+
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          className="mt-14 grid gap-8 md:grid-cols-3"
+        >
+          {artículos.map((art) => (
+            <motion.article
+              key={art.id}
+              variants={cardVariant}
+              whileHover={{ y: -6 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 22 }}
+              className="group flex flex-col overflow-hidden rounded-lg bg-white shadow-card ring-1 ring-brand-navy/5 transition-shadow duration-300 hover:shadow-card-hover"
+            >
+              <Link to={`/blog/${art.slug}`} className="flex h-full flex-col">
+                <div className="relative h-36 overflow-hidden bg-gradient-to-br from-brand-navy to-brand-gold-dark">
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 opacity-[0.08] transition-transform duration-500 ease-out group-hover:scale-110"
+                    style={{
+                      backgroundImage:
+                        'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
+                      backgroundSize: '20px 20px',
+                    }}
+                  />
+                  <span className="absolute bottom-4 left-6 font-serif text-xs font-bold uppercase tracking-[0.2em] text-white/80">
+                    {art.categoría}
+                  </span>
+                </div>
+
+                <div className="flex flex-1 flex-col p-6">
+                  <div className="flex items-center gap-2 text-xs text-brand-ink-soft">
+                    <span>{art.fecha}</span>
+                    <span aria-hidden>·</span>
+                    <span>{art.tiempo_lectura}</span>
+                  </div>
+
+                  <h2 className="mt-3 text-lg font-bold text-brand-navy transition-colors duration-300 group-hover:text-brand-gold-dark">
+                    {art.título}
+                  </h2>
+
+                  <p className="mt-2 flex-1 text-sm text-brand-ink-soft">{art.descripción}</p>
+
+                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-gold-dark">
+                    Leer artículo
+                    <motion.span
+                      aria-hidden
+                      className="inline-block"
+                      initial={{ x: 0 }}
+                      animate={{ x: 0 }}
+                      whileHover={{ x: 3 }}
+                    >
+                      →
+                    </motion.span>
+                  </span>
+                </div>
+              </Link>
+            </motion.article>
+          ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 rounded-lg bg-brand-navy p-8 text-center sm:p-10"
+        >
+          <p className="text-white/80">
             ¿Tienes una pregunta sobre gestión de personas?
           </p>
-          <a
-            href="/contacto"
-            className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
-          >
-            Contáctanos
-          </a>
+          <Link to="/contacto">
+            <motion.span
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-4 inline-block rounded-md bg-brand-gold px-8 py-3.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-brand-gold-dark"
+            >
+              Contáctanos
+            </motion.span>
+          </Link>
         </motion.div>
       </div>
     </div>

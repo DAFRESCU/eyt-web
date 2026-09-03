@@ -1,115 +1,176 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import QuizMadurezRH from '../components/QuizMadurezRH'
 import CalculadoraRotacion from '../components/CalculadoraRotacion'
 import TestClima from '../components/TestClima'
 import EvaluadorRiesgos from '../components/EvaluadorRiesgos'
 import TestLiderazgo from '../components/TestLiderazgo'
 
+const herramientas = [
+  {
+    id: 'madurez',
+    icono: '🎯',
+    titulo: 'Quiz: Madurez RR.HH.',
+    description: 'Evalúa el nivel de madurez de tu área de RR.HH. en 8 preguntas',
+    tiempo: '5 min',
+    component: QuizMadurezRH,
+  },
+  {
+    id: 'rotacion',
+    icono: '💰',
+    titulo: 'Calculadora: Costo Rotación',
+    description: 'Descubre cuánto te cuesta realmente la rotación de personal',
+    tiempo: '3 min',
+    component: CalculadoraRotacion,
+  },
+  {
+    id: 'clima',
+    icono: '😊',
+    titulo: 'Test: Clima Organizacional',
+    description: 'Mide cómo se sienten realmente tus colaboradores',
+    tiempo: '3 min',
+    component: TestClima,
+  },
+  {
+    id: 'riesgos',
+    icono: '⚠️',
+    titulo: 'Evaluador: Riesgos Laborales',
+    description: 'Identifica vulnerabilidades legales en tu empresa',
+    tiempo: '5 min',
+    component: EvaluadorRiesgos,
+  },
+  {
+    id: 'liderazgo',
+    icono: '👥',
+    titulo: 'Test: Estilo de Liderazgo',
+    description: 'Descubre tu perfil como líder y áreas de desarrollo',
+    tiempo: '3 min',
+    component: TestLiderazgo,
+  },
+]
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08 } },
+}
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+}
+
 export default function Herramientas() {
   const [selected, setSelected] = useState(null)
 
-  const herramientas = [
-    {
-      id: 'madurez',
-      titulo: '🎯 Quiz: Madurez RR.HH.',
-      description: 'Evalúa el nivel de madurez de tu área de RR.HH. en 8 preguntas',
-      tiempo: '5 min',
-      component: QuizMadurezRH
-    },
-    {
-      id: 'rotacion',
-      titulo: '💰 Calculadora: Costo Rotación',
-      description: 'Descubre cuánto te cuesta realmente la rotación de personal',
-      tiempo: '3 min',
-      component: CalculadoraRotacion
-    },
-    {
-      id: 'clima',
-      titulo: '😊 Test: Clima Organizacional',
-      description: 'Mide cómo se sienten realmente tus colaboradores',
-      tiempo: '3 min',
-      component: TestClima
-    },
-    {
-      id: 'riesgos',
-      titulo: '⚠️ Evaluador: Riesgos Laborales',
-      description: 'Identifica vulnerabilidades legales en tu empresa',
-      tiempo: '5 min',
-      component: EvaluadorRiesgos
-    },
-    {
-      id: 'liderazgo',
-      titulo: '👥 Test: Estilo de Liderazgo',
-      description: 'Descubre tu perfil como líder y áreas de desarrollo',
-      tiempo: '3 min',
-      component: TestLiderazgo
-    }
-  ]
-
   if (selected) {
-    const tool = herramientas.find(h => h.id === selected)
+    const tool = herramientas.find((h) => h.id === selected)
     const Component = tool.component
     return (
-      <div className="min-h-screen bg-gray-50 pt-24 pb-12">
-        <div className="max-w-2xl mx-auto px-4">
+      <div className="py-16 sm:py-24">
+        <div className="container-page max-w-2xl">
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ x: -3 }}
             onClick={() => setSelected(null)}
-            className="mb-6 px-4 py-2 text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-2"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-gold-dark transition-colors duration-200 hover:text-brand-navy"
           >
-            ← Volver a herramientas
+            <span aria-hidden>←</span> Volver a herramientas
           </motion.button>
-          <Component />
+          <motion.div
+            key={selected}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <Component />
+          </motion.div>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-12">
-      <div className="max-w-5xl mx-auto px-4">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Herramientas Interactivas de Diagnóstico</h1>
-          <p className="text-xl text-gray-600">
-            Usa nuestras herramientas gratuitas para evaluar tu empresa. Todos los resultados se envían a tu email.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {herramientas.map((h, idx) => (
-            <motion.div
-              key={h.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              onClick={() => setSelected(h.id)}
-              className="bg-white p-6 rounded-lg border border-gray-200 hover:border-blue-400 hover:shadow-lg transition cursor-pointer group"
-            >
-              <div className="flex justify-between items-start mb-3">
-                <h2 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition">{h.titulo}</h2>
-                <span className="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full">{h.tiempo}</span>
-              </div>
-              <p className="text-gray-600 mb-4">{h.description}</p>
-              <div className="flex items-center text-blue-600 font-semibold group-hover:gap-2 transition">
-                Comenzar <span className="group-hover:translate-x-1 transition">→</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
+    <div className="py-16 sm:py-24">
+      <div className="container-page">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="mt-12 bg-blue-50 p-8 rounded-lg border border-blue-200 text-center"
+          transition={{ duration: 0.6 }}
+          className="max-w-2xl"
         >
-          <h3 className="text-2xl font-bold text-gray-900 mb-3">¿Quieres resultados más profundos?</h3>
-          <p className="text-gray-700 mb-6">
-            Completa cualquiera de nuestras herramientas y nos contactaremos para brindarte un análisis personalizado y un plan de acción.
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-gold-dark">
+            Herramientas gratuitas
           </p>
-          <a href="/contacto" className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700">
-            Agendar consulta gratuita
+          <h1 className="mt-3 text-3xl font-bold text-brand-navy sm:text-4xl">
+            Diagnóstico interactivo para tu empresa
+          </h1>
+          <p className="mt-4 text-brand-ink-soft">
+            Evalúa el estado real de tu gestión de personas en minutos. Los
+            resultados se envían a tu email junto con recomendaciones.
+          </p>
+        </motion.div>
+
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          className="mt-14 grid gap-6 md:grid-cols-2"
+        >
+          {herramientas.map((h) => (
+            <motion.button
+              key={h.id}
+              variants={cardVariant}
+              whileHover={{ y: -6 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 22 }}
+              onClick={() => setSelected(h.id)}
+              className="group flex flex-col rounded-lg bg-white p-7 text-left shadow-card ring-1 ring-brand-navy/5 transition-shadow duration-300 hover:shadow-card-hover"
+            >
+              <div className="flex items-start justify-between">
+                <span className="flex h-12 w-12 items-center justify-center rounded-md bg-brand-cream text-2xl transition-colors duration-300 group-hover:bg-brand-gold/10">
+                  {h.icono}
+                </span>
+                <span className="rounded-full bg-brand-navy/5 px-3 py-1 text-xs font-semibold text-brand-ink-soft">
+                  {h.tiempo}
+                </span>
+              </div>
+
+              <h2 className="mt-4 text-lg font-bold text-brand-navy transition-colors duration-300 group-hover:text-brand-gold-dark">
+                {h.titulo}
+              </h2>
+              <p className="mt-2 text-sm text-brand-ink-soft">{h.description}</p>
+
+              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-gold-dark">
+                Comenzar
+                <motion.span aria-hidden className="inline-block" whileHover={{ x: 3 }}>
+                  →
+                </motion.span>
+              </span>
+            </motion.button>
+          ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 rounded-lg bg-brand-navy p-8 text-center sm:p-10"
+        >
+          <h3 className="text-xl font-bold text-white sm:text-2xl">
+            ¿Quieres resultados más profundos?
+          </h3>
+          <p className="mx-auto mt-3 max-w-xl text-white/75">
+            Completa cualquiera de nuestras herramientas y nos contactaremos
+            para brindarte un análisis personalizado y un plan de acción.
+          </p>
+          <a href="/contacto">
+            <motion.span
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-6 inline-block rounded-md bg-brand-gold px-8 py-3.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-brand-gold-dark"
+            >
+              Agendar consulta gratuita
+            </motion.span>
           </a>
         </motion.div>
       </div>

@@ -11,37 +11,49 @@ export default function BlogPost() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-12">
-      <div className="max-w-3xl mx-auto px-4">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <Link to="/blog" className="text-blue-600 font-semibold hover:underline">
-            ← Volver al blog
+    <div className="py-16 sm:py-24">
+      <div className="container-page max-w-3xl">
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-gold-dark transition-colors duration-200 hover:text-brand-navy"
+          >
+            <span aria-hidden>←</span> Volver al blog
           </Link>
+        </motion.div>
 
-          <div className="mt-6 flex items-center gap-2">
-            <span className="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mt-8"
+        >
+          <div className="flex items-center gap-2">
+            <span className="rounded-full bg-brand-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-gold-dark">
               {artículo.categoría}
             </span>
-            <span className="text-xs text-gray-500">{artículo.tiempo_lectura}</span>
+            <span className="text-xs text-brand-ink-soft">{artículo.tiempo_lectura} de lectura</span>
           </div>
 
-          <h1 className="mt-4 text-4xl font-bold text-gray-900">{artículo.título}</h1>
+          <h1 className="mt-4 text-3xl font-bold leading-tight text-brand-navy sm:text-4xl">
+            {artículo.título}
+          </h1>
 
-          <div className="mt-3 flex items-center gap-3 text-sm text-gray-500">
-            <span>{artículo.autor}</span>
-            <span>·</span>
+          <div className="mt-4 flex items-center gap-3 text-sm text-brand-ink-soft">
+            <span className="font-semibold text-brand-navy">{artículo.autor}</span>
+            <span aria-hidden>·</span>
             <span>{artículo.fecha}</span>
           </div>
         </motion.div>
 
         <motion.article
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15 }}
-          className="mt-10 bg-white rounded-lg border border-gray-200 p-6 sm:p-10 space-y-5"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-10 space-y-5 rounded-lg bg-white p-6 shadow-card ring-1 ring-brand-navy/5 sm:p-10"
         >
           {artículo.contenido.map((párrafo, idx) => (
-            <p key={idx} className="text-gray-700 leading-relaxed">
+            <p key={idx} className="leading-relaxed text-brand-ink">
               {párrafo}
             </p>
           ))}
@@ -49,19 +61,23 @@ export default function BlogPost() {
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="text-center mt-16 bg-blue-50 p-8 rounded-lg"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 rounded-lg bg-brand-navy p-8 text-center sm:p-10"
         >
-          <p className="text-gray-700 mb-4">
+          <p className="text-white/80">
             ¿Tienes una pregunta sobre gestión de personas?
           </p>
-          <a
-            href="/contacto"
-            className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
-          >
-            Contáctanos
-          </a>
+          <Link to="/contacto">
+            <motion.span
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-4 inline-block rounded-md bg-brand-gold px-8 py-3.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-brand-gold-dark"
+            >
+              Contáctanos
+            </motion.span>
+          </Link>
         </motion.div>
       </div>
     </div>

@@ -66,24 +66,28 @@ export default function Navbar() {
 
         <nav className="hidden items-center gap-8 lg:flex">
           {NAV_LINKS.map((link) => (
-            <motion.div variants={item} key={link.label}>
+            <motion.div variants={item} key={link.label} className="group relative">
               <Link
                 to={link.to}
                 onClick={(e) => handleNavClick(e, link.to)}
-                className="text-sm font-medium text-white/85 transition-colors hover:text-brand-rose"
+                className="text-sm font-medium text-white/85 transition-colors duration-200 hover:text-brand-rose"
               >
                 {link.label}
               </Link>
+              <span className="pointer-events-none absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 bg-brand-rose transition-transform duration-300 ease-out group-hover:scale-x-100" />
             </motion.div>
           ))}
         </nav>
 
         <motion.div variants={item} className="hidden lg:block">
-          <Link
-            to="/contacto"
-            className="rounded-md bg-brand-gold px-5 py-2.5 text-sm font-semibold text-white shadow-card transition-all duration-300 hover:bg-brand-gold-dark hover:shadow-card-hover"
-          >
-            Solicitar Diagnóstico
+          <Link to="/contacto">
+            <motion.span
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              className="inline-block rounded-md bg-brand-gold px-5 py-2.5 text-sm font-semibold text-white shadow-card transition-colors duration-300 hover:bg-brand-gold-dark hover:shadow-card-hover"
+            >
+              Solicitar Diagnóstico
+            </motion.span>
           </Link>
         </motion.div>
 

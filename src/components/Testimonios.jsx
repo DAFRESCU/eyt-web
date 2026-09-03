@@ -1,95 +1,132 @@
 import { motion } from 'framer-motion'
 
-export default function Testimonios() {
-  const testimonios = [
-    {
-      id: 1,
-      nombre: 'Juan Pérez',
-      empresa: 'Industria Textil',
-      cargo: 'Gerente General',
-      foto: '👨‍💼',
-      texto: 'E&T nos ayudó a estructurar completamente nuestra área de RR.HH. El MOF y el Reglamento Interno fueron exactamente lo que necesitábamos. La rotación bajó 40% en 6 meses.',
-      rating: 5
-    },
-    {
-      id: 2,
-      nombre: 'María González',
-      empresa: 'Servicios Logísticos',
-      cargo: 'Directora de Operaciones',
-      foto: '👩‍💼',
-      texto: 'Hicimos el test de clima con E&T. Los resultados fueron claros y propusieron un plan de acción muy práctico. Ahora medimos el clima cada trimestre.',
-      rating: 5
-    },
-    {
-      id: 3,
-      nombre: 'Carlos López',
-      empresa: 'Comercio Retail',
-      cargo: 'Socio',
-      foto: '👨‍💼',
-      texto: 'La auditoría laboral nos salvó. Identificaron riesgos que no veíamos. Implementamos recomendaciones y pasamos la fiscalización de SUNAFIL sin problemas.',
-      rating: 5
-    }
-  ]
+const testimonios = [
+  {
+    id: 1,
+    nombre: 'Juan Pérez',
+    empresa: 'Industria Textil',
+    cargo: 'Gerente General',
+    iniciales: 'JP',
+    texto: 'E&T nos ayudó a estructurar completamente nuestra área de RR.HH. El MOF y el Reglamento Interno fueron exactamente lo que necesitábamos. La rotación bajó 40% en 6 meses.',
+  },
+  {
+    id: 2,
+    nombre: 'María González',
+    empresa: 'Servicios Logísticos',
+    cargo: 'Directora de Operaciones',
+    iniciales: 'MG',
+    texto: 'Hicimos el test de clima con E&T. Los resultados fueron claros y propusieron un plan de acción muy práctico. Ahora medimos el clima cada trimestre.',
+  },
+  {
+    id: 3,
+    nombre: 'Carlos López',
+    empresa: 'Comercio Retail',
+    cargo: 'Socio',
+    iniciales: 'CL',
+    texto: 'La auditoría laboral nos salvó. Identificaron riesgos que no veíamos. Implementamos recomendaciones y pasamos la fiscalización de SUNAFIL sin problemas.',
+  },
+]
 
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+}
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 36 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+}
+
+export default function Testimonios() {
   return (
-    <section id="testimonios" className="py-20 bg-gray-50">
-      <div className="container-page">
+    <section id="testimonios" className="relative overflow-hidden bg-brand-cream py-16 sm:py-24">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-24 top-0 h-72 w-72 rounded-full bg-brand-gold/10 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-brand-navy/5 blur-3xl"
+      />
+
+      <div className="container-page relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-2xl text-center"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Lo que dicen nuestros clientes</h2>
-          <p className="text-xl text-gray-600">
-            Empresas que transformaron su gestión de personas con E&T
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-gold-dark">
+            Casos de éxito
+          </p>
+          <h2 className="mt-3 text-2xl font-bold text-brand-navy sm:text-3xl">
+            Lo que dicen nuestros clientes
+          </h2>
+          <p className="mt-3 text-brand-ink-soft">
+            Empresas que transformaron su gestión de personas con E&amp;T
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonios.map((tst, idx) => (
-            <motion.div
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          className="mt-14 grid gap-6 md:grid-cols-3"
+        >
+          {testimonios.map((tst) => (
+            <motion.figure
               key={tst.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white p-8 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition"
+              variants={cardVariant}
+              whileHover={{ y: -6 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 22 }}
+              className="group relative flex flex-col rounded-lg bg-white p-8 shadow-card ring-1 ring-brand-navy/5 transition-shadow duration-300 hover:shadow-card-hover"
             >
-              <div className="flex items-center mb-6">
-                <div className="text-4xl mr-4">{tst.foto}</div>
+              <span
+                aria-hidden
+                className="font-serif text-6xl leading-none text-brand-gold/15 transition-colors duration-300 group-hover:text-brand-gold/25"
+              >
+                &ldquo;
+              </span>
+
+              <blockquote className="-mt-4 flex-1 text-brand-ink leading-relaxed">
+                {tst.texto}
+              </blockquote>
+
+              <figcaption className="mt-6 flex items-center gap-3 border-t border-brand-navy/10 pt-5">
+                <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-brand-navy font-serif text-sm font-bold text-white transition-colors duration-300 group-hover:bg-brand-gold">
+                  {tst.iniciales}
+                </span>
                 <div>
-                  <p className="font-semibold text-gray-900">{tst.nombre}</p>
-                  <p className="text-sm text-gray-600">{tst.cargo}</p>
-                  <p className="text-xs text-gray-500">{tst.empresa}</p>
+                  <p className="text-sm font-bold text-brand-navy">{tst.nombre}</p>
+                  <p className="text-xs text-brand-ink-soft">
+                    {tst.cargo} · {tst.empresa}
+                  </p>
                 </div>
-              </div>
-
-              <div className="flex mb-4">
-                {[...Array(tst.rating)].map((_, i) => (
-                  <span key={i} className="text-yellow-400">★</span>
-                ))}
-              </div>
-
-              <p className="text-gray-700 leading-relaxed">"{tst.texto}"</p>
-            </motion.div>
+              </figcaption>
+            </motion.figure>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-16 bg-blue-50 p-8 rounded-lg"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 text-center"
         >
-          <p className="text-gray-700 mb-4">
-            ¿Quieres ser el próximo caso de éxito? Agendar una consulta gratuita
+          <p className="text-brand-ink-soft">
+            ¿Quieres ser el próximo caso de éxito?
           </p>
-          <a
-            href="/contacto"
-            className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
-          >
-            Agendar ahora
+          <a href="/contacto">
+            <motion.span
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-4 inline-block rounded-md bg-brand-gold px-8 py-3.5 text-sm font-semibold text-white shadow-card transition-colors duration-300 hover:bg-brand-gold-dark hover:shadow-card-hover"
+            >
+              Agendar consulta gratuita
+            </motion.span>
           </a>
         </motion.div>
       </div>
