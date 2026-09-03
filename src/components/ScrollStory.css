@@ -22,35 +22,55 @@
   will-change: transform, filter, opacity, clip-path;
 }
 
-.scroll-story__scene:nth-child(1) { z-index: 1; }
-
 .scroll-story__svg {
   width: min(100%, 780px);
   height: auto;
   overflow: visible;
 }
 
-.scroll-story__title {
+.scroll-story__copy {
   position: absolute;
   top: 6.5rem;
   left: 2rem;
+  max-width: 27rem;
+  z-index: 5;
+}
+
+.scroll-story__title {
   font-family: Cambria, Georgia, ui-serif, serif;
   font-weight: 700;
-  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-size: clamp(1.75rem, 4.2vw, 2.75rem);
   color: #e4a6b4;
-  line-height: 1.05;
+  line-height: 1.1;
   margin: 0;
 }
 
-.scroll-story__title span {
-  display: block;
-  margin-top: 0.4rem;
-  font-family: Inter, ui-sans-serif, sans-serif;
-  font-weight: 600;
-  font-size: 0.85rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.scroll-story__blurb {
+  margin: 0.65rem 0 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 24rem;
+}
+
+.scroll-story__stat {
+  margin: 1rem 0 0;
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.35;
   color: rgba(255, 255, 255, 0.55);
+  max-width: 22rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid rgba(201, 138, 43, 0.5);
+}
+
+.scroll-story__stat-source {
+  display: block;
+  margin-top: 0.3rem;
+  font-style: normal;
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .scroll-story__glow {
@@ -61,6 +81,15 @@
   font-family: Inter, ui-sans-serif, sans-serif;
   font-size: 15px;
   fill: rgba(255, 255, 255, 0.75);
+}
+
+.scroll-story__caption--small {
+  font-size: 11px;
+  fill: rgba(255, 255, 255, 0.65);
+}
+
+.scroll-story__float-icon {
+  pointer-events: none;
 }
 
 .scroll-story__cta {
@@ -187,10 +216,23 @@
   background: radial-gradient(ellipse at 50% 20%, #2a3f66 0%, #1b2a4a 55%, #14203a 100%);
 }
 
-.scroll-story__scene--static .scroll-story__title {
+.scroll-story__scene--static .scroll-story__copy,
+.scroll-story__copy--static {
   position: static;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem;
+  max-width: 32rem;
   text-align: center;
+}
+
+.scroll-story__copy--static .scroll-story__blurb,
+.scroll-story__copy--static .scroll-story__stat {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scroll-story__copy--static .scroll-story__stat {
+  border-left: none;
+  padding-left: 0;
 }
 
 .scroll-story__scene--static + .scroll-story__scene--static {
@@ -204,10 +246,18 @@
 }
 
 @media (max-width: 767px) {
-  .scroll-story__title {
+  .scroll-story__copy {
     top: 4.5rem;
     left: 1.25rem;
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    max-width: calc(100% - 2.5rem);
+  }
+
+  .scroll-story__title {
+    font-size: clamp(1.4rem, 7vw, 2rem);
+  }
+
+  .scroll-story__blurb {
+    font-size: 0.9rem;
   }
 
   .scroll-story__progress {
