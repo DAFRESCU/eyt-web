@@ -86,7 +86,7 @@ export default function Navbar() {
               whileTap={{ scale: 0.96 }}
               className="inline-block rounded-md bg-brand-gold px-5 py-2.5 text-sm font-semibold text-white shadow-card transition-colors duration-300 hover:bg-brand-gold-dark hover:shadow-card-hover"
             >
-              Solicitar Diagnóstico
+              Agendar Diagnóstico Gratis
             </motion.span>
           </Link>
         </motion.div>
@@ -130,7 +130,7 @@ export default function Navbar() {
                 to="/contacto"
                 className="mt-2 rounded-md bg-brand-gold px-4 py-3 text-center text-sm font-semibold text-white"
               >
-                Solicitar Diagnóstico
+                Agendar Diagnóstico Gratis
               </Link>
             </div>
           </motion.div>

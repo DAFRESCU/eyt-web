@@ -199,7 +199,7 @@ export default function ContactForm() {
           type="submit"
           className="mt-6 w-full rounded-md bg-brand-gold px-6 py-3.5 text-sm font-semibold text-white shadow-card transition-colors duration-300 hover:bg-brand-gold-dark sm:w-auto"
         >
-          Solicitar Diagnóstico
+          Agendar Diagnóstico Gratis
         </motion.button>
       </form>
 

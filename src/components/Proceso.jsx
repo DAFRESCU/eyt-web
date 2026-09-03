@@ -1,37 +1,6 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
+import AnimatedCounter from './AnimatedCounter.jsx'
 import { PROCESO } from '../data/content.js'
-
-function Counter({ target, color }) {
-  const [value, setValue] = useState(0)
-  const [done, setDone] = useState(false)
-
-  const start = () => {
-    if (done) return
-    setDone(true)
-    const duration = 700
-    const startTime = performance.now()
-    const num = parseInt(target, 10)
-
-    const tick = (now) => {
-      const progress = Math.min((now - startTime) / duration, 1)
-      setValue(Math.round(progress * num))
-      if (progress < 1) requestAnimationFrame(tick)
-    }
-    requestAnimationFrame(tick)
-  }
-
-  return (
-    <motion.span
-      onViewportEnter={start}
-      viewport={{ once: true, amount: 0.6 }}
-      className="text-3xl font-bold"
-      style={{ color }}
-    >
-      {String(value).padStart(2, '0')}
-    </motion.span>
-  )
-}
 
 export default function Proceso() {
   return (
@@ -58,7 +27,7 @@ export default function Proceso() {
               className="min-w-[220px] flex-shrink-0 rounded-lg border-t-[3px] bg-white p-6 shadow-card sm:min-w-0"
               style={{ borderTopColor: step.color }}
             >
-              <Counter target={step.number} color={step.color} />
+              <AnimatedCounter target={step.number} pad={2} duration={700} className="text-3xl font-bold" style={{ color: step.color }} />
               <h3 className="mt-2 text-lg font-bold text-brand-navy">
                 {step.title}
               </h3>

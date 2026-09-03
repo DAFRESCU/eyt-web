@@ -22,7 +22,8 @@ export default function CTASection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mx-auto mt-4 max-w-xl text-base text-white/75 sm:text-lg"
         >
-          Contáctanos para una reunión exploratoria GRATUITA de 45 minutos.
+          Sin costo, sin compromiso: una reunión exploratoria de 45 minutos
+          para identificar por dónde empezar.
         </motion.p>
 
         <motion.div
@@ -45,7 +46,7 @@ export default function CTASection() {
               whileTap={{ scale: 0.95 }}
               className="inline-block rounded-md bg-brand-gold px-10 py-4 text-lg font-semibold text-white transition-colors duration-300 hover:bg-brand-gold-dark"
             >
-              Agendar Ahora
+              Agenda tu diagnóstico gratuito de 45 min
             </motion.span>
           </Link>
         </motion.div>

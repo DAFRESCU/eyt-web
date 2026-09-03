@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import Logo from './Logo.jsx'
 import { CONTACT, NAV_LINKS } from '../data/content.js'
 
@@ -9,7 +10,25 @@ export default function Footer() {
         aria-hidden
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent"
       />
-      <div className="container-page grid gap-10 sm:grid-cols-3">
+      <div className="container-page flex flex-col items-start justify-between gap-6 border-b border-white/10 pb-10 sm:flex-row sm:items-center">
+        <div>
+          <p className="text-lg font-bold text-white">¿Listo para empezar?</p>
+          <p className="mt-1 text-sm text-white/60">
+            Agenda tu diagnóstico gratuito de 45 minutos, sin compromiso.
+          </p>
+        </div>
+        <Link to="/contacto" className="shrink-0">
+          <motion.span
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block rounded-md bg-brand-gold px-6 py-3 text-sm font-semibold text-white shadow-card transition-colors duration-300 hover:bg-brand-gold-dark hover:shadow-card-hover"
+          >
+            Agenda tu diagnóstico gratuito de 45 min
+          </motion.span>
+        </Link>
+      </div>
+
+      <div className="container-page mt-10 grid gap-10 sm:grid-cols-3">
         <div>
           <Logo />
           <p className="mt-4 max-w-xs text-sm text-white/60">

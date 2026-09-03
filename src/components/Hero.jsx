@@ -94,7 +94,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
               className="inline-block rounded-md bg-brand-gold px-8 py-4 text-base font-semibold text-white shadow-card-hover transition-colors duration-300 hover:bg-brand-gold-dark"
             >
-              Agendar diagnóstico gratuito
+              Agenda tu diagnóstico gratuito de 45 min
             </motion.span>
           </Link>
 

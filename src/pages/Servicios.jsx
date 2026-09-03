@@ -80,6 +80,31 @@ export default function Servicios() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 rounded-lg bg-brand-navy p-8 text-center sm:p-10"
+        >
+          <h2 className="text-xl font-bold text-white sm:text-2xl">
+            ¿No sabes por cuál unidad empezar?
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-white/75">
+            En el diagnóstico gratuito identificamos juntos qué unidades
+            necesita tu empresa primero, sin compromiso.
+          </p>
+          <Link to="/contacto">
+            <motion.span
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-6 inline-block rounded-md bg-brand-gold px-8 py-3.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-brand-gold-dark"
+            >
+              Agenda tu diagnóstico gratuito de 45 min
+            </motion.span>
+          </Link>
+        </motion.div>
       </div>
     </div>
   )

@@ -125,7 +125,7 @@ export default function Testimonios() {
               whileTap={{ scale: 0.95 }}
               className="mt-4 inline-block rounded-md bg-brand-gold px-8 py-3.5 text-sm font-semibold text-white shadow-card transition-colors duration-300 hover:bg-brand-gold-dark hover:shadow-card-hover"
             >
-              Agendar consulta gratuita
+              Agenda tu diagnóstico gratuito de 45 min
             </motion.span>
           </a>
         </motion.div>
