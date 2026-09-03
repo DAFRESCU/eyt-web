@@ -88,6 +88,12 @@
   fill: rgba(255, 255, 255, 0.65);
 }
 
+.scroll-story__caption--tiny {
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  fill: rgba(255, 255, 255, 0.4);
+}
+
 .scroll-story__float-icon {
   pointer-events: none;
 }

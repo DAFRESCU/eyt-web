@@ -56,12 +56,14 @@ const SCENES = [
   {
     id: 'apoyo',
     title: 'Bienestar y Gestión Social',
-    blurb: 'Acompañamos a tu equipo en salud, licencias y cumplimiento normativo, con SUNAFIL como aliado.',
+    blurb: 'Cuidamos a tu equipo con licencias, vacaciones, salud ocupacional y cumplimiento normativo al día.',
     statQuote: 'Las organizaciones que promueven el bienestar ven un incremento de 21% en productividad',
     statSource: 'Gallup',
     icons: [
-      { type: 'calendar', label: 'Licencias y permisos', x: 210, y: 340 },
-      { type: 'handshake', label: 'Acompañamiento', x: 590, y: 340 },
+      { type: 'family', label: 'Licencia parental', x: 220, y: 50 },
+      { type: 'sun', label: 'Vacaciones', x: 730, y: 55 },
+      { type: 'health', label: 'Salud ocupacional', x: 90, y: 380 },
+      { type: 'compliance', label: 'Cumplimiento normativo', subLabel: 'SUNAFIL', x: 710, y: 380 },
     ],
   },
   {
@@ -284,6 +286,36 @@ function Glyph({ type }) {
           <path d="M9 17c0-3.3 2.2-5.5 5-5.5s5 2.2 5 5.5" />
         </g>
       )
+    case 'family':
+      return (
+        <g transform="translate(-10,-9)" {...c}>
+          <circle cx="5" cy="3" r="3" />
+          <path d="M0 17c0-3.5 2.2-6 5-6s5 2.5 5 6" />
+          <circle cx="15" cy="7" r="2.2" />
+          <path d="M11 17c0-2.6 1.8-4.5 4-4.5s4 1.9 4 4.5" />
+        </g>
+      )
+    case 'sun':
+      return (
+        <g transform="translate(-9,-9)" {...c}>
+          <circle cx="9" cy="9" r="4.2" />
+          <path d="M9 0v2.4M9 15.6V18M0 9h2.4M15.6 9H18M2.6 2.6l1.7 1.7M13.7 13.7l1.7 1.7M15.4 2.6l-1.7 1.7M4.3 13.7l-1.7 1.7" />
+        </g>
+      )
+    case 'health':
+      return (
+        <g transform="translate(-9,-9)" {...c}>
+          <circle cx="9" cy="9" r="8.5" />
+          <path d="M9 5v8M5 9h8" />
+        </g>
+      )
+    case 'compliance':
+      return (
+        <g transform="translate(-8,-9)" {...c}>
+          <path d="M8 0l7 3v6c0 5-3.3 8-7 9-3.7-1-7-4-7-9V3z" />
+          <path d="M4.5 8.5l2.5 2.5 4.5-5" />
+        </g>
+      )
     default:
       return null
   }
@@ -300,7 +332,7 @@ function hexPoints(cx, cy, r) {
 
 // A small floating badge (circle + Glyph + label) used for the 3-4 icons
 // that orbit each scene's central visual.
-function IconBadge({ x, y, type, label, innerRef, accent = '#C98A2B' }) {
+function IconBadge({ x, y, type, label, subLabel, innerRef, accent = '#C98A2B' }) {
   return (
     <g ref={innerRef} transform={`translate(${x}, ${y})`} className="scroll-story__float-icon">
       <circle r="25" fill="#24365c" stroke={accent} strokeWidth="1.3" />
@@ -308,6 +340,11 @@ function IconBadge({ x, y, type, label, innerRef, accent = '#C98A2B' }) {
       <text y="42" textAnchor="middle" className="scroll-story__caption scroll-story__caption--small">
         {label}
       </text>
+      {subLabel && (
+        <text y="55" textAnchor="middle" className="scroll-story__caption scroll-story__caption--tiny">
+          {subLabel}
+        </text>
+      )}
     </g>
   )
 }
@@ -329,35 +366,6 @@ function SceneCopy({ copyRef, scene, staticMode = false }) {
         <span className="scroll-story__stat-source">Fuente: {scene.statSource}</span>
       </p>
     </div>
-  )
-}
-
-function HeartIcon({ x, y, innerRef }) {
-  return (
-    <g ref={innerRef} transform={`translate(${x}, ${y})`}>
-      <path
-        d="M0 8 C -14 -4, -30 6, 0 26 C 30 6, 14 -4, 0 8 Z"
-        fill="none"
-        stroke="#E4A6B4"
-        strokeWidth="2.2"
-        strokeLinejoin="round"
-      />
-    </g>
-  )
-}
-
-function ShieldIcon({ x, y, innerRef }) {
-  return (
-    <g ref={innerRef} transform={`translate(${x}, ${y})`}>
-      <path
-        d="M0 -22 L22 -13 V6 C22 20 11 28 0 32 C-11 28 -22 20 -22 6 V-13 Z"
-        fill="none"
-        stroke="#C98A2B"
-        strokeWidth="2.2"
-        strokeLinejoin="round"
-      />
-      <path d="M-9 2 L-2 10 L11 -6" fill="none" stroke="#C98A2B" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-    </g>
   )
 }
 
@@ -394,12 +402,6 @@ export default function ScrollStory() {
 
   // Scene 4
   const apoyoSilRef = useRef(null)
-  const apoyoHeartRef = useRef(null)
-  const apoyoShieldRef = useRef(null)
-  const apoyoLineLeftRef = useRef(null)
-  const apoyoLineRightRef = useRef(null)
-  const apoyoCheckLeftRef = useRef(null)
-  const apoyoCheckRightRef = useRef(null)
   const apoyoCopyRef = useRef(null)
   const apoyoIconsRef = useRef([])
 
@@ -495,15 +497,6 @@ export default function ScrollStory() {
         gsap.set(el, { opacity: 0, rotation: gsap.utils.random(-30, 30), transformOrigin: '50% 50%' })
       })
 
-      // Scene 4: side icons + connectors
-      gsap.set([apoyoHeartRef.current, apoyoShieldRef.current], { opacity: 0, scale: 0.4, transformOrigin: '50% 50%' })
-      ;[apoyoLineLeftRef.current, apoyoLineRightRef.current].forEach((el) => {
-        if (!el) return
-        const len = el.getTotalLength ? el.getTotalLength() : 100
-        gsap.set(el, { strokeDasharray: len, strokeDashoffset: len })
-      })
-      gsap.set([apoyoCheckLeftRef.current, apoyoCheckRightRef.current], { scale: 0, transformOrigin: '50% 50%' })
-
       // Scene 5: extra silhouettes + curve + CTA
       resultadoExtraRef.current.forEach((el) => {
         gsap.set(el, { opacity: 0, scale: 0.5, transformOrigin: '50% 50%' })
@@ -553,6 +546,15 @@ export default function ScrollStory() {
           if (iconRefs[i - 1].current.length) {
             tl.to(iconRefs[i - 1].current, { opacity: 0, scale: 0.85, duration: 0.15 }, i)
           }
+          // Only the ACTIVE scene and the one immediately before it are ever
+          // allowed to show anything (the immediately-previous one softly,
+          // at 0.3, as the intentional "depth" cue). Everything two or more
+          // steps back gets fully suppressed here, so residual shapes
+          // (org-chart lines, silhouette outlines, filled hex badges, etc.)
+          // never keep accumulating underneath as the user keeps scrolling.
+          if (i > 1) {
+            tl.to(scenes[i - 2], { opacity: 0, duration: 0.15 }, i)
+          }
           tl.to(proxy, {
             p: 1,
             duration: 0.15,
@@ -594,18 +596,9 @@ export default function ScrollStory() {
         }
 
         if (i === 3) {
-          tl.to([apoyoHeartRef.current, apoyoShieldRef.current], {
-            opacity: 1, scale: 1, duration: 0.2, stagger: 0.08, ease: 'back.out(2)',
-          }, i + 0.2)
           tl.to(apoyoIconsRef.current, {
             scale: 1, opacity: 1, duration: 0.3, stagger: 0.09, ease: ICON_EASE,
-          }, i + 0.32)
-          tl.to([apoyoLineLeftRef.current, apoyoLineRightRef.current], {
-            strokeDashoffset: 0, duration: 0.2, stagger: 0.05,
-          }, i + 0.45)
-          tl.to([apoyoCheckLeftRef.current, apoyoCheckRightRef.current], {
-            scale: 1, duration: 0.15, stagger: 0.05, ease: 'back.out(3)',
-          }, i + 0.68)
+          }, i + 0.2)
         }
 
         if (i === 4) {
@@ -780,20 +773,6 @@ export default function ScrollStory() {
           <SceneCopy copyRef={apoyoCopyRef} scene={SCENES[3]} />
           <svg viewBox={VB} className="scroll-story__svg" aria-hidden>
             <SilhouettePath innerRef={apoyoSilRef} stroke="#E4A6B4" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-            <line ref={apoyoLineLeftRef} x1={CENTER.x - 34} y1={CENTER.y + 10} x2={CENTER.x - 190} y2={CENTER.y - 20} stroke="#E4A6B4" strokeWidth="1.6" />
-            <line ref={apoyoLineRightRef} x1={CENTER.x + 34} y1={CENTER.y + 10} x2={CENTER.x + 190} y2={CENTER.y - 20} stroke="#C98A2B" strokeWidth="1.6" />
-            <HeartIcon x={CENTER.x - 220} y={CENTER.y - 40} innerRef={apoyoHeartRef} />
-            <ShieldIcon x={CENTER.x + 220} y={CENTER.y - 30} innerRef={apoyoShieldRef} />
-            <g ref={apoyoCheckLeftRef} transform={`translate(${CENTER.x - 190}, ${CENTER.y - 20})`}>
-              <circle r="13" fill="#10B981" />
-              <path d="M-5 0 L-1.5 4 L6 -5" stroke="#fff" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-            </g>
-            <g ref={apoyoCheckRightRef} transform={`translate(${CENTER.x + 190}, ${CENTER.y - 20})`}>
-              <circle r="13" fill="#10B981" />
-              <path d="M-5 0 L-1.5 4 L6 -5" stroke="#fff" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-            </g>
-            <text x={CENTER.x - 220} y={CENTER.y + 20} textAnchor="middle" className="scroll-story__caption">Salud ocupacional</text>
-            <text x={CENTER.x + 220} y={CENTER.y + 20} textAnchor="middle" className="scroll-story__caption">SUNAFIL — aliado</text>
             {SCENES[3].icons.map((it, idx) => (
               <IconBadge key={it.label} {...it} innerRef={(el) => (apoyoIconsRef.current[idx] = el)} />
             ))}
@@ -898,20 +877,6 @@ function ScrollStoryStatic() {
             {i === 3 && (
               <>
                 <SilhouettePath stroke="#E4A6B4" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                <line x1={CENTER.x - 34} y1={CENTER.y + 10} x2={CENTER.x - 190} y2={CENTER.y - 20} stroke="#E4A6B4" strokeWidth="1.6" />
-                <line x1={CENTER.x + 34} y1={CENTER.y + 10} x2={CENTER.x + 190} y2={CENTER.y - 20} stroke="#C98A2B" strokeWidth="1.6" />
-                <HeartIcon x={CENTER.x - 220} y={CENTER.y - 40} />
-                <ShieldIcon x={CENTER.x + 220} y={CENTER.y - 30} />
-                <g transform={`translate(${CENTER.x - 190}, ${CENTER.y - 20})`}>
-                  <circle r="13" fill="#10B981" />
-                  <path d="M-5 0 L-1.5 4 L6 -5" stroke="#fff" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                </g>
-                <g transform={`translate(${CENTER.x + 190}, ${CENTER.y - 20})`}>
-                  <circle r="13" fill="#10B981" />
-                  <path d="M-5 0 L-1.5 4 L6 -5" stroke="#fff" strokeWidth="2.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                </g>
-                <text x={CENTER.x - 220} y={CENTER.y + 20} textAnchor="middle" className="scroll-story__caption">Salud ocupacional</text>
-                <text x={CENTER.x + 220} y={CENTER.y + 20} textAnchor="middle" className="scroll-story__caption">SUNAFIL — aliado</text>
                 {s.icons.map((it) => (
                   <IconBadge key={it.label} {...it} />
                 ))}
