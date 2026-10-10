@@ -1,6 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /private
-
-Sitemap: https://eyt-web-theta.vercel.app/sitemap.xml
+Sitemap: https://espinozat.com/sitemap.xml

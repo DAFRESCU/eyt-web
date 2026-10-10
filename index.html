@@ -1,53 +1,722 @@
 <!doctype html>
 <html lang="es-PE">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E&T Estrategia y Talento | Consultoría de RR.HH. en Perú</title>
-    <meta
-      name="description"
-      content="E&T Estrategia y Talento: consultoría de recursos humanos y gestión organizacional en Arequipa, Cusco e Ica. Método propio, resultados medibles. Diagnóstico gratuito de 45 minutos."
-    />
-    <meta name="theme-color" content="#1B2A4A" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Espinoza T Personas | Capacitación, cultura y clima laboral en Arequipa</title>
+<meta name="description" content="Capacitación, desarrollo, cultura y clima laboral para empresas de Arequipa. Mide el riesgo laboral de tu empresa en tres minutos y conversemos 45 minutos sin costo.">
+<link rel="canonical" href="https://espinozat.com/">
+<meta name="theme-color" content="#1B2A4A">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_PE">
+<meta property="og:site_name" content="Espinoza T Personas">
+<meta property="og:title" content="Piensa en personas. | Espinoza T Personas">
+<meta property="og:description" content="Capacitación, desarrollo, cultura y clima laboral para empresas de Arequipa.">
+<meta property="og:url" content="https://espinozat.com/">
+<meta property="og:image" content="https://espinozat.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Espinoza T Personas",
+  "slogan": "Piensa en personas.",
+  "url": "https://espinozat.com/",
+  "email": "gerencia@espinozat.com",
+  "telephone": "+51 974 770 954",
+  "address": {"@type": "PostalAddress", "addressLocality": "Arequipa", "addressCountry": "PE"},
+  "areaServed": ["Arequipa", "Cusco", "Ica", "Perú"],
+  "founder": {"@type": "Person", "name": "Daniel Franco Espinoza Cuadra", "jobTitle": "Gerente General"},
+  "knowsAbout": ["Capacitación empresarial", "Desarrollo de mandos medios", "Cultura organizacional", "Clima laboral", "Prevención del hostigamiento sexual laboral"]
+}
+</script>
+<style>
+@font-face{font-family:"Fraunces";src:url("/fonts/fraunces-latin-full-normal.woff2") format("woff2-variations");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Fraunces";src:url("/fonts/fraunces-latin-full-italic.woff2") format("woff2-variations");font-weight:100 900;font-style:italic;font-display:swap}
+@font-face{font-family:"Inter";src:url("/fonts/inter-latin-wght-normal.woff2") format("woff2-variations");font-weight:100 900;font-style:normal;font-display:swap}
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="E&T Estrategia y Talento" />
-    <meta
-      property="og:description"
-      content="Construimos la fuerza humana de cada empresa. Método propio, resultados medibles."
-    />
+:root{
+  --navy:#1B2A4A;
+  --navy-deep:#14203A;
+  --wine:#6E2438;
+  --wine-ink:#5A1C2D;
+  --rose:#E4A6B4;
+  --bone:#F3EEE6;
+  --paper:#FAF7F2;
+  --ink:#211D18;
+  --ink-soft:#4A433B;
+  --rule:#D9D0C2;
+  --serif:"Fraunces", Georgia, "Times New Roman", serif;
+  --sans:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --gutter:clamp(1rem, 4vw, 3rem);
+  --max:1180px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;background:var(--bone);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;font-feature-settings:"ss01","cv11";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;margin:0;font-variation-settings:"SOFT" 50,"WONK" 0;letter-spacing:-.015em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--wine);outline-offset:3px;border-radius:2px}
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.skip{position:absolute;left:-999px;top:0;background:var(--navy);color:#fff;padding:.75rem 1rem;z-index:100}
+.skip:focus{left:1rem;top:1rem}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:40;background:color-mix(in srgb, var(--bone) 92%, transparent);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
+.top.scrolled{border-bottom-color:var(--rule)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4.25rem}
+.brand{display:flex;align-items:baseline;gap:.55rem;text-decoration:none;color:var(--navy)}
+.brand-mark{font-family:var(--serif);font-size:1.45rem;font-weight:600;letter-spacing:-.02em;font-variation-settings:"SOFT" 30}
+.brand-mark span{color:var(--wine)}
+.brand-sub{font-size:.8rem;font-weight:500;letter-spacing:.06em;color:var(--ink-soft)}
+.nav{display:flex;align-items:center;gap:1.75rem}
+.nav a{font-size:.95rem;text-decoration:none;color:var(--ink-soft)}
+.nav a:hover{color:var(--navy)}
+.nav .btn{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font:600 1rem/1 var(--sans);padding:1rem 1.4rem;border-radius:999px;text-decoration:none;border:0;cursor:pointer;transition:background-color .15s, transform .15s}
+.btn-wine{background:var(--wine);color:#fff}
+.btn-wine:hover{background:var(--wine-ink)}
+.btn-small{padding:.7rem 1.05rem;font-size:.92rem}
+.btn svg{width:1.15em;height:1.15em;flex:none}
+.textlink{font-weight:600;color:var(--navy);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:.3em}
+.textlink:hover{color:var(--wine)}
+@media (max-width:860px){.nav a:not(.btn){display:none}.brand-sub{display:none}}
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
+/* ---------- hero ---------- */
+.hero{padding:clamp(3.5rem,9vw,7.5rem) 0 clamp(3rem,7vw,5.5rem)}
+.hero h1{font-size:clamp(3.4rem,9.4vw,8.4rem);color:var(--navy);font-weight:450;letter-spacing:-.035em;line-height:.98}
+.claim-no{display:block;color:var(--ink-soft);font-weight:350;font-size:.52em;letter-spacing:-.02em;line-height:1.15;margin-bottom:.35em;min-height:1.15em}
+.struck{font-variation-settings:"SOFT" 50,"WONK" 0;position:relative;display:inline-block;color:var(--ink);font-style:italic;font-weight:400;white-space:nowrap}
+.struck .w{display:inline-block;transition:opacity .35s ease, transform .35s ease}
+.struck .w.out{opacity:0;transform:translateY(.25em)}
+.struck::after{content:"";position:absolute;left:-.04em;right:-.04em;top:56%;height:.085em;background:var(--wine);transform:scaleX(var(--strike,1));transform-origin:left center;transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.claim-yes{display:block}
+.hero-lede{max-width:34rem;margin-top:clamp(1.75rem,3.5vw,2.75rem);font-size:clamp(1.1rem,1.6vw,1.3rem);line-height:1.55;color:var(--ink-soft)}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem;margin-top:2rem}
+.hero-meta{margin-top:clamp(3rem,6vw,4.5rem);padding-top:1.25rem;border-top:1px solid var(--rule);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;font-size:.95rem;color:var(--ink-soft)}
+.hero-meta strong{display:block;font-family:var(--serif);font-weight:500;font-size:1.15rem;color:var(--navy);margin-bottom:.15rem}
+@media (max-width:720px){.hero-meta{grid-template-columns:1fr;gap:1rem}}
 
-    <!-- Hotjar -->
-    <script>
-      (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:1234567,hjsv:6}; // TODO: reemplazar 1234567 por el Site ID real de Hotjar
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+/* ---------- section scaffolding ---------- */
+.band{padding:clamp(4rem,9vw,7rem) 0}
+.band-paper{background:var(--paper)}
+.band-navy{background:var(--navy);color:#EDE7DC}
+.band-navy h2,.band-navy h3{color:#fff}
+.head{max-width:44rem;margin-bottom:clamp(2.25rem,5vw,3.5rem)}
+.head h2{font-size:clamp(2rem,4.6vw,3.4rem);color:var(--navy)}
+.head p{margin-top:1rem;font-size:1.125rem;color:var(--ink-soft);max-width:38rem}
+.band-navy .head p{color:#C9C2B6}
+
+/* ---------- voices ---------- */
+.voices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.5rem,4vw,3.5rem)}
+.voice{margin:0}
+.voice blockquote{margin:0;font-variation-settings:"SOFT" 50,"WONK" 0,"opsz" 36;font-family:var(--serif);font-style:italic;font-weight:380;font-size:clamp(1.25rem,2vw,1.55rem);line-height:1.32;color:var(--navy)}
+.voice p{margin-top:1rem;font-size:.98rem;color:var(--ink-soft)}
+.voice p b{color:var(--ink);font-weight:600}
+@media (max-width:860px){.voices{grid-template-columns:1fr}}
+
+/* ---------- doors ---------- */
+.doors{border-top:1px solid var(--rule)}
+.door{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) 10.5rem;gap:1.5rem 3rem;align-items:start;padding:clamp(1.75rem,3.5vw,2.5rem) 0;border-bottom:1px solid var(--rule)}
+.door h3{font-size:clamp(1.5rem,2.6vw,2.1rem);color:var(--navy)}
+.door .when{display:block;margin-top:.6rem;font-size:.92rem;font-weight:600;color:var(--wine)}
+.door p{color:var(--ink-soft);max-width:36rem}
+.door .ask{white-space:nowrap;align-self:center;justify-self:end}
+@media (max-width:860px){.door{grid-template-columns:1fr}.door .ask{align-self:start;justify-self:start}}
+.combo{margin-top:clamp(2rem,4vw,3rem);display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;justify-content:space-between;background:var(--navy);color:#EDE7DC;border-radius:1.25rem;padding:clamp(1.5rem,3.5vw,2.25rem) clamp(1.5rem,4vw,2.75rem)}
+.combo p{max-width:40rem;font-size:1.08rem}
+.combo strong{display:block;font-family:var(--serif);font-weight:500;color:#fff;font-size:clamp(1.3rem,2.4vw,1.7rem);line-height:1.2;margin-bottom:.35rem}
+
+/* ---------- core ---------- */
+.core{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(2rem,6vw,5rem)}
+.core-item{padding:1.75rem 0;border-top:2px solid var(--navy)}
+.core-item h3{font-size:clamp(1.6rem,2.8vw,2.25rem);color:var(--navy)}
+.core-item p{margin-top:.7rem;color:var(--ink-soft);max-width:30rem}
+@media (max-width:720px){.core{grid-template-columns:1fr}}
+.units{margin-top:clamp(2.5rem,5vw,3.5rem);border-top:1px solid var(--rule)}
+.units summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.4rem 0;font-weight:600;color:var(--navy)}
+.units summary::-webkit-details-marker{display:none}
+.units summary .plus{width:1.75rem;height:1.75rem;border-radius:50%;border:1.5px solid var(--navy);display:grid;place-items:center;flex:none;transition:transform .25s}
+.units[open] summary .plus{transform:rotate(45deg)}
+.fronts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem clamp(1.5rem,4vw,3rem);padding:0 0 2rem}
+.front h4{font-family:var(--serif);font-weight:500;font-size:1.3rem;color:var(--navy);margin:0 0 .25rem}
+.front > p{font-size:.95rem;color:var(--ink-soft);margin-bottom:1rem}
+.unit{padding:.9rem 0;border-top:1px solid var(--rule)}
+.unit b{display:block;font-weight:600;font-size:.98rem}
+.unit span{font-size:.92rem;color:var(--ink-soft)}
+.unit small{display:inline-block;font-weight:600;color:var(--wine);margin-right:.35rem}
+.u7{grid-column:1 / -1;padding-top:1rem;border-top:1px solid var(--rule)}
+@media (max-width:860px){.fronts{grid-template-columns:1fr}}
+
+/* ---------- termometro ---------- */
+.termo{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(2rem,6vw,5rem);align-items:start}
+.termo-side{position:sticky;top:6.5rem}
+.termo-side h2{font-size:clamp(2.1rem,4.6vw,3.5rem)}
+.termo-side p{margin-top:1rem;color:#C9C2B6;font-size:1.08rem;max-width:26rem}
+.progress{margin-top:2rem}
+.progress-track{height:6px;border-radius:99px;background:rgba(255,255,255,.14);overflow:hidden}
+.progress-bar{height:100%;width:0;background:var(--rose);transition:width .3s ease}
+.progress-label{margin-top:.6rem;font-size:.92rem;color:#C9C2B6}
+.block{border:0;margin:0 0 2.5rem;padding:0}
+.block legend{padding:0;margin-bottom:.4rem;font-family:var(--serif);font-size:1.5rem;color:#fff}
+.block .block-note{font-size:.92rem;color:#A9A397;margin-bottom:.5rem}
+.q{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.75rem 1.5rem;align-items:center;padding:1rem 0;border-top:1px solid rgba(255,255,255,.12)}
+.q-text{font-size:1rem;line-height:1.5;color:#EDE7DC}
+.q-text i{font-style:normal;color:#A9A397;margin-right:.4rem;font-variant-numeric:tabular-nums}
+.seg{display:inline-flex;border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:3px}
+.seg input{position:absolute;opacity:0;width:1px;height:1px}
+.seg label{cursor:pointer;font-size:.88rem;font-weight:600;padding:.5rem .9rem;border-radius:999px;color:#D8D1C5;transition:background-color .15s,color .15s;white-space:nowrap}
+.seg input:focus-visible + label{outline:3px solid var(--rose);outline-offset:1px}
+.seg input:checked + label{background:#fff;color:var(--navy)}
+.seg input[value="1"]:checked + label{background:var(--rose);color:var(--navy-deep)}
+@media (max-width:860px){.termo{grid-template-columns:1fr}.termo-side{position:static}}
+@media (max-width:560px){.q{grid-template-columns:1fr}.seg{display:flex}.seg label{flex:1;text-align:center;padding:.7rem .5rem}}
+.termo-actions{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-top:.5rem}
+.btn-light{background:#fff;color:var(--navy)}
+.btn-light:hover{background:var(--bone)}
+.btn-light[disabled]{opacity:.45;cursor:not-allowed}
+.hint{font-size:.92rem;color:#A9A397}
+.result{margin-top:2.5rem;background:var(--paper);color:var(--ink);border-radius:1.25rem;padding:clamp(1.5rem,4vw,2.5rem)}
+.result[hidden]{display:none}
+.result-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem 1.25rem}
+.score{font-family:var(--serif);font-weight:500;font-size:clamp(3.5rem,8vw,5.5rem);line-height:1;color:var(--navy);letter-spacing:-.03em}
+.score small{font-size:.35em;color:var(--ink-soft);letter-spacing:0}
+.verdict{font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.7rem);color:var(--wine);line-height:1.2}
+.result > p{margin-top:1rem;color:var(--ink-soft);max-width:40rem}
+.bars{margin-top:1.75rem;display:grid;gap:1rem}
+.bar-row{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr) 8.5rem;gap:1rem;align-items:center;font-size:.95rem}
+.bar-row b{font-weight:600}
+.bar-track{height:10px;border-radius:99px;background:var(--rule);overflow:hidden}
+.bar-fill{height:100%;border-radius:99px;background:var(--navy);transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.bar-row.lead .bar-fill{background:var(--wine)}
+.bar-row span{color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (max-width:560px){.bar-row{grid-template-columns:1fr auto}.bar-track{grid-column:1 / -1;grid-row:2}}
+.result-actions{display:flex;flex-wrap:wrap;gap:1rem 1.5rem;align-items:center;margin-top:2rem}
+.linkbtn{background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--navy);text-decoration:underline;text-underline-offset:.3em;cursor:pointer}
+
+/* ---------- method ---------- */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1.5rem;counter-reset:s}
+.step{counter-increment:s;padding-top:1.25rem;border-top:2px solid var(--rule)}
+.step.paid{border-top-color:var(--navy)}
+.step::before{content:counter(s, decimal-leading-zero);display:block;font-family:var(--serif);font-size:2.25rem;font-weight:400;color:var(--wine);line-height:1;margin-bottom:.9rem;font-variant-numeric:lining-nums}
+.step h3{font-family:var(--sans);font-weight:650;font-size:1.05rem;color:var(--navy);letter-spacing:0;line-height:1.3}
+.step p{margin-top:.5rem;font-size:.95rem;color:var(--ink-soft)}
+.steps-note{margin-top:2rem;font-size:.98rem;color:var(--ink-soft);max-width:44rem}
+@media (max-width:960px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(2rem,6vw,5rem);align-items:start}
+.figure-num{font-family:var(--serif);font-weight:400;font-variation-settings:"opsz" 60,"SOFT" 30,"WONK" 0;font-size:clamp(3.2rem,7vw,6rem);line-height:.9;letter-spacing:-.045em;color:var(--navy);white-space:nowrap}
+.figure-num .arrow{color:var(--wine);font-weight:300;margin:0 .06em}
+.figure-cap{margin-top:1rem;font-size:1rem;color:var(--ink-soft);max-width:24rem}
+.about h2{font-size:clamp(2rem,4.2vw,3.1rem);color:var(--navy)}
+.about .role{margin-top:.5rem;font-weight:600;color:var(--wine)}
+.about-body p{margin-top:1.1rem;color:var(--ink-soft);max-width:38rem}
+.track{margin-top:2rem;border-top:1px solid var(--rule)}
+.track div{display:grid;grid-template-columns:minmax(0,12rem) minmax(0,1fr);gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--rule);font-size:.97rem}
+.track b{font-weight:600;color:var(--navy)}
+.track span{color:var(--ink-soft)}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+@media (max-width:520px){.track div{grid-template-columns:1fr;gap:.15rem}}
+.sectors{margin-top:clamp(3rem,6vw,4.5rem);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem clamp(2rem,6vw,5rem)}
+.sectors h3{font-size:1.35rem;color:var(--navy)}
+.sectors p{margin-top:.5rem;color:var(--ink-soft)}
+@media (max-width:720px){.sectors{grid-template-columns:1fr}}
+
+/* ---------- close ---------- */
+.close{text-align:left}
+.close h2{font-size:clamp(2.6rem,7vw,5.6rem);color:#fff;letter-spacing:-.03em;font-weight:450}
+.close-lede{margin-top:1.25rem;font-size:1.2rem;color:#C9C2B6;max-width:36rem}
+.close-actions{display:flex;flex-wrap:wrap;gap:1rem 1.75rem;align-items:center;margin-top:2.25rem}
+.close .textlink{color:#fff}
+.close .textlink:hover{color:var(--rose)}
+.contact-grid{margin-top:clamp(3rem,6vw,4.5rem);padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.16);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;font-size:.98rem}
+.contact-grid b{display:block;color:#fff;font-weight:600;margin-bottom:.25rem}
+.contact-grid a{color:#EDE7DC}
+.contact-grid span{color:#C9C2B6}
+@media (max-width:720px){.contact-grid{grid-template-columns:1fr}}
+
+footer{background:var(--navy-deep);color:#A9A397;font-size:.9rem;padding:1.75rem 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:.75rem 2rem;justify-content:space-between;align-items:center}
+footer .brand-mark{font-size:1.1rem;color:#fff}
+footer .brand-mark span{color:var(--rose)}
+
+/* ---------- floating whatsapp ---------- */
+.wa-float{position:fixed;right:1rem;bottom:1rem;z-index:50;width:3.6rem;height:3.6rem;border-radius:50%;background:var(--wine);color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(33,29,24,.55);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .25s, transform .25s}
+.wa-float.show{opacity:1;transform:none;pointer-events:auto}
+.wa-float svg{width:1.7rem;height:1.7rem}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Espinoza T Personas, inicio">
+      <span class="brand-mark">Espinoza <span>T</span></span>
+      <span class="brand-sub">Personas</span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#termometro">Termómetro</a>
+      <a href="#metodo">Cómo trabajamos</a>
+      <a href="#quien">Quién está detrás</a>
+      <a class="btn btn-wine btn-small" data-wa="Hola Daniel, quiero conversar sobre mi empresa." href="https://wa.me/51974770954">Conversemos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="claim">
+  <div class="wrap">
+    <h1 id="claim">
+      <span class="claim-no" aria-hidden="true">No pienses en <span class="struck"><span class="w">planilla</span></span>.</span>
+      <span class="claim-yes">Piensa en personas.</span>
+    </h1>
+    <p class="hero-lede">Capacitación, desarrollo, cultura y clima laboral para empresas de Arequipa que quieren crecer sin desgastar a su gente.</p>
+    <div class="hero-actions">
+      <a class="btn btn-wine" data-wa="Hola Daniel, vi la web de Espinoza T Personas y quiero conversar sobre mi empresa." href="https://wa.me/51974770954">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm5.8 14.09c-.24.68-1.42 1.3-1.95 1.34-.5.05-1.13.2-3.8-.86-3.2-1.27-5.24-4.56-5.4-4.77-.16-.21-1.29-1.72-1.29-3.28 0-1.56.82-2.33 1.11-2.65.29-.31.63-.39.84-.39l.6.01c.2 0 .45-.07.71.54.26.63.89 2.18.97 2.34.08.16.13.34.03.55-.1.21-.16.34-.31.52-.16.18-.33.41-.47.55-.16.16-.32.33-.14.65.18.31.82 1.35 1.76 2.19 1.21 1.08 2.23 1.41 2.55 1.57.31.16.5.13.68-.08.18-.21.79-.92 1-1.24.21-.31.42-.26.71-.16.29.11 1.83.86 2.15 1.02.31.16.52.24.6.37.08.13.08.76-.16 1.45Z"/></svg>
+        Escríbenos por WhatsApp
+      </a>
+      <a class="textlink" href="#termometro">Mide el riesgo laboral de tu empresa</a>
+    </div>
+    <div class="hero-meta">
+      <p><strong>Arequipa es nuestra sede</strong>Cusco e Ica por proyecto, el resto del Perú en remoto o híbrido.</p>
+      <p><strong>45 minutos sin costo</strong>Una reunión para ubicar las dos o tres prioridades reales de tu empresa.</p>
+      <p><strong>Alcance claro antes de firmar</strong>Entregables, plazos e inversión por escrito. Sin sorpresas a mitad de camino.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VOICES -->
+<section class="band band-paper" aria-labelledby="voces">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="voces">Lo escuchamos en casi todas las empresas de la región.</h2>
+      <p>La mayoría de pymes de Arequipa tiene entre 20 y 30 trabajadores y nadie dedicado a la gente. El personal lo lleva el dueño, entre factura y factura.</p>
+    </div>
+    <div class="voices">
+      <figure class="voice">
+        <blockquote>“Ascendí al mejor técnico a supervisor. Ahora dirige a ocho personas y nadie le enseñó cómo.”</blockquote>
+        <p>Dirigir gente y hacer bien el trabajo son <b>dos oficios distintos</b>. El segundo se enseña.</p>
+      </figure>
+      <figure class="voice">
+        <blockquote>“Contratamos por urgencia, no por perfil. Y al que se queda, nadie lo forma.”</blockquote>
+        <p>Cada salida cuesta meses de sueldo en búsqueda, curva de aprendizaje y <b>trabajo que no se hace</b>.</p>
+      </figure>
+      <figure class="voice">
+        <blockquote>“La gente cumple, pero no está. Y cuando aparece un problema, nadie sabe qué hacer.”</blockquote>
+        <p>El clima no se arregla con una encuesta que nadie contesta con confianza. Se mide y <b>se actúa</b>.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- DOORS -->
+<section class="band" id="servicios" aria-labelledby="puertas">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="puertas">Para empezar, algo concreto.</h2>
+      <p>No hace falta un programa de seis meses para conocernos. Estas tres entradas resuelven un problema puntual y dejan a tu equipo mejor de lo que lo encontramos.</p>
+    </div>
+    <div class="doors">
+      <article class="door">
+        <div>
+          <h3>Capacitación en prevención del hostigamiento sexual laboral</h3>
+          <span class="when">Obligatoria cada año. El plan 2026 cierra el 31 de diciembre</span>
+        </div>
+        <p>La Ley 27942 y su reglamento obligan a toda empresa, sin importar su tamaño, a capacitar a su personal una vez al año. La dictamos en tu local y te dejamos registro de asistencia y constancias, que es lo que SUNAFIL pide ver.</p>
+        <a class="textlink ask" data-wa="Hola Daniel, quiero cerrar la capacitación anual de hostigamiento sexual laboral de mi empresa." href="https://wa.me/51974770954">Consultar fechas</a>
+      </article>
+      <article class="door">
+        <div>
+          <h3>Integración de fin de año</h3>
+          <span class="when">Noviembre y diciembre, con cupos limitados por semana</span>
+        </div>
+        <p>Dinámicas de cohesión de dos a seis horas, conducidas con método y con una reflexión final que termina en compromisos del equipo para 2027. Para grupos de hasta 50 personas.</p>
+        <a class="textlink ask" data-wa="Hola Daniel, me interesa una integración de fin de año para mi equipo." href="https://wa.me/51974770954">Reservar una fecha</a>
+      </article>
+      <article class="door">
+        <div>
+          <h3>Taller de tres horas</h3>
+          <span class="when">Para equipos de hasta 20 personas</span>
+        </div>
+        <p>Un solo dolor, bien trabajado: supervisores que no saben corregir sin gritar, conflictos entre áreas, comunicación, trato al cliente o inducción del personal nuevo.</p>
+        <a class="textlink ask" data-wa="Hola Daniel, quiero un taller de tres horas para mi equipo." href="https://wa.me/51974770954">Elegir un tema</a>
+      </article>
+    </div>
+    <div class="combo">
+      <p><strong>Cierra 2026 en una sola visita.</strong>La capacitación obligatoria por la mañana y la integración del equipo por la tarde. Cumples con la ley y celebras el año el mismo día.</p>
+      <a class="btn btn-light" data-wa="Hola Daniel, me interesa cerrar el año con la capacitación de hostigamiento y la integración en una sola visita." href="https://wa.me/51974770954">Pedir propuesta</a>
+    </div>
+  </div>
+</section>
+
+<!-- CORE -->
+<section class="band band-paper" aria-labelledby="nucleo">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="nucleo">Y cuando hay confianza, el trabajo de fondo.</h2>
+      <p>Lo que hacemos todos los días: que los jefes sepan dirigir, que la gente quiera quedarse y que eso se pueda medir año contra año.</p>
+    </div>
+    <div class="core">
+      <div class="core-item">
+        <h3>Capacitación</h3>
+        <p>Liderazgo de mandos medios, comunicación, manejo de conflictos, trato y servicio. Talleres prácticos con casos de tu propia operación.</p>
+      </div>
+      <div class="core-item">
+        <h3>Desarrollo</h3>
+        <p>Programas por nivel, acompañamiento a jefaturas, evaluación de desempeño y líneas de carrera para que el talento no se vaya a la competencia.</p>
+      </div>
+      <div class="core-item">
+        <h3>Cultura</h3>
+        <p>Cultura preventiva, cultura de mejora y valores que se ven en el día a día, no solo en la pared de la oficina.</p>
+      </div>
+      <div class="core-item">
+        <h3>Clima</h3>
+        <p>Medición con instrumentos propios, interpretación con tus líderes y un plan de acción. Se repite cada año para ver si de verdad mejoró.</p>
+      </div>
+    </div>
+
+    <details class="units">
+      <summary>Ver las siete unidades de servicio <span class="plus" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></summary>
+      <div class="fronts">
+        <div class="front">
+          <h4>Capital Humano</h4>
+          <p>La estructura y el cumplimiento.</p>
+          <div class="unit"><b><small>U1</small>Estrategia y Diseño Organizacional</b><span>Organigrama, MOF, perfiles de puesto por competencias, bandas salariales e indicadores de personas.</span></div>
+          <div class="unit"><b><small>U6</small>Cumplimiento y Auditoría Laboral</b><span>Auditoría laboral preventiva, Reglamento Interno de Trabajo, files del personal y acompañamiento ante SUNAFIL.</span></div>
+        </div>
+        <div class="front">
+          <h4>Talento</h4>
+          <p>El ingreso, el desempeño y el crecimiento.</p>
+          <div class="unit"><b><small>U2</small>Atracción y Gestión del Talento</b><span>Perfil a cubrir, búsqueda, selección por competencias, inducción y seguimiento del período de prueba.</span></div>
+          <div class="unit"><b><small>U3</small>Formación y Desarrollo</b><span>Diagnóstico de necesidades, plan anual de capacitación, talleres, evaluación de desempeño y planes de sucesión.</span></div>
+        </div>
+        <div class="front">
+          <h4>Cultura y Bienestar</h4>
+          <p>El entorno y el soporte a las personas.</p>
+          <div class="unit"><b><small>U5</small>Cultura y Experiencia Organizacional</b><span>Diagnóstico de clima, plan de mejora y retención, valores, comunicación interna y reconocimiento.</span></div>
+          <div class="unit"><b><small>U4</small>Bienestar y Gestión Social y Comunitaria</b><span>Recuperación de subsidios ante EsSalud, casos sociales y programas de bienestar, con una red de especialistas asociados.</span></div>
+        </div>
+        <div class="unit u7"><b><small>U7</small>Programa de Liderazgo Público</b><span>Formación de equipos directivos en municipalidades y gobiernos regionales, con enfoque en gestión de personas y servicio al ciudadano.</span></div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- TERMOMETRO -->
+<section class="band band-navy" id="termometro" aria-labelledby="termo-title">
+  <div class="wrap termo">
+    <div class="termo-side">
+      <h2 id="termo-title">¿Dónde está expuesta tu empresa?</h2>
+      <p>Doce preguntas de sí o no. Cada “No” o “No sé” es un punto de exposición legal, económica o de rotación. Al final sabrás por cuál frente conviene empezar.</p>
+      <div class="progress" aria-hidden="true">
+        <div class="progress-track"><div class="progress-bar" id="pbar"></div></div>
+        <p class="progress-label" id="plabel">0 de 12 respondidas</p>
+      </div>
+    </div>
+
+    <form id="termo-form" novalidate>
+      <fieldset class="block" data-block="0">
+        <legend>Cumplimiento</legend>
+        <p class="block-note">Frente de Capital Humano</p>
+        <div class="q"><p class="q-text" id="q1"><i>1</i>¿Todos tus trabajadores están declarados en el T-Registro y tienen contrato firmado vigente?</p><div class="seg" role="radiogroup" aria-labelledby="q1"></div></div>
+        <div class="q"><p class="q-text" id="q2"><i>2</i>¿Tu Reglamento Interno de Trabajo está actualizado y entregado a cada trabajador con cargo firmado?</p><div class="seg" role="radiogroup" aria-labelledby="q2"></div></div>
+        <div class="q"><p class="q-text" id="q3"><i>3</i>¿Tienes elegido el Comité o Supervisor de SST, con actas, capacitaciones y exámenes médicos documentados?</p><div class="seg" role="radiogroup" aria-labelledby="q3"></div></div>
+        <div class="q"><p class="q-text" id="q4"><i>4</i>¿Los files del personal están completos: contratos, boletas, constancias y control de asistencia?</p><div class="seg" role="radiogroup" aria-labelledby="q4"></div></div>
+      </fieldset>
+      <fieldset class="block" data-block="1">
+        <legend>Talento</legend>
+        <p class="block-note">Frente de Talento</p>
+        <div class="q"><p class="q-text" id="q5"><i>5</i>¿Cada puesto tiene un perfil escrito con funciones y requisitos que se usa al momento de contratar?</p><div class="seg" role="radiogroup" aria-labelledby="q5"></div></div>
+        <div class="q"><p class="q-text" id="q6"><i>6</i>¿El personal nuevo pasa por una inducción formal en sus primeros días?</p><div class="seg" role="radiogroup" aria-labelledby="q6"></div></div>
+        <div class="q"><p class="q-text" id="q7"><i>7</i>¿Tus supervisores y jefes han recibido formación en liderazgo o manejo de equipos en el último año?</p><div class="seg" role="radiogroup" aria-labelledby="q7"></div></div>
+        <div class="q"><p class="q-text" id="q8"><i>8</i>¿Se evalúa el desempeño del personal al menos una vez al año, con una conversación de resultados?</p><div class="seg" role="radiogroup" aria-labelledby="q8"></div></div>
+      </fieldset>
+      <fieldset class="block" data-block="2">
+        <legend>Cultura y bienestar</legend>
+        <p class="block-note">Frente de Cultura y Bienestar</p>
+        <div class="q"><p class="q-text" id="q9"><i>9</i>¿Sabes cuántos trabajadores se fueron el año pasado y por qué razón?</p><div class="seg" role="radiogroup" aria-labelledby="q9"></div></div>
+        <div class="q"><p class="q-text" id="q10"><i>10</i>¿Se ha medido el clima laboral o la satisfacción del personal en los últimos doce meses?</p><div class="seg" role="radiogroup" aria-labelledby="q10"></div></div>
+        <div class="q"><p class="q-text" id="q11"><i>11</i>¿Hay alguien responsable de gestionar descansos médicos, subsidios EsSalud y casos sociales?</p><div class="seg" role="radiogroup" aria-labelledby="q11"></div></div>
+        <div class="q"><p class="q-text" id="q12"><i>12</i>¿Existe un canal formal y conocido para que un trabajador reporte una queja o un caso de hostigamiento?</p><div class="seg" role="radiogroup" aria-labelledby="q12"></div></div>
+      </fieldset>
+
+      <div class="termo-actions">
+        <button class="btn btn-light" type="submit" id="see" disabled>Ver mi resultado</button>
+        <p class="hint" id="hint">Responde las doce preguntas para ver tu resultado.</p>
+      </div>
+
+      <div class="result" id="result" hidden tabindex="-1" aria-live="polite">
+        <div class="result-top">
+          <p class="score" id="score">0<small> de 12</small></p>
+          <p class="verdict" id="verdict"></p>
+        </div>
+        <p id="advice"></p>
+        <div class="bars" id="bars"></div>
+        <div class="result-actions">
+          <a class="btn btn-wine" id="wa-result" href="https://wa.me/51974770954">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm5.8 14.09c-.24.68-1.42 1.3-1.95 1.34-.5.05-1.13.2-3.8-.86-3.2-1.27-5.24-4.56-5.4-4.77-.16-.21-1.29-1.72-1.29-3.28 0-1.56.82-2.33 1.11-2.65.29-.31.63-.39.84-.39l.6.01c.2 0 .45-.07.71.54.26.63.89 2.18.97 2.34.08.16.13.34.03.55-.1.21-.16.34-.31.52-.16.18-.33.41-.47.55-.16.16-.32.33-.14.65.18.31.82 1.35 1.76 2.19 1.21 1.08 2.23 1.41 2.55 1.57.31.16.5.13.68-.08.18-.21.79-.92 1-1.24.21-.31.42-.26.71-.16.29.11 1.83.86 2.15 1.02.31.16.52.24.6.37.08.13.08.76-.16 1.45Z"/></svg>
+            Revisar mi resultado por WhatsApp
+          </a>
+          <button class="linkbtn" type="button" id="restart">Responder de nuevo</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="band" id="metodo" aria-labelledby="metodo-title">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="metodo-title">Cómo trabajamos.</h2>
+      <p>Cinco pasos, siempre los mismos. Sabes qué vas a recibir antes de pagar un sol.</p>
+    </div>
+    <ol class="steps">
+      <li class="step"><h3>Reunión exploratoria</h3><p>45 minutos sin costo. Aplicamos el Termómetro y ubicamos las prioridades reales.</p></li>
+      <li class="step"><h3>Propuesta escrita</h3><p>Alcance, entregables, plazos e inversión. Vigente por 15 días.</p></li>
+      <li class="step paid"><h3>Ejecución</h3><p>Empieza con la firma del acuerdo. En tu local, en remoto o híbrido.</p></li>
+      <li class="step paid"><h3>Entregables</h3><p>Documentos, formatos y un equipo interno capacitado para sostenerlo.</p></li>
+      <li class="step paid"><h3>Seguimiento</h3><p>Revisamos a los 30 días que lo implementado siga funcionando.</p></li>
+    </ol>
+    <p class="steps-note">Los dos primeros pasos no tienen costo. La inversión se calcula según el tamaño de tu planilla y el alcance, y siempre queda por escrito en la propuesta.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="band band-paper" id="quien" aria-labelledby="quien-title">
+  <div class="wrap">
+    <div class="about">
+      <div>
+        <p class="figure-num" aria-label="De 74 por ciento a 93 por ciento">74%<span class="arrow" aria-hidden="true">→</span>93%</p>
+        <p class="figure-cap">Satisfacción laboral en Danper, empresa agroindustrial de más de 15 000 colaboradores, tras dos años de intervenciones sostenidas.</p>
+      </div>
+      <div class="about-body">
+        <h2 id="quien-title">Daniel Franco Espinoza Cuadra</h2>
+        <p class="role">Gerente General</p>
+        <p>Más de cinco años gestionando personas desde dentro de empresas grandes, como parte del equipo. Capacitación de mandos medios, clima laboral, evaluación de desempeño, planes de sucesión e integración de equipos, en operaciones de 600 a más de 2 000 trabajadores.</p>
+        <p>Espinoza T Personas nace en Arequipa para llevar ese mismo rigor a empresas que no tienen un área de recursos humanos y que, igual, necesitan que su gente funcione.</p>
+        <div class="track">
+          <div><b>Industria y agroindustria</b><span>Danper, plantas de Arequipa y Chincha</span></div>
+          <div><b>Retail y financiero</b><span>Estilos y Coopse Nuestra Familia</span></div>
+          <div><b>Salud</b><span>Clínica San Pablo Arequipa</span></div>
+          <div><b>Formación</b><span>Psicología, Universidad Católica de Santa María. Maestría en Gerencia del Talento Humano, Universidad Tecnológica del Perú.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="sectors">
+      <div>
+        <h3>Rubros que conocemos desde dentro</h3>
+        <p>Industria, agroindustria, retail, sector financiero, salud y gobierno local.</p>
+      </div>
+      <div>
+        <h3>Rubros a los que llevamos el método</h3>
+        <p>Construcción, transporte y servicios mineros, educación, textil, hotelería, comercio y empresas familiares.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="band band-navy close" id="contacto" aria-labelledby="close-title">
+  <div class="wrap">
+    <h2 id="close-title">Conversemos 45 minutos.</h2>
+    <p class="close-lede">Cuéntanos qué está pasando con tu equipo. Si no podemos ayudarte, te lo diremos en la primera reunión.</p>
+    <div class="close-actions">
+      <a class="btn btn-wine" data-wa="Hola Daniel, quiero agendar la reunión de 45 minutos." href="https://wa.me/51974770954">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm5.8 14.09c-.24.68-1.42 1.3-1.95 1.34-.5.05-1.13.2-3.8-.86-3.2-1.27-5.24-4.56-5.4-4.77-.16-.21-1.29-1.72-1.29-3.28 0-1.56.82-2.33 1.11-2.65.29-.31.63-.39.84-.39l.6.01c.2 0 .45-.07.71.54.26.63.89 2.18.97 2.34.08.16.13.34.03.55-.1.21-.16.34-.31.52-.16.18-.33.41-.47.55-.16.16-.32.33-.14.65.18.31.82 1.35 1.76 2.19 1.21 1.08 2.23 1.41 2.55 1.57.31.16.5.13.68-.08.18-.21.79-.92 1-1.24.21-.31.42-.26.71-.16.29.11 1.83.86 2.15 1.02.31.16.52.24.6.37.08.13.08.76-.16 1.45Z"/></svg>
+        Agendar por WhatsApp
+      </a>
+      <a class="textlink" href="mailto:gerencia@espinozat.com?subject=Reuni%C3%B3n%20exploratoria">Prefiero escribir un correo</a>
+    </div>
+    <div class="contact-grid">
+      <p><b>WhatsApp y teléfono</b><a href="tel:+51974770954">974 770 954</a></p>
+      <p><b>Correo</b><a href="mailto:gerencia@espinozat.com">gerencia@espinozat.com</a></p>
+      <p><b>Dónde trabajamos</b><span>Sede en Arequipa. Cusco e Ica por proyecto. Todo el Perú en remoto o híbrido.</span></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="brand-mark">Espinoza <span>T</span> Personas</span>
+    <span>Piensa en personas.</span>
+    <span>© 2026 Espinoza T Personas. Arequipa, Perú.</span>
+  </div>
+</footer>
+
+<a class="wa-float" id="wa-float" data-wa="Hola Daniel, vi la web de Espinoza T Personas y quiero conversar." href="https://wa.me/51974770954" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm5.8 14.09c-.24.68-1.42 1.3-1.95 1.34-.5.05-1.13.2-3.8-.86-3.2-1.27-5.24-4.56-5.4-4.77-.16-.21-1.29-1.72-1.29-3.28 0-1.56.82-2.33 1.11-2.65.29-.31.63-.39.84-.39l.6.01c.2 0 .45-.07.71.54.26.63.89 2.18.97 2.34.08.16.13.34.03.55-.1.21-.16.34-.31.52-.16.18-.33.41-.47.55-.16.16-.32.33-.14.65.18.31.82 1.35 1.76 2.19 1.21 1.08 2.23 1.41 2.55 1.57.31.16.5.13.68-.08.18-.21.79-.92 1-1.24.21-.31.42-.26.71-.16.29.11 1.83.86 2.15 1.02.31.16.52.24.6.37.08.13.08.76-.16 1.45Z"/></svg>
+</a>
+
+<script>
+(function(){
+  var WA = "https://wa.me/51974770954";
+  var waLink = function(text){ return WA + "?text=" + encodeURIComponent(text); };
+
+  // WhatsApp links with prefilled messages
+  document.querySelectorAll("[data-wa]").forEach(function(a){
+    a.href = waLink(a.getAttribute("data-wa"));
+    a.target = "_blank"; a.rel = "noopener";
+  });
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Header border + floating button
+  var top = document.getElementById("top");
+  var fab = document.getElementById("wa-float");
+  var hero = document.querySelector(".hero");
+  var onScroll = function(){
+    var y = window.scrollY;
+    top.classList.toggle("scrolled", y > 8);
+    fab.classList.toggle("show", y > hero.offsetHeight * 0.8);
+  };
+  window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+  // Hero: cycle struck words
+  var words = ["planilla", "turnos", "rotación", "un jefe", "un taller", "clima laboral"];
+  var struck = document.querySelector(".struck");
+  var w = struck.querySelector(".w");
+  if (!reduce) {
+    var i = 0;
+    struck.style.setProperty("--strike", "0");
+    var cycle = function(){
+      // draw line
+      requestAnimationFrame(function(){ struck.style.setProperty("--strike", "1"); });
+      setTimeout(function(){
+        w.classList.add("out");
+        struck.style.setProperty("--strike", "0");
+        setTimeout(function(){
+          i = (i + 1) % words.length;
+          w.textContent = words[i];
+          w.classList.remove("out");
+          setTimeout(cycle, 650);
+        }, 380);
+      }, 1700);
+    };
+    setTimeout(cycle, 700);
+  }
+
+  // Termómetro
+  var form = document.getElementById("termo-form");
+  var groups = form.querySelectorAll(".seg");
+  var opts = [["Sí","0"],["No","1"],["No sé","1"]];
+  groups.forEach(function(g, idx){
+    var name = "q" + (idx + 1);
+    opts.forEach(function(o, j){
+      var id = name + "-" + j;
+      var inp = document.createElement("input");
+      inp.type = "radio"; inp.name = name; inp.id = id; inp.value = o[1];
+      inp.setAttribute("data-label", o[0]);
+      var lab = document.createElement("label");
+      lab.htmlFor = id; lab.textContent = o[0];
+      g.appendChild(inp); g.appendChild(lab);
+    });
+  });
+
+  var pbar = document.getElementById("pbar");
+  var plabel = document.getElementById("plabel");
+  var see = document.getElementById("see");
+  var hint = document.getElementById("hint");
+  var result = document.getElementById("result");
+
+  var answered = function(){ return form.querySelectorAll("input:checked").length; };
+  form.addEventListener("change", function(){
+    var n = answered();
+    pbar.style.width = (n / 12 * 100) + "%";
+    plabel.textContent = n + " de 12 respondidas";
+    see.disabled = n < 12;
+    hint.textContent = n < 12 ? "Te faltan " + (12 - n) + (12 - n === 1 ? " pregunta." : " preguntas.") : "Listo. Mira tu resultado.";
+  });
+
+  var BLOCKS = ["Cumplimiento", "Talento", "Cultura y bienestar"];
+  var level = function(s){ return s === 0 ? "en orden" : (s <= 2 ? "atención" : "prioritario"); };
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    if (answered() < 12) return;
+    var sub = [0,0,0];
+    for (var q = 1; q <= 12; q++) {
+      var v = form.querySelector('input[name="q' + q + '"]:checked');
+      sub[Math.floor((q - 1) / 4)] += parseInt(v.value, 10);
+    }
+    var total = sub[0] + sub[1] + sub[2];
+    // highest subtotal; ties resolve in block order (Cumplimiento first)
+    var lead = 0;
+    for (var b = 1; b < 3; b++) if (sub[b] > sub[lead]) lead = b;
+
+    var verdict, advice, where = BLOCKS[lead].toLowerCase();
+    if (total === 0) {
+      verdict = "Todo en orden";
+      advice = "Respondiste sí a las doce. Aquí el trabajo es sostener lo que funciona y medirlo cada año para que siga así.";
+    } else if (total <= 2) {
+      verdict = "Gestión ordenada";
+      advice = "Tu empresa tiene lo básico resuelto. El siguiente paso es cerrar los pocos vacíos que quedan, empezando por " + where + ".";
+    } else if (total <= 6) {
+      verdict = "Exposición moderada";
+      advice = "Hay vacíos que todavía no te cuestan dinero, pero pueden costarlo este año. Conviene empezar por " + where + ", donde está tu puntaje más alto.";
+    } else {
+      verdict = "Exposición alta";
+      advice = "Conviene intervenir ya en " + where + ". No hace falta atacar todo a la vez: se empieza por ahí y se avanza desde ese punto.";
+    }
+
+    document.getElementById("score").innerHTML = total + "<small> de 12</small>";
+    document.getElementById("verdict").textContent = verdict;
+    document.getElementById("advice").textContent = advice;
+
+    var bars = document.getElementById("bars");
+    bars.innerHTML = "";
+    sub.forEach(function(s, k){
+      var row = document.createElement("div");
+      row.className = "bar-row" + (k === lead && total > 0 ? " lead" : "");
+      row.innerHTML = '<b>' + BLOCKS[k] + '</b><div class="bar-track"><div class="bar-fill" style="width:0"></div></div><span>' + s + ' de 4, ' + level(s) + '</span>';
+      bars.appendChild(row);
+      var fill = row.querySelector(".bar-fill");
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ fill.style.width = (s / 4 * 100) + "%"; }); });
+    });
+
+    var msg = "Hola Daniel, hice el Termómetro de Riesgo Laboral en la web.\n" +
+      "Resultado: " + total + " de 12 (" + verdict.toLowerCase() + ").\n" +
+      "Cumplimiento " + sub[0] + "/4, Talento " + sub[1] + "/4, Cultura y bienestar " + sub[2] + "/4.\n" +
+      "Me gustaría revisarlo contigo.";
+    var waBtn = document.getElementById("wa-result");
+    waBtn.href = waLink(msg); waBtn.target = "_blank"; waBtn.rel = "noopener";
+
+    result.hidden = false;
+    result.focus({preventScroll:true});
+    result.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "start"});
+  });
+
+  document.getElementById("restart").addEventListener("click", function(){
+    form.reset();
+    result.hidden = true;
+    pbar.style.width = "0%";
+    plabel.textContent = "0 de 12 respondidas";
+    see.disabled = true;
+    hint.textContent = "Responde las doce preguntas para ver tu resultado.";
+    document.getElementById("termometro").scrollIntoView({behavior: reduce ? "auto" : "smooth"});
+  });
+})();
+</script>
+</body>
 </html>
