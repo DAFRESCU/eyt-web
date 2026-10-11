@@ -96,7 +96,7 @@ p{margin:0}
 .struck{font-variation-settings:"SOFT" 50,"WONK" 0;position:relative;display:inline-block;color:var(--ink);font-style:italic;font-weight:400;white-space:nowrap}
 .struck .w{display:inline-block;transition:opacity .35s ease, transform .35s ease}
 .struck .w.out{opacity:0;transform:translateY(.25em)}
-.struck::after{content:"";position:absolute;left:-.04em;right:-.04em;top:56%;height:.085em;background:var(--wine);transform:scaleX(var(--strike,1));transform-origin:left center;transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.struck::after{content:"";position:absolute;left:0;right:0;bottom:-.02em;height:.07em;background:var(--wine);transform:scaleX(var(--strike,1));transform-origin:left center;transition:transform .45s cubic-bezier(.7,0,.2,1)}
 .claim-yes{display:block}
 .hero-lede{max-width:34rem;margin-top:clamp(1.75rem,3.5vw,2.75rem);font-size:clamp(1.1rem,1.6vw,1.3rem);line-height:1.55;color:var(--ink-soft)}
 .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem;margin-top:2rem}
@@ -124,12 +124,33 @@ p{margin:0}
 
 /* ---------- doors ---------- */
 .doors{border-top:1px solid var(--rule)}
-.door{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) 10.5rem;gap:1.5rem 3rem;align-items:start;padding:clamp(1.75rem,3.5vw,2.5rem) 0;border-bottom:1px solid var(--rule)}
+.door{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,3fr);gap:1.5rem clamp(1.5rem,4vw,3rem);align-items:start;padding:clamp(2rem,4vw,3rem) 0;border-bottom:1px solid var(--rule)}
 .door h3{font-size:clamp(1.5rem,2.6vw,2.1rem);color:var(--navy)}
-.door .when{display:block;margin-top:.6rem;font-size:.92rem;font-weight:600;color:var(--wine)}
-.door p{color:var(--ink-soft);max-width:36rem}
-.door .ask{white-space:nowrap;align-self:center;justify-self:end}
-@media (max-width:860px){.door{grid-template-columns:1fr}.door .ask{align-self:start;justify-self:start}}
+.door .when{margin-top:.75rem;font-size:.95rem;font-weight:600;color:var(--wine);max-width:22rem}
+.door-body > p{color:var(--ink-soft);max-width:36rem}
+.incl-title{margin-top:1.25rem !important;font-weight:600;color:var(--ink);font-size:.98rem}
+.incl{margin:.5rem 0 0;padding:0;list-style:none}
+.incl li{position:relative;padding:.3rem 0 .3rem 1.25rem;color:var(--ink-soft);font-size:.98rem}
+.incl li::before{content:"";position:absolute;left:0;top:.95rem;width:.5rem;height:2px;background:var(--wine)}
+.formats{margin:.6rem 0 0;padding:0;list-style:none;border-top:1px solid var(--rule)}
+.formats li{display:grid;grid-template-columns:8rem minmax(0,1fr);gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--rule);font-size:.97rem}
+.formats b{font-weight:600;color:var(--navy)}
+.formats span{color:var(--ink-soft)}
+.specs dl{margin:0;display:grid;gap:1rem}
+.specs{display:grid;gap:1rem;padding:1.25rem 1.25rem 1.4rem;background:var(--paper);border-radius:1rem}
+.specs div{display:grid;gap:.1rem}
+.specs dt{font-size:.85rem;color:var(--ink-soft)}
+.specs dd{margin:0;font-weight:600;color:var(--navy);font-size:.98rem;line-height:1.4}
+.specs .btn{margin-top:.35rem;justify-self:start}
+@media (max-width:960px){.door{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.door-head{grid-column:1 / -1}}
+@media (max-width:640px){.door{grid-template-columns:1fr}.formats li{grid-template-columns:1fr;gap:.15rem}}
+.extras{margin-top:clamp(2rem,4vw,2.75rem)}
+.extras-title{font-family:var(--serif);font-size:1.35rem;color:var(--navy);margin-bottom:.75rem}
+.extras ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem clamp(1.5rem,4vw,3rem)}
+.extras li{padding-top:.9rem;border-top:2px solid var(--navy)}
+.extras b{display:block;font-weight:600;color:var(--navy);margin-bottom:.3rem}
+.extras span{color:var(--ink-soft);font-size:.97rem}
+@media (max-width:860px){.extras ul{grid-template-columns:1fr}}
 .combo{margin-top:clamp(2rem,4vw,3rem);display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;justify-content:space-between;background:var(--navy);color:#EDE7DC;border-radius:1.25rem;padding:clamp(1.5rem,3.5vw,2.25rem) clamp(1.5rem,4vw,2.75rem)}
 .combo p{max-width:40rem;font-size:1.08rem}
 .combo strong{display:block;font-family:var(--serif);font-weight:500;color:#fff;font-size:clamp(1.3rem,2.4vw,1.7rem);line-height:1.2;margin-bottom:.35rem}
@@ -285,7 +306,7 @@ footer .brand-mark span{color:var(--rose)}
 <section class="hero" aria-labelledby="claim">
   <div class="wrap">
     <h1 id="claim">
-      <span class="claim-no" aria-hidden="true">No pienses en <span class="struck"><span class="w">planilla</span></span>.</span>
+      <span class="claim-no" aria-hidden="true">No pienses solo en <span class="struck"><span class="w">planilla</span></span>.</span>
       <span class="claim-yes">Piensa en personas.</span>
     </h1>
     <p class="hero-lede">Capacitación, desarrollo, cultura y clima laboral para empresas de Arequipa que quieren crecer sin desgastar a su gente.</p>
@@ -333,34 +354,89 @@ footer .brand-mark span{color:var(--rose)}
   <div class="wrap">
     <div class="head">
       <h2 id="puertas">Para empezar, algo concreto.</h2>
-      <p>No hace falta un programa de seis meses para conocernos. Estas tres entradas resuelven un problema puntual y dejan a tu equipo mejor de lo que lo encontramos.</p>
+      <p>No hace falta un programa de seis meses para conocernos. Cada una de estas entradas resuelve un problema puntual, tiene duración y entregables claros, y deja a tu equipo mejor de lo que lo encontramos.</p>
     </div>
     <div class="doors">
       <article class="door">
-        <div>
+        <header class="door-head">
           <h3>Capacitación en prevención del hostigamiento sexual laboral</h3>
-          <span class="when">Obligatoria cada año. El plan 2026 cierra el 31 de diciembre</span>
+          <p class="when">Obligatoria cada año. El plan 2026 cierra el 31 de diciembre.</p>
+        </header>
+        <div class="door-body">
+          <p>La Ley 27942 y su reglamento obligan a toda empresa, sin importar su tamaño, a capacitar a su personal una vez al año. SUNAFIL fiscaliza, y lo que no está documentado, para SUNAFIL no pasó.</p>
+          <p class="incl-title">Qué incluye</p>
+          <ul class="incl">
+            <li>Qué es hostigamiento, cómo se reconoce y cómo se previene</li>
+            <li>El canal de denuncia y qué debe hacer la empresa cuando llega un caso</li>
+            <li>Casos prácticos adaptados a tu rubro</li>
+          </ul>
         </div>
-        <p>La Ley 27942 y su reglamento obligan a toda empresa, sin importar su tamaño, a capacitar a su personal una vez al año. La dictamos en tu local y te dejamos registro de asistencia y constancias, que es lo que SUNAFIL pide ver.</p>
-        <a class="textlink ask" data-wa="Hola Daniel, quiero cerrar la capacitación anual de hostigamiento sexual laboral de mi empresa." href="https://wa.me/51974770954">Consultar fechas</a>
+        <div class="specs"><dl>
+          <div><dt>Duración</dt><dd>2 horas</dd></div>
+          <div><dt>Grupo</dt><dd>Hasta 25 personas</dd></div>
+          <div><dt>Te llevas</dt><dd>Registro de asistencia firmado y constancia por participante</dd></div>
+          </dl>
+          <a class="btn btn-wine btn-small" data-wa="Hola Daniel, quiero cerrar la capacitación anual de hostigamiento sexual laboral de mi empresa." href="https://wa.me/51974770954">Consultar fechas</a>
+        </div>
       </article>
+
       <article class="door">
-        <div>
+        <header class="door-head">
           <h3>Integración de fin de año</h3>
-          <span class="when">Noviembre y diciembre, con cupos limitados por semana</span>
+          <p class="when">Noviembre y diciembre, con cupos limitados por semana.</p>
+        </header>
+        <div class="door-body">
+          <p>Dinámicas de cohesión conducidas con método, no un juego para pasar la tarde. Cada formato termina con una reflexión del equipo y compromisos concretos para 2027.</p>
+          <p class="incl-title">Elige el formato</p>
+          <ul class="formats">
+            <li><b>Express</b><span>2 horas, hasta 25 personas. Un desafío de presentación y una construcción en equipo.</span></li>
+            <li><b>Media jornada</b><span>4 horas, hasta 40 personas. Cuatro dinámicas de cohesión y cierre con compromisos.</span></li>
+            <li><b>Cierre de año</b><span>6 horas, hasta 50 personas. Todo lo anterior más un mapa de cómo se sintió el equipo este año.</span></li>
+          </ul>
         </div>
-        <p>Dinámicas de cohesión de dos a seis horas, conducidas con método y con una reflexión final que termina en compromisos del equipo para 2027. Para grupos de hasta 50 personas.</p>
-        <a class="textlink ask" data-wa="Hola Daniel, me interesa una integración de fin de año para mi equipo." href="https://wa.me/51974770954">Reservar una fecha</a>
+        <div class="specs"><dl>
+          <div><dt>Dónde</dt><dd>En tu local o en el lugar que elijas</dd></div>
+          <div><dt>Te llevas</dt><dd>Encuesta de satisfacción, certificado y compromisos del equipo por escrito</dd></div>
+          </dl>
+          <a class="btn btn-wine btn-small" data-wa="Hola Daniel, me interesa una integración de fin de año para mi equipo." href="https://wa.me/51974770954">Reservar una fecha</a>
+        </div>
       </article>
+
       <article class="door">
-        <div>
+        <header class="door-head">
           <h3>Taller de tres horas</h3>
-          <span class="when">Para equipos de hasta 20 personas</span>
+          <p class="when">Un solo problema, bien trabajado.</p>
+        </header>
+        <div class="door-body">
+          <p>Para empresas que quieren resolver algo puntual sin comprometerse a un programa largo. Se trabaja con situaciones reales de tu operación, no con ejemplos de libro.</p>
+          <p class="incl-title">Temas más pedidos</p>
+          <ul class="incl">
+            <li>Supervisores que corrigen sin gritar</li>
+            <li>Conflictos entre áreas o entre turnos</li>
+            <li>Comunicación efectiva entre jefes y equipo</li>
+            <li>Trato al cliente y servicio</li>
+            <li>Inducción del personal nuevo</li>
+          </ul>
         </div>
-        <p>Un solo dolor, bien trabajado: supervisores que no saben corregir sin gritar, conflictos entre áreas, comunicación, trato al cliente o inducción del personal nuevo.</p>
-        <a class="textlink ask" data-wa="Hola Daniel, quiero un taller de tres horas para mi equipo." href="https://wa.me/51974770954">Elegir un tema</a>
+        <div class="specs"><dl>
+          <div><dt>Duración</dt><dd>3 horas</dd></div>
+          <div><dt>Grupo</dt><dd>Hasta 20 personas</dd></div>
+          <div><dt>Te llevas</dt><dd>Material de trabajo para cada participante y evaluación de cierre</dd></div>
+          </dl>
+          <a class="btn btn-wine btn-small" data-wa="Hola Daniel, quiero un taller de tres horas para mi equipo." href="https://wa.me/51974770954">Elegir un tema</a>
+        </div>
       </article>
     </div>
+
+    <div class="extras">
+      <p class="extras-title">Otras entradas rápidas</p>
+      <ul>
+        <li><b>Termómetro de clima exprés</b><span>Encuesta corta a tu equipo e informe de dos páginas con lo que encontramos.</span></li>
+        <li><b>Inducción exprés</b><span>Un formato de inducción listo para usar y una sesión de una hora para el personal nuevo o temporal.</span></li>
+        <li><b>Charla para gerencia</b><span>Una hora con gerencia o jefaturas sobre el tema que más les preocupe hoy.</span></li>
+      </ul>
+    </div>
+
     <div class="combo">
       <p><strong>Cierra 2026 en una sola visita.</strong>La capacitación obligatoria por la mañana y la integración del equipo por la tarde. Cumples con la ley y celebras el año el mismo día.</p>
       <a class="btn btn-light" data-wa="Hola Daniel, me interesa cerrar el año con la capacitación de hostigamiento y la integración en una sola visita." href="https://wa.me/51974770954">Pedir propuesta</a>
@@ -507,12 +583,12 @@ footer .brand-mark span{color:var(--rose)}
     <div class="about">
       <div>
         <p class="figure-num" aria-label="De 74 por ciento a 93 por ciento">74%<span class="arrow" aria-hidden="true">→</span>93%</p>
-        <p class="figure-cap">Satisfacción laboral en Danper, empresa agroindustrial de más de 15 000 colaboradores, tras dos años de intervenciones sostenidas.</p>
+        <p class="figure-cap">Satisfacción laboral que logró Daniel en las sedes de Arequipa y Chincha de Danper, con los programas que diseñó y condujo durante dos años.</p>
       </div>
       <div class="about-body">
         <h2 id="quien-title">Daniel Franco Espinoza Cuadra</h2>
         <p class="role">Gerente General</p>
-        <p>Más de cinco años gestionando personas desde dentro de empresas grandes, como parte del equipo. Capacitación de mandos medios, clima laboral, evaluación de desempeño, planes de sucesión e integración de equipos, en operaciones de 600 a más de 2 000 trabajadores.</p>
+        <p>Más de cinco años liderando la gestión de personas desde dentro de empresas grandes. Capacitación de mandos medios, clima laboral, evaluación de desempeño, planes de sucesión e integración de equipos, en operaciones de 600 a más de 2 000 trabajadores.</p>
         <p>Espinoza T Personas nace en Arequipa para llevar ese mismo rigor a empresas que no tienen un área de recursos humanos y que, igual, necesitan que su gente funcione.</p>
         <div class="track">
           <div><b>Industria y agroindustria</b><span>Danper, plantas de Arequipa y Chincha</span></div>
@@ -594,7 +670,7 @@ footer .brand-mark span{color:var(--rose)}
   window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
 
   // Hero: cycle struck words
-  var words = ["planilla", "turnos", "rotación", "un jefe", "un taller", "clima laboral"];
+  var words = ["planilla", "turnos", "metas", "costos", "rotación", "productividad"];
   var struck = document.querySelector(".struck");
   var w = struck.querySelector(".w");
   if (!reduce) {
