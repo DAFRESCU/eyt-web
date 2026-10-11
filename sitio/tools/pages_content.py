@@ -159,7 +159,7 @@ def home(B):
   <div class="wrap">
     <div class="hero-meta">
       <p><strong>+5 años</strong>gestionando personas desde dentro de empresas grandes de Arequipa y del sur.</p>
-      <p><strong>+18 000 colaboradores</strong>en las empresas de agroindustria, retail, finanzas y salud donde ha trabajado Daniel.</p>
+      <p><strong>+18 000 colaboradores</strong>en las empresas de agroindustria, industria, retail, sector financiero y salud donde ha trabajado Daniel.</p>
       <p><strong>74% → 93%</strong>de satisfacción laboral en una agroexportadora de más de 15 000 trabajadores, con los programas que él diseñó y condujo.</p>
     </div>
   </div>
@@ -279,6 +279,7 @@ def home(B):
         <h2 class="reveal" id="quien-title">Daniel Franco Espinoza Cuadra</h2>
         <p class="role">Gerente General · Psicología (UCSM) · Candidato a Magíster en Gerencia del Talento Humano (UTP)</p>
         <p>Más de cinco años gestionando personas desde dentro de empresas grandes: capacitación de mandos medios, clima laboral, evaluación de desempeño, planes de sucesión e integración de equipos, en operaciones de 800 a más de 15 000 trabajadores.</p>
+        <p>Entre sus resultados: plan anual de capacitación con 100% de ejecución en una clínica, el componente de formación en su acreditación internacional y vacantes cubiertas en menos tiempo que el promedio del sector en retail.</p>
         <p>Espinoza T Personas nace en Arequipa para llevar ese mismo rigor a empresas que no tienen un área de recursos humanos y que, igual, necesitan que su gente funcione.</p>
         <p><a class="textlink" href="/nosotros">Conocer la trayectoria completa</a></p>
       </div>
@@ -505,13 +506,13 @@ def p_termometro(B):
 def p_nosotros(B):
     hero = B.page_hero([("Nosotros", None)], "Quién está detrás",
         "Rigor de empresa grande, para empresas que todavía no tienen un área de RR. HH.",
-        "Espinoza T Personas nace en Arequipa de la experiencia de Daniel Espinoza gestionando personas dentro de agroindustria, retail, finanzas y salud.",
+        "Espinoza T Personas nace en Arequipa de la experiencia de Daniel Espinoza gestionando personas dentro de agroindustria, industria, retail, sector financiero y salud, y como consultor en empresas de distintos rubros.",
         B.wa_btn("Hola Daniel, vi tu perfil en la web y quiero conversar sobre mi empresa.", "Conversar con Daniel"))
     track = '''<div class="track">
-  <div><b>Industria y agroindustria</b><span>Agroexportadora de más de 15 000 trabajadores, sedes de Arequipa y Chincha. Satisfacción laboral de 74% a 93% y programas de salud mental que redujeron el estrés y el ausentismo.</span></div>
-  <div><b>Retail y financiero</b><span>Estilos y Coopse Nuestra Familia, más de 2 500 trabajadores. Planes de sucesión y de carrera, inducción, períodos de prueba y evaluación de desempeño.</span></div>
-  <div><b>Salud</b><span>Clínica San Pablo Arequipa, más de 800 trabajadores. Plan anual de capacitación, MOF, perfiles de puesto y vacantes cubiertas en menos tiempo que el promedio del sector.</span></div>
-  <div><b>Consultoría independiente</b><span>Capacitación en habilidades directivas para líderes y personal operativo, y rediseño de la estrategia de talento humano de empresas de Arequipa.</span></div>
+  <div><b>Agroindustria e industria</b><span>Agroexportadora de más de 15 000 trabajadores, sedes de Arequipa y Chincha (2021–2023). Satisfacción laboral de 74% a 93%, programas de salud mental que redujeron el estrés y el ausentismo, cultura de comportamiento seguro y team building.</span></div>
+  <div><b>Retail y sector financiero</b><span>Una cadena de retail y una cooperativa de ahorro y crédito, más de 2 500 trabajadores (2023–2024). Vacantes cubiertas en menos tiempo que el promedio del sector, plan anual de capacitación, MOF y perfiles de puesto, clima y estrategias de retención.</span></div>
+  <div><b>Salud</b><span>Una clínica privada de Arequipa, más de 800 trabajadores (2024–2026). Plan anual de capacitación con 100% de ejecución, onboarding y períodos de prueba, desempeño, sucesión y carrera, y el componente de formación del personal en la acreditación internacional Joint Commission International.</span></div>
+  <div><b>Consultoría y capacitación externa</b><span>Desde 2016 en consultoras de RR. HH. y como independiente: capacitación en habilidades directivas y blandas para empresas de distintos rubros, y rediseño de la estrategia de talento humano en empresas de Arequipa.</span></div>
   <div><b>Formación</b><span>Psicología, Universidad Católica de Santa María. Candidato a Magíster en Gerencia del Talento Humano, Universidad Tecnológica del Perú.</span></div>
 </div>'''
     about = f'''<section class="band" aria-labelledby="daniel">
@@ -543,7 +544,14 @@ def p_nosotros(B):
     </div>
   </div>
 </section>'''
-    body = hero + about + sec("principios", "Tres reglas que no cambian.", principles, paper=True) + red + B.cta_band()
+    results = includes_grid([
+        ("Agroindustria", "74% → 93%", "Satisfacción laboral en dos sedes, con programas sostenidos durante dos años."),
+        ("Salud", "Acreditación internacional", "Responsable del componente de formación del personal en la acreditación Joint Commission International de una clínica."),
+        ("Salud", "100% del plan anual", "Plan anual de capacitación ejecutado completo, con evaluación de aprendizaje e impacto."),
+        ("Retail y finanzas", "Vacantes más rápido", "Puestos cubiertos en menos tiempo que el promedio del sector."),
+        ("Agroindustria", "Menos estrés y ausentismo", "Programas de salud mental que bajaron ambos indicadores."),
+        ("Varios rubros", "Supervisores formados", "Programas de habilidades directivas para líderes y de habilidades blandas para personal operativo.")])
+    body = hero + about + sec("resultados", "Resultados reales, con el rubro y sin el nombre.", results, "Por confidencialidad no nombramos a las empresas. Cada cifra es verificable con referencias laborales.", paper=True) + sec("principios", "Tres reglas que no cambian.", principles) + red + B.cta_band()
     person = {"@type": "Person", "@id": B.SITE + "/nosotros#daniel", "name": "Daniel Franco Espinoza Cuadra", "jobTitle": "Gerente General", "worksFor": {"@id": B.SITE + "/#empresa"},
               "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Universidad Católica de Santa María"}, {"@type": "CollegeOrUniversity", "name": "Universidad Tecnológica del Perú"}],
               "knowsAbout": ["Gestión del talento humano", "Clima laboral", "Capacitación de mandos medios", "Evaluación de desempeño"]}
@@ -618,7 +626,7 @@ def p_contacto(B):
         </form>
       </div>
       <div class="contact-cards">
-        <div class="card"><small>WhatsApp y teléfono</small><h3><a href="tel:+51974770954">974 770 954</a></h3><p>Lunes a sábado. Si no contestamos, te devolvemos la llamada.</p></div>
+        <div class="card"><small>WhatsApp y teléfono</small><h3><a href="tel:+51974770954">974 770 954</a></h3><p>Lunes a viernes. Si no contestamos, te devolvemos la llamada.</p></div>
         <div class="card"><small>Correo</small><h3><a href="mailto:gerencia@espinozat.com">gerencia@espinozat.com</a></h3><p>Para propuestas, documentos y solicitudes de empresas grandes.</p></div>
         <div class="card"><small>Dónde trabajamos</small><h3>Arequipa</h3><p>Cusco e Ica por proyecto. Todo el Perú en remoto o híbrido.</p></div>
         <div class="card card-navy"><small>Sin costo</small><h3>Diagnóstico de 45 minutos</h3><p>Aplicamos el Termómetro y sales con tus dos o tres prioridades reales.</p></div>
@@ -635,7 +643,7 @@ def p_red(B):
     hero = B.page_hero([("Red de especialistas", None)], "Red de especialistas asociados", "Trabajemos juntos en proyectos de personas.",
         "Buscamos profesionales independientes de Arequipa y del sur con quienes trabajar por proyecto, con método y con reglas claras.",
         B.wa_btn("Hola Daniel, quiero formar parte de la red de especialistas de Espinoza T Personas.", "Quiero ser parte"))
-    areas = '<div class="who">' + "".join(f'<span class="pill-l">{a}</span>' for a in ["Facilitación y capacitación", "Trabajo social", "Psicología organizacional", "Derecho laboral", "Seguridad y salud en el trabajo", "Comunicación interna"]) + "</div>"
+    areas = '<div class="who">' + "".join(f'<span class="pill-l">{a}</span>' for a in ["Facilitación y capacitación", "Psicología organizacional", "Trabajo social", "Derecho laboral", "Seguridad y salud en el trabajo", "Selección y búsqueda de ejecutivos", "Coaching de líderes", "Diseño instruccional y e-learning", "Comunicación interna", "People analytics y datos", "Nutrición y bienestar", "Finanzas personales para trabajadores", "Producción audiovisual", "Eventos e integración"]) + "</div>"
     how = modules([("Nos escribes", "Con tu CV o tu perfil de LinkedIn y el área en la que trabajas."),
                    ("Conversamos", "Una reunión corta para conocer tu experiencia y tu forma de trabajar."),
                    ("Primer proyecto", "Empezamos con algo acotado, con alcance y pago por escrito."),
