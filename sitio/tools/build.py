@@ -9,9 +9,10 @@ OUT = os.path.join(ROOT, "out")
 sys.path.insert(0, HERE)
 from data_services import SERVICES, ORDER
 import pages_content as PC
+import pages_extra as PX
 
 SITE = "https://espinozat.com"
-TODAY = "2026-10-11"
+TODAY = "2026-10-12"
 WA_NUM = "51974770954"
 E = html.escape
 
@@ -106,7 +107,7 @@ def footer():
       </div>
       <div><h2 class="foot-h">Servicios</h2><ul>{serv}</ul></div>
       <div><h2 class="foot-h">Programas</h2><ul>{prog}</ul></div>
-      <div><h2 class="foot-h">Espinoza T</h2><ul><li><a href="/nosotros">Nosotros</a></li><li><a href="/termometro">Termómetro de riesgo</a></li><li><a href="/empresas-grandes">Empresas grandes</a></li><li><a href="/recursos">Recursos</a></li><li><a href="/contacto">Contacto</a></li><li><a href="/red">Únete a la red de especialistas</a></li></ul></div>
+      <div><h2 class="foot-h">Espinoza T</h2><ul><li><a href="/nosotros">Nosotros</a></li><li><a href="/termometro">Termómetro de riesgo</a></li><li><a href="/calculadora-rotacion">Calculadora de rotación</a></li><li><a href="/certificado">Verificar constancia</a></li><li><a href="/empresas-grandes">Empresas grandes</a></li><li><a href="/recursos">Recursos</a></li><li><a href="/contacto">Contacto</a></li><li><a href="/red">Únete a la red de especialistas</a></li></ul></div>
     </div>
     <div class="foot-bottom"><span>© <span data-year>2026</span> Espinoza T Personas. Piensa en personas.</span><span>Las fotos de personas son imágenes ilustrativas generadas con IA.</span></div>
   </div>
@@ -143,6 +144,7 @@ def page(path, title, desc, body, graph=None, scripts=(), body_class="", og_titl
     sc = "".join('\n<script src="%s" defer></script>' % v(s) for s in scripts)
     rob = '\n<meta name="robots" content="%s">' % robots if robots else ""
     full_title = title if "Espinoza T" in title else title + " | Espinoza T Personas"
+    og_img = "/og.png" if path in ("/404",) else "/og/" + (path.strip("/").replace("/", "-") or "inicio") + ".png"
     return f'''<!doctype html>
 <html lang="es-PE">
 <head>
@@ -158,7 +160,7 @@ def page(path, title, desc, body, graph=None, scripts=(), body_class="", og_titl
 <meta property="og:title" content="{E(og_title or full_title)}">
 <meta property="og:description" content="{E(desc)}">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="{SITE}/og.png">
+<meta property="og:image" content="{SITE}{og_img}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -315,7 +317,7 @@ def build_assets():
     css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
     css = re.sub(r"\n\s*\n+", "\n", css)
     files = {"/static/site.css": css}
-    for name in ("site.js", "termometro.js", "reel.js"):
+    for name in ("site.js", "termometro.js", "reel.js", "calculadora.js", "certificado.js"):
         files["/static/" + name] = open(os.path.join(ROOT, "src", "static", name), encoding="utf-8").read()
     for name in ("lenis.min.js", "motion.js"):
         files["/vendor/" + name] = open(os.path.join(ROOT, "src", "vendor", name), encoding="utf-8").read()
@@ -342,6 +344,12 @@ def main():
     for s in ORDER: emit(svc_url(s), service_page(s), "0.9")
     for path, fn in PC.PAGES:
         emit(path, fn(sys.modules[__name__]), "0.8")
+    for path, fn, in_map in PX.NEW_PAGES:
+        if in_map: emit(path, fn(sys.modules[__name__]), "0.7")
+        else: write(path, fn(sys.modules[__name__]))
+    with open(os.path.join(OUT, "daniel.vcf"), "w", encoding="utf-8", newline="") as f: f.write(PX.VCARD)
+    cj = os.path.join(ROOT, "src", "certificados.json")
+    shutil.copy(cj, os.path.join(OUT, "certificados.json"))
     # 404, robots, sitemap, llms.txt
     with open(os.path.join(OUT, "404.html"), "w", encoding="utf-8") as f: f.write(PC.not_found(sys.modules[__name__]))
     with open(os.path.join(OUT, "robots.txt"), "w") as f:

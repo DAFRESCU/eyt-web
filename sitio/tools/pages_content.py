@@ -279,7 +279,7 @@ def home(B):
         <h2 class="reveal" id="quien-title">Daniel Franco Espinoza Cuadra</h2>
         <p class="role">Gerente General · Psicología (UCSM) · Candidato a Magíster en Gerencia del Talento Humano (UTP)</p>
         <p>Más de cinco años gestionando personas desde dentro de empresas grandes: capacitación de mandos medios, clima laboral, evaluación de desempeño, planes de sucesión e integración de equipos, en operaciones de 800 a más de 15 000 trabajadores.</p>
-        <p>Entre sus resultados: plan anual de capacitación con 100% de ejecución en una clínica, el componente de formación en su acreditación internacional y vacantes cubiertas en menos tiempo que el promedio del sector en retail.</p>
+        <p>Entre sus resultados: programas de salud mental que bajaron el estrés y el ausentismo en agroindustria, y vacantes cubiertas en menos tiempo que el promedio del sector en retail.</p>
         <p>Espinoza T Personas nace en Arequipa para llevar ese mismo rigor a empresas que no tienen un área de recursos humanos y que, igual, necesitan que su gente funcione.</p>
         <p><a class="textlink" href="/nosotros">Conocer la trayectoria completa</a></p>
       </div>
@@ -511,7 +511,7 @@ def p_nosotros(B):
     track = '''<div class="track">
   <div><b>Agroindustria e industria</b><span>Agroexportadora de más de 15 000 trabajadores, sedes de Arequipa y Chincha (2021–2023). Satisfacción laboral de 74% a 93%, programas de salud mental que redujeron el estrés y el ausentismo, cultura de comportamiento seguro y team building.</span></div>
   <div><b>Retail y sector financiero</b><span>Una cadena de retail y una cooperativa de ahorro y crédito, más de 2 500 trabajadores (2023–2024). Vacantes cubiertas en menos tiempo que el promedio del sector, plan anual de capacitación, MOF y perfiles de puesto, clima y estrategias de retención.</span></div>
-  <div><b>Salud</b><span>Una clínica privada de Arequipa, más de 800 trabajadores (2024–2026). Plan anual de capacitación con 100% de ejecución, onboarding y períodos de prueba, desempeño, sucesión y carrera, y el componente de formación del personal en la acreditación internacional Joint Commission International.</span></div>
+  <div><b>Salud</b><span>Una clínica privada de Arequipa, más de 800 trabajadores (2024–2026). Plan anual de capacitación, onboarding y períodos de prueba, evaluación de desempeño, sucesión y línea de carrera.</span></div>
   <div><b>Consultoría y capacitación externa</b><span>Desde 2016 en consultoras de RR. HH. y como independiente: capacitación en habilidades directivas y blandas para empresas de distintos rubros, y rediseño de la estrategia de talento humano en empresas de Arequipa.</span></div>
   <div><b>Formación</b><span>Psicología, Universidad Católica de Santa María. Candidato a Magíster en Gerencia del Talento Humano, Universidad Tecnológica del Perú.</span></div>
 </div>'''
@@ -546,8 +546,8 @@ def p_nosotros(B):
 </section>'''
     results = includes_grid([
         ("Agroindustria", "74% → 93%", "Satisfacción laboral en dos sedes, con programas sostenidos durante dos años."),
-        ("Salud", "Acreditación internacional", "Responsable del componente de formación del personal en la acreditación Joint Commission International de una clínica."),
-        ("Salud", "100% del plan anual", "Plan anual de capacitación ejecutado completo, con evaluación de aprendizaje e impacto."),
+        ("Salud", "Sucesión y carrera", "Evaluación de desempeño, planes de sucesión y línea de carrera en una clínica de más de 800 trabajadores."),
+        ("Salud", "Plan anual de capacitación", "Diseño y conducción del plan anual de capacitación, con onboarding y seguimiento de períodos de prueba."),
         ("Retail y finanzas", "Vacantes más rápido", "Puestos cubiertos en menos tiempo que el promedio del sector."),
         ("Agroindustria", "Menos estrés y ausentismo", "Programas de salud mental que bajaron ambos indicadores."),
         ("Varios rubros", "Supervisores formados", "Programas de habilidades directivas para líderes y de habilidades blandas para personal operativo.")])
@@ -595,7 +595,7 @@ def p_recursos(B):
         "Una lista de verificación preventiva, el Termómetro de Riesgo Laboral y las preguntas que más nos hacen. Úsalos aunque nunca trabajemos juntos.",
         '<a class="btn btn-wine" href="/termometro">Hacer el Termómetro</a><a class="textlink" href="#checklist">Ver la lista de verificación</a>')
     groups = "".join(f'<div class="card check"><small>{i+1:02d}</small><h3>{t}</h3><ul class="checklist">' + "".join(f"<li>{E(x)}</li>" for x in items) + "</ul></div>" for i, (t, items) in enumerate(CHECK))
-    check = f'''<div class="cards3">{groups}<a class="card card-navy" href="/servicios/orden-laboral"><small>¿Te faltan varios?</small><h3>Hagamos una auditoría preventiva</h3><p>Revisamos tus documentos y te entregamos un plan de corrección priorizado.</p><span class="go">Ver el servicio {B.ARROW}</span></a></div>
+    check = f'''<div class="cards3">{groups}<a class="card" href="/calculadora-rotacion"><small>Gratis</small><h3>Calculadora de rotación</h3><p>Cuánto te cuesta cada renuncia, en soles, con tus propios números.</p><span class="go">Calcular {B.ARROW}</span></a><a class="card card-navy" href="/servicios/orden-laboral"><small>¿Te faltan varios?</small><h3>Hagamos una auditoría preventiva</h3><p>Revisamos tus documentos y te entregamos un plan de corrección priorizado.</p><span class="go">Ver el servicio {B.ARROW}</span></a></div>
 <p class="note">Lista orientativa y general, preparada con fines preventivos. No reemplaza una asesoría legal ni cubre todas las obligaciones de cada régimen o rubro. Revisada en octubre de 2026.</p>'''
     body = hero + sec("checklist-t", "Lista de verificación preventiva.", check, "Lo mínimo que conviene tener en orden antes de que alguien lo revise.", sid="checklist") + B.faq_block(FAQ_GENERAL, "Preguntas frecuentes", "faq") + B.cta_band()
     return B.page("/recursos", "Recursos gratuitos: checklist laboral preventivo y preguntas frecuentes", "Lista de verificación laboral preventiva para empresas en Perú, Termómetro de Riesgo Laboral gratuito y respuestas a las preguntas más frecuentes sobre gestión de personas.",
@@ -692,5 +692,5 @@ def llms(B):
         lines.append(f"- [{t}]({B.SITE}{h}): {dsc}")
     lines += ["- [Plan mensual]({0}/plan-mensual): gerente de personas a tiempo parcial con tarifa mensual fija.".format(B.SITE), "",
               "## Más", f"- [Termómetro de Riesgo Laboral]({B.SITE}/termometro): 12 preguntas, gratis, sin guardar respuestas.",
-              f"- [Nosotros]({B.SITE}/nosotros)", f"- [Empresas grandes]({B.SITE}/empresas-grandes)", f"- [Recursos]({B.SITE}/recursos)", f"- [Contacto]({B.SITE}/contacto)", ""]
+              f"- [Calculadora del costo de la rotación]({B.SITE}/calculadora-rotacion): cuánto cuesta cada renuncia, en soles, gratis.", f"- [Verificar una constancia]({B.SITE}/certificado)", f"- [Nosotros]({B.SITE}/nosotros)", f"- [Empresas grandes]({B.SITE}/empresas-grandes)", f"- [Recursos]({B.SITE}/recursos)", f"- [Contacto]({B.SITE}/contacto)", ""]
     return "\n".join(lines)
