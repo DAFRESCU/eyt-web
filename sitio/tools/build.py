@@ -179,6 +179,7 @@ def page(path, title, desc, body, graph=None, scripts=(), body_class="", og_titl
 {quick(path)}
 <script src="{v('/vendor/lenis.min.js')}" defer></script>
 <script src="{v('/static/site.js')}" defer></script>{sc}
+<script src="/_vercel/insights/script.js" defer></script>
 </body>
 </html>
 '''
