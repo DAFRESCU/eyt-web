@@ -14,7 +14,7 @@
   var N = slides.length;
   if (N < 2 || !word) return;
 
-  var DUR = 6800;
+  var DUR = 3000;
   var idx = 0, timer = null, userPaused = reduce, hoverPaused = false, hidden = false, offscreen = false;
   reel.style.setProperty("--dur", DUR + "ms");
 

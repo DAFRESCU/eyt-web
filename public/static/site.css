@@ -246,7 +246,7 @@ footer .brand-mark span{color:var(--rose)}
 .reel-intro{opacity:1}
 .reel-layer .k{display:flex;align-items:center;gap:.6rem;font:600 .74rem/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--rose);margin:0 0 .8rem}
 .reel-layer .k::before{content:"";flex:none;width:1.6rem;height:1px;background:currentColor}
-.reel-layer .say{margin:0;max-width:31rem;font-family:var(--serif);font-weight:400;font-size:clamp(1.3rem,2.2vw,1.85rem);line-height:1.25;letter-spacing:-.015em;color:#fff;font-variation-settings:"SOFT" 50,"WONK" 0}
+.reel-layer .say{margin:0;max-width:30rem;font-family:var(--serif);font-weight:300;font-size:clamp(1.65rem,3.1vw,2.65rem);line-height:1.12;letter-spacing:-.025em;color:#fff;font-variation-settings:"SOFT" 50,"WONK" 0}
 .reel .hero-lede{color:#D8D1C5;margin-top:0;font-size:clamp(1rem,1.35vw,1.15rem)}
 .reel .hero-actions{margin-top:1.25rem}
 .reel .textlink{color:#fff}
@@ -591,13 +591,13 @@ html:not(.js) .steps-line span{transform:none}
 .reel .reel-slide{position:absolute;inset:0;opacity:0;transition:opacity 1100ms ease;pointer-events:none}
 .reel .reel-slide.on{opacity:1}
 .reel .reel-media .reel-img,.reel-media picture:first-child .reel-img{opacity:1;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 58%;transform:scale(1.02);transform-origin:50% 62%;transition:transform 0s linear 1100ms;will-change:transform}
-.reel .reel-slide.on .reel-img{transform:scale(1.09);transition:transform 9000ms linear}
+.reel .reel-slide.on .reel-img{transform:scale(1.07);transition:transform 4000ms linear}
 .reel-collage{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:3px;background:var(--navy-deep)}
 .reel-collage img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.04);transition:transform 6000ms ease-out}
 .reel-collage.on img{transform:scale(1)}
 .reel-collage img:nth-child(odd){filter:saturate(.9)}
 @media (max-width:760px){.reel-collage{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr)}}
-.reel-layers{display:grid;margin-top:clamp(1rem,2vw,1.5rem);min-height:8.6rem}
+.reel-layers{display:grid;margin-top:clamp(1rem,2vw,1.5rem);min-height:7rem}
 .reel-layer{grid-area:1/1;align-self:start;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity 450ms ease,transform 550ms var(--ease-out),visibility 0s linear 450ms}
 .reel-layer.on{opacity:1;visibility:visible;transform:none;transition-delay:260ms,260ms,0s}
 .reel .hero-actions{margin-top:1.1rem}
@@ -606,15 +606,15 @@ html:not(.js) .steps-line span{transform:none}
 .reel-cycle li{flex:1;font-size:.7rem}
 .reel-cycle li::before{content:"";display:block;height:3px;border-radius:2px;margin-bottom:.45rem;background:rgba(237,231,220,.25);background-image:linear-gradient(var(--rose),var(--rose));background-repeat:no-repeat;background-size:0% 100%}
 .reel-cycle li.done::before{background-size:100% 100%}
-.reel-cycle li.on::before{animation:reelfill var(--dur,6800ms) linear forwards}
+.reel-cycle li.on::before{animation:reelfill var(--dur,3000ms) linear forwards}
 .reel.paused .reel-cycle li.on::before{animation-play-state:paused}
 @keyframes reelfill{from{background-size:0% 100%}to{background-size:100% 100%}}
-.reel-cycle button{all:unset;box-sizing:border-box;display:block;width:100%;min-height:44px;margin-top:-.45rem;padding-top:.7rem;cursor:pointer;font:500 .72rem/1.2 var(--sans);letter-spacing:.04em;color:rgba(237,231,220,.6);transition:color 200ms ease;text-align:left}
+.reel-cycle button{all:unset;box-sizing:border-box;display:block;width:100%;min-height:44px;margin-top:-.45rem;padding-top:.7rem;cursor:pointer;font:500 .72rem/1.2 var(--sans);letter-spacing:.04em;color:transparent;font-size:0;transition:color 200ms ease;text-align:left}
 .reel-cycle li.on button{color:#fff}
 .reel-cycle button:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
 @media (hover:hover){.reel-cycle button:hover{color:#fff}}
 @media (max-width:960px){.reel-cycle{display:flex}}
-@media (max-width:640px){.reel-cycle button{font-size:0}.reel-cycle li.on button{font-size:.7rem}.reel-cycle li.on{flex:2.4}}
+@media (max-width:640px){.reel-cycle li.on{flex:2.4}}
 .reel-pause{position:absolute;right:var(--gutter);top:5.2rem;z-index:3;display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:0 .95rem;border-radius:999px;background:rgba(20,32,58,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#EDE7DC;font:600 .8rem/1 var(--sans);border:1px solid rgba(255,255,255,.18);cursor:pointer}
 .reel-pause i{display:inline-block;width:.7rem;height:.8rem;border-left:3px solid currentColor;border-right:3px solid currentColor}
 .reel-pause[aria-pressed="true"] i{border:0;width:0;height:0;border-top:.45rem solid transparent;border-bottom:.45rem solid transparent;border-left:.75rem solid currentColor}
