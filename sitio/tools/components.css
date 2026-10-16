@@ -284,7 +284,7 @@ html:not(.js) .steps-line span{transform:none}
 .meet-tabs a:hover{background:var(--navy);color:#fff}
 .vcard-band{padding-block:2.5rem 4rem}
 .vcard{max-width:26rem;margin:0 auto;text-align:center;display:grid;gap:.9rem;justify-items:center}
-.vcard-mono{width:5.5rem;height:5.5rem;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font:600 1.9rem/1 var(--serif);letter-spacing:.02em}
+.vcard-mono{width:5.5rem;height:5.5rem;border-radius:50%;background:var(--navy);overflow:hidden;color:#fff;display:grid;place-items:center;font:600 1.9rem/1 var(--serif);letter-spacing:.02em}
 .vcard h1{font-size:clamp(2rem,6vw,2.6rem);margin:0;color:var(--navy)}
 .vcard-role{margin:0;font-weight:600;color:var(--wine)}
 .vcard-tag{margin:0;color:var(--ink-soft)}

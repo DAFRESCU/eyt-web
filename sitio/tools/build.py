@@ -10,9 +10,10 @@ sys.path.insert(0, HERE)
 from data_services import SERVICES, ORDER
 import pages_content as PC
 import pages_extra as PX
+import pages_v2 as V2
 
 SITE = "https://espinozat.com"
-TODAY = "2026-10-12"
+TODAY = "2026-10-15"
 WA_NUM = "51974770954"
 E = html.escape
 
@@ -37,26 +38,34 @@ def svc_url(slug): return "/servicios/" + slug
 def wa_btn(text, label, cls="btn btn-wine", icon=True):
     return '<a class="%s" data-wa="%s" href="https://wa.me/%s">%s%s</a>' % (cls, E(text), WA_NUM, WA_SVG if icon else "", label)
 
+AUD = [("/empresas", "Empresas", "Equipos que rinden, jefes que dirigen y gestión laboral en regla."),
+       ("/instituciones", "Instituciones", "Municipalidades, universidades, gremios y organizaciones."),
+       ("/comunidades", "Comunidades", "Colegios, equipos, grupos, familias y personas.")]
+UNIT_DESC = {s_: (n_, d_) for s_, n_, d_ in V2.UNITS}
+
 def header(path):
     def cur(href):
         return ' aria-current="page"' if path == href else ""
-    serv_cur = path.startswith("/servicios") or path in ("/plan-mensual-x",)
+    serv_cur = path.startswith("/servicios")
     prog_cur = path.startswith("/programas") or path == "/cierre-2026"
-    serv_links = "".join('<a href="%s"%s><b><small>%s</small>%s</b><span>%s</span></a>' % (svc_url(s), cur(svc_url(s)), SERVICES[s]["unit"], SERVICES[s]["nav"], SERVICES[s]["nav_desc"]) for s in ORDER)
-    serv_links += '<div class="menu-foot"><a href="/plan-mensual"%s><b>Plan mensual</b><span>Tu gerente de personas a tiempo parcial.</span></a><a href="/empresas-grandes"%s><b>Empresas grandes</b><span>Más de 500 trabajadores, por proyecto o programa.</span></a></div>' % (cur("/plan-mensual"), cur("/empresas-grandes"))
+    aud_cur = path in ("/empresas", "/instituciones", "/comunidades")
+    herr_cur = path in ("/herramientas", "/termometro", "/cumple-ley-27942", "/brujula", "/calculadora-rotacion")
+    serv_links = "".join('<a href="%s"%s><b>%s</b><span>%s</span></a>' % (svc_url(s), cur(svc_url(s)), UNIT_DESC[s][0], UNIT_DESC[s][1]) for s in ORDER)
+    serv_links += '<div class="menu-foot"><a href="/empresas-grandes"%s><b>Empresas grandes</b><span>Más de 500 trabajadores, por proyecto o programa.</span></a></div>' % cur("/empresas-grandes")
+    aud_links = "".join('<a href="%s"%s><b>%s</b><span>%s</span></a>' % (h, cur(h), t, d) for h, t, d in AUD)
     prog_links = "".join('<a href="%s"%s><b>%s</b><span>%s</span></a>' % (h, cur(h), t, d) for h, t, d in PROGRAMS)
     return f'''<header class="top" id="top">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="Espinoza T Personas, inicio"><span class="brand-mark">Espinoza <span>T</span></span><span class="brand-sub">Personas</span></a>
+    <a class="brand" href="/" aria-label="Espinoza T Personas, inicio"><img class="brand-logo" src="/logo-horizontal.svg" width="265" height="40" alt="Espinoza T Personas"></a>
     <nav class="nav" aria-label="Principal">
       <span class="nav-pill" aria-hidden="true"></span>
+      <div class="nav-item has-menu{' is-current' if aud_cur else ''}"><button class="nav-link" type="button" aria-expanded="false" aria-controls="m-aud">Para quién {CHEV}</button><div class="menu" id="m-aud">{aud_links}</div></div>
       <div class="nav-item has-menu{' is-current' if serv_cur else ''}"><button class="nav-link" type="button" aria-expanded="false" aria-controls="m-serv">Servicios {CHEV}</button><div class="menu menu-wide" id="m-serv">{serv_links}</div></div>
       <div class="nav-item has-menu{' is-current' if prog_cur else ''}"><button class="nav-link" type="button" aria-expanded="false" aria-controls="m-prog">Programas {CHEV}</button><div class="menu" id="m-prog">{prog_links}</div></div>
-      <a class="nav-link" href="/plan-mensual"{cur("/plan-mensual")}>Plan mensual</a>
-      <a class="nav-link" href="/termometro"{cur("/termometro")}>Termómetro <span class="tag-free">gratis</span></a>
+      <a class="nav-link{' is-current' if herr_cur else ''}" href="/herramientas"{cur("/herramientas")}>Herramientas <span class="tag-free">gratis</span></a>
       <a class="nav-link" href="/nosotros"{cur("/nosotros")}>Nosotros</a>
       <a class="nav-link" href="/contacto"{cur("/contacto")}>Contacto</a>
-      {wa_btn("Hola Daniel, vi la web de Espinoza T Personas y quiero conversar sobre mi empresa.", "Conversemos", "btn btn-wine btn-small", icon=False)}
+      {wa_btn("Hola Espinoza T, vi la web de Espinoza T Personas y quiero conversar.", "Conversemos", "btn btn-wine btn-small", icon=False)}
     </nav>
     <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="sheet"><i aria-hidden="true"></i>Menú</button>
   </div>
@@ -64,50 +73,52 @@ def header(path):
 
 def sheet(path):
     def cur(href): return ' aria-current="page"' if path == href else ""
-    serv = "".join('<a href="%s"%s><small>%s</small>%s</a>' % (svc_url(s), cur(svc_url(s)), SERVICES[s]["unit"], SERVICES[s]["nav"]) for s in ORDER)
+    serv = "".join('<a href="%s"%s>%s</a>' % (svc_url(s), cur(svc_url(s)), UNIT_DESC[s][0]) for s in ORDER)
+    aud = "".join('<a href="%s"%s>%s</a>' % (h, cur(h), t) for h, t, d in AUD)
+    ao = " open" if path in ("/empresas", "/instituciones", "/comunidades") else ""
     prog = "".join('<a href="%s"%s>%s</a>' % (h, cur(h), t) for h, t, d in PROGRAMS)
     so = " open" if path.startswith("/servicios") else ""
     po = " open" if (path.startswith("/programas") or path == "/cierre-2026") else ""
     return f'''<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="Menú">
-  <div class="sheet-top"><a class="brand" href="/" aria-label="Espinoza T Personas, inicio"><span class="brand-mark">Espinoza <span>T</span></span><span class="brand-sub">Personas</span></a><button class="sheet-close" type="button" aria-label="Cerrar menú">{CLOSE}</button></div>
+  <div class="sheet-top"><a class="brand" href="/" aria-label="Espinoza T Personas, inicio"><img class="brand-logo" src="/logo-horizontal-claro.svg" width="265" height="40" alt="Espinoza T Personas"></a><button class="sheet-close" type="button" aria-label="Cerrar menú">{CLOSE}</button></div>
   <nav class="sheet-body" aria-label="Menú del celular">
     <a href="/"{cur("/")}>Inicio</a>
+    <details{ao}><summary>Para quién {CHEV}</summary><div class="sheet-sub">{aud}</div></details>
     <details{so}><summary>Servicios {CHEV}</summary><div class="sheet-sub">{serv}</div></details>
     <details{po}><summary>Programas {CHEV}</summary><div class="sheet-sub">{prog}</div></details>
-    <a href="/plan-mensual"{cur("/plan-mensual")}>Plan mensual</a>
-    <a href="/termometro"{cur("/termometro")}>Termómetro <span class="tag-free">gratis</span></a>
+    <a href="/herramientas"{cur("/herramientas")}>Herramientas <span class="tag-free">gratis</span></a>
     <a href="/nosotros"{cur("/nosotros")}>Nosotros</a>
     <a href="/empresas-grandes"{cur("/empresas-grandes")}>Empresas grandes</a>
     <a href="/recursos"{cur("/recursos")}>Recursos</a>
     <a href="/contacto"{cur("/contacto")}>Contacto</a>
   </nav>
   <div class="sheet-foot">
-    {wa_btn("Hola Daniel, vi la web de Espinoza T Personas y quiero conversar sobre mi empresa.", "Escríbenos por WhatsApp")}
+    {wa_btn("Hola Espinoza T, vi la web de Espinoza T Personas y quiero conversar sobre mi empresa.", "Escríbenos por WhatsApp")}
     <a class="btn btn-outline" href="tel:+51974770954">Llamar al 974 770 954</a>
   </div>
 </div>'''
 
 def quick(path):
-    termo = "#termometro" if path in ("/", "/termometro") else "/termometro"
+    termo = "#herramientas" if path == "/" else "/herramientas"
     return f'''<aside class="quick" aria-label="Contacto rápido">
-  <div class="mbar" id="mbar"><a class="btn btn-ghost" href="{termo}">Mide tu riesgo gratis</a>{wa_btn("Hola Daniel, vi la web de Espinoza T Personas y quiero conversar.", "WhatsApp")}</div>
-  <a class="wa-float" id="wa-float" data-wa="Hola Daniel, vi la web de Espinoza T Personas y quiero conversar." href="https://wa.me/{WA_NUM}" aria-label="Escríbenos por WhatsApp">{WA_SVG}</a>
+  <div class="mbar" id="mbar"><a class="btn btn-ghost" href="{termo}">Herramientas gratis</a>{wa_btn("Hola Espinoza T, vi la web de Espinoza T Personas y quiero conversar.", "WhatsApp")}</div>
+  <a class="wa-float" id="wa-float" data-wa="Hola Espinoza T, vi la web de Espinoza T Personas y quiero conversar." href="https://wa.me/{WA_NUM}" aria-label="Escríbenos por WhatsApp">{WA_SVG}</a>
 </aside>'''
 
 def footer():
-    serv = "".join('<li><a href="%s">%s</a></li>' % (svc_url(s), SERVICES[s]["nav"]) for s in ORDER)
-    prog = "".join('<li><a href="%s">%s</a></li>' % (h, t) for h, t, d in PROGRAMS) + '<li><a href="/plan-mensual">Plan mensual</a></li>'
+    serv = "".join('<li><a href="%s">%s</a></li>' % (svc_url(s), UNIT_DESC[s][0]) for s in ORDER)
+    prog = "".join('<li><a href="%s">%s</a></li>' % (h, t) for h, t, d in PROGRAMS)
     return f'''<footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="brand-mark" href="/">Espinoza <span>T</span> Personas</a>
-        <p class="foot-tag">Capacitación, desarrollo, cultura y clima para empresas de Arequipa, desde 20 trabajadores hasta corporaciones.</p>
+        <a class="foot-logo" href="/" aria-label="Espinoza T Personas, inicio"><img src="/logo-horizontal-claro.svg" width="272" height="41" alt="Espinoza T Personas" loading="lazy"></a>
+        <p class="foot-tag">Capacitación, desarrollo, cultura y clima para empresas, instituciones y comunidades, desde Arequipa.</p>
         <div class="foot-contact"><a href="tel:+51974770954">974 770 954</a><a href="mailto:gerencia@espinozat.com">gerencia@espinozat.com</a><span>Arequipa, Perú</span></div>
       </div>
       <div><h2 class="foot-h">Servicios</h2><ul>{serv}</ul></div>
       <div><h2 class="foot-h">Programas</h2><ul>{prog}</ul></div>
-      <div><h2 class="foot-h">Espinoza T</h2><ul><li><a href="/nosotros">Nosotros</a></li><li><a href="/termometro">Termómetro de riesgo</a></li><li><a href="/calculadora-rotacion">Calculadora de rotación</a></li><li><a href="/certificado">Verificar constancia</a></li><li><a href="/empresas-grandes">Empresas grandes</a></li><li><a href="/recursos">Recursos</a></li><li><a href="/contacto">Contacto</a></li><li><a href="/red">Únete a la red de especialistas</a></li></ul></div>
+      <div><h2 class="foot-h">Espinoza T</h2><ul><li><a href="/nosotros">Nosotros</a></li><li><a href="/empresas">Empresas</a></li><li><a href="/instituciones">Instituciones</a></li><li><a href="/comunidades">Comunidades</a></li><li><a href="/herramientas">Herramientas gratis</a></li><li><a href="/termometro">Termómetro de riesgo</a></li><li><a href="/cumple-ley-27942">¿Cumples la Ley 27942?</a></li><li><a href="/brujula">Brújula vocacional</a></li><li><a href="/calculadora-rotacion">Calculadora de rotación</a></li><li><a href="/certificado">Verificar constancia</a></li><li><a href="/empresas-grandes">Empresas grandes</a></li><li><a href="/recursos">Recursos</a></li><li><a href="/guias">Guías</a></li><li><a href="/contacto">Contacto</a></li><li><a href="/red">Únete a la red de especialistas</a></li></ul></div>
     </div>
     <div class="foot-bottom"><span>© <span data-year>2026</span> Espinoza T Personas. Piensa en personas.</span><span>Las fotos de personas son imágenes ilustrativas generadas con IA.</span></div>
   </div>
@@ -115,12 +126,12 @@ def footer():
 
 ORG = {
     "@type": "ProfessionalService", "@id": SITE + "/#empresa", "name": "Espinoza T Personas",
-    "slogan": "Piensa en personas.", "url": SITE + "/", "image": SITE + "/og.png", "logo": SITE + "/favicon.svg",
+    "slogan": "Piensa en personas.", "url": SITE + "/", "image": SITE + "/og.png", "logo": SITE + "/monograma.svg",
     "email": "gerencia@espinozat.com", "telephone": "+51 974 770 954",
     "description": "Consultora de gestión de personas en Arequipa: capacitación, desarrollo, cultura y clima laboral para empresas desde 20 trabajadores hasta corporaciones.",
     "address": {"@type": "PostalAddress", "addressLocality": "Arequipa", "addressRegion": "Arequipa", "addressCountry": "PE"},
     "areaServed": [{"@type": "City", "name": "Arequipa"}, {"@type": "City", "name": "Cusco"}, {"@type": "City", "name": "Ica"}, {"@type": "Country", "name": "Perú"}],
-    "founder": {"@type": "Person", "@id": SITE + "/nosotros#daniel", "name": "Daniel Franco Espinoza Cuadra", "jobTitle": "Gerente General",
+    "founder": {"@type": "Person", "@id": SITE + "/nosotros#daniel", "name": "Daniel Espinoza C.", "jobTitle": "Fundador y Gerente General",
                 "alumniOf": {"@type": "CollegeOrUniversity", "name": "Universidad Católica de Santa María"}},
     "knowsAbout": ["Capacitación empresarial", "Liderazgo de supervisores y mandos medios", "Clima laboral", "Cultura organizacional",
                    "Selección de personal", "Evaluación de desempeño", "Perfiles de puesto y MOF", "Auditoría laboral preventiva",
@@ -223,7 +234,7 @@ def faq_block(faq, title="Preguntas frecuentes", hid="faq"):
   </div>
 </section>'''
 
-def cta_band(h2="Conversemos 45 minutos.", p="Cuéntanos qué está pasando con tu equipo. Si no podemos ayudarte, te lo decimos en la primera reunión.", wa="Hola Daniel, quiero agendar el diagnóstico de 45 minutos sin costo.", hid="cta"):
+def cta_band(h2="Conversemos 45 minutos.", p="Cuéntanos qué está pasando con tu equipo. Si no podemos ayudarte, te lo decimos en la primera reunión.", wa="Hola Espinoza T, quiero agendar el diagnóstico de 45 minutos sin costo.", hid="cta"):
     return f'''<section class="cta-band" aria-labelledby="{hid}">
   <div class="wrap">
     <h2 class="reveal" id="{hid}">{h2}</h2>
@@ -242,7 +253,7 @@ def service_page(slug):
     d = SERVICES[slug]
     url = svc_url(slug)
     hero = page_hero([("Servicios", None), (d["nav"], None)], f'{d["unit"]} · {d["unit_name"]}', d["h1"], d["lede"],
-                     wa_btn(f'Hola Daniel, me interesa {d["nav"].lower()} para mi empresa. ¿Agendamos el diagnóstico de 45 minutos?', "Agenda tu diagnóstico sin costo") + '<a class="textlink" href="#servicios-lista">Ver los servicios</a>',
+                     wa_btn(f'Hola Espinoza T, me interesa {d["nav"].lower()} para mi empresa. ¿Agendamos el diagnóstico de 45 minutos?', "Agenda tu diagnóstico sin costo") + '<a class="textlink" href="#servicios-lista">Ver los servicios</a>',
                      d["facts"])
     hero = hero.replace('<nav class="crumbs" aria-label="Ruta"><a href="/">Inicio</a><span aria-hidden="true">/</span><span aria-current="page">Servicios</span>', '<nav class="crumbs" aria-label="Ruta"><a href="/">Inicio</a><span aria-hidden="true">/</span><span>Servicios</span>')
     signals = f'''<section class="band" aria-labelledby="senales">
@@ -262,7 +273,7 @@ def service_page(slug):
 </section>'''
     cards = []
     for i, s in enumerate(d["services"]):
-        msg = f'Hola Daniel, me interesa el servicio: {s["name"]}. ¿Podemos conversar?'
+        msg = f'Hola Espinoza T, me interesa el servicio: {s["name"]}. ¿Podemos conversar?'
         cards.append(f'''<details class="svc"{" open" if i == 0 else ""}>
   <summary><div><h3>{E(s["name"])}</h3><p>{E(s["short"])}</p></div>{PLUS}</summary>
   <div class="svc-body">
@@ -313,11 +324,11 @@ def write(path, content):
 def build_assets():
     st = os.path.join(OUT, "static"); vd = os.path.join(OUT, "vendor")
     os.makedirs(st, exist_ok=True); os.makedirs(vd, exist_ok=True)
-    css = open(os.path.join(HERE, "base.css"), encoding="utf-8").read() + "\n" + open(os.path.join(HERE, "components.css"), encoding="utf-8").read()
+    css = open(os.path.join(HERE, "base.css"), encoding="utf-8").read() + "\n" + open(os.path.join(HERE, "components.css"), encoding="utf-8").read() + "\n" + open(os.path.join(HERE, "v2.css"), encoding="utf-8").read()
     css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
     css = re.sub(r"\n\s*\n+", "\n", css)
     files = {"/static/site.css": css}
-    for name in ("site.js", "termometro.js", "reel.js", "calculadora.js", "certificado.js"):
+    for name in ("site.js", "termometro.js", "reel.js", "quiz.js", "calculadora.js", "certificado.js"):
         files["/static/" + name] = open(os.path.join(ROOT, "src", "static", name), encoding="utf-8").read()
     for name in ("lenis.min.js", "motion.js"):
         files["/vendor/" + name] = open(os.path.join(ROOT, "src", "vendor", name), encoding="utf-8").read()
@@ -330,8 +341,10 @@ def build_assets():
         return a if os.path.exists(a) else os.path.join(ROOT, "..", "public", name)
     for d in ("fonts", "personas"):
         shutil.copytree(src(d), os.path.join(OUT, d), dirs_exist_ok=True)
-    for f in ("favicon.svg", "og.png"):
-        shutil.copy(src(f), os.path.join(OUT, f))
+    shutil.copy(os.path.join(os.path.dirname(os.path.abspath(__file__)), "brand", "favicon.svg"), os.path.join(OUT, "favicon.svg"))
+    shutil.copy(src("og.png"), os.path.join(OUT, "og.png"))
+    for f in os.listdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), "brand")):
+        if f.endswith(".svg") and f != "favicon.svg": shutil.copy(os.path.join(os.path.dirname(os.path.abspath(__file__)), "brand", f), os.path.join(OUT, f))
 
 def main():
     if os.path.isdir(OUT): shutil.rmtree(OUT)
@@ -340,9 +353,12 @@ def main():
     urls = []
     def emit(path, html_, prio="0.7"):
         write(path, html_); urls.append((path, prio))
-    emit("/", PC.home(sys.modules[__name__]), "1.0")
+    emit("/", V2.home(sys.modules[__name__]), "1.0")
     for s in ORDER: emit(svc_url(s), service_page(s), "0.9")
+    for path, fn in V2.NEW_PAGES:
+        emit(path, fn(sys.modules[__name__]), "0.9")
     for path, fn in PC.PAGES:
+        if path == "/termometro": continue
         emit(path, fn(sys.modules[__name__]), "0.8")
     for path, fn, in_map in PX.NEW_PAGES:
         if in_map: emit(path, fn(sys.modules[__name__]), "0.7")

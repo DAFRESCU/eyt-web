@@ -1,0 +1,122 @@
+ORDEN,EMPRESA,INDUSTRIA,CONTACTO_NOMBRE,PUESTO,TELÉFONO,EMAIL,TIPO_CONTACTO,FECHA_EMAIL,STATUS_EMAIL,FECHA_LLAMADA,RESULTADO_LLAMADA,OBSERVACIONES,PRÓXIMO_PASO
+
+1,,,,,,,PERSONAL/REFERENCIA,,Pendiente envío,,,Contactos que conoces personalmente o que te recomienden,,
+2,,,,,,,PERSONAL/REFERENCIA,,Pendiente envío,,,Ej: Gerentes de Clínica San Pablo (donde trabajaste),,
+3,,,,,,,LINKEDIN,,,Pendiente llamada,,,Búsqueda: Gerente General + Lima + empresa 30-150 personas,,
+4,,,,,,,LINKEDIN,,,Pendiente llamada,,,Búsqueda: Jefe RR.HH. + empresa de servicios,,
+5,,,,,,,REFERENCIA_FAMILIA,,,Pendiente llamada,,,Red de Denisse: Educación, Comunicación, etc.,,
+6,,,,,,,REFERENCIA_FAMILIA,,,Pendiente llamada,,,Red familiar: Contactos de negocios,,
+7,,,,,,,DIRECTORIO_EMPRESARIAL,,,Pendiente llamada,,,Búsqueda en Google: "Empresas +50 personas Lima",,
+8,,,,,,,DIRECTORIO_EMPRESARIAL,,,Pendiente llamada,,,Búsqueda: Cámara de Comercio Lima,,
+9,,,,,,,COLD_CALL,,,Pendiente llamada,,,Empresas similares a Clínica San Pablo,,
+10,,,,,,,COLD_CALL,,,Pendiente llamada,,,Empresas de retail/restaurantes (supervisores),,
+
+INSTRUCCIONES:
+- Columna EMPRESA: Nombre exacto de la empresa
+- Columna CONTACTO_NOMBRE: Nombre completo del gerente/RR.HH.
+- Columna TIPO_CONTACTO: Cómo lo encontraste (personal, referencia, LinkedIn, etc.)
+- Columna STATUS_EMAIL: "Enviado", "Pendiente envío", "No contesta", "Interesado", "No interesado"
+- Columna RESULTADO_LLAMADA: "Venta", "Follow-up", "Referencia", "No interesado"
+- Columna PRÓXIMO_PASO: "Propuesta", "Llamada [FECHA]", "Esperar respuesta", "Cerrado"
+
+EJEMPLO LLENADO:
+
+ORDEN,EMPRESA,INDUSTRIA,CONTACTO_NOMBRE,PUESTO,TELÉFONO,EMAIL,TIPO_CONTACTO,FECHA_EMAIL,STATUS_EMAIL,FECHA_LLAMADA,RESULTADO_LLAMADA,OBSERVACIONES,PRÓXIMO_PASO
+1,Clínica San Pablo,Salud,Carlos Rivas,Gerente RRHH,999111222,c.rivas@sanpablo.com,PERSONAL,9-Sept,Enviado,12-Sept,Venta,Quiere 15 supervisores,Propuesta
+2,MG Logística,Logística,Roberto López,Gerente General,999222333,r.lopez@mglog.com,LINKEDIN,9-Sept,Enviado,13-Sept,Follow-up,Dijo "quizás en oct",Llamar 20-Sept
+3,Retail ABC,Retail,Mariana Flores,RR.HH. Manager,999333444,m.flores@retail.com,REFERENCIA_FAMILIA,9-Sept,Enviado,12-Sept,Referencia,Derivó a colega,Contacto nuevo
+
+---
+
+CÓMO LLENAR ESTE TRACKER:
+
+PASO 1 (Hoy):
+- Llena ORDEN, EMPRESA, CONTACTO_NOMBRE, TELÉFONO, EMAIL
+- Define TIPO_CONTACTO (cómo lo encontraste)
+- Anota FECHA_EMAIL (cuando enviaste el email)
+
+PASO 2 (Después de enviar email):
+- Actualiza STATUS_EMAIL ("Enviado")
+
+PASO 3 (Cuando responden):
+- Actualiza STATUS_EMAIL ("Interesado" o "No interesado")
+- Anota FECHA_LLAMADA
+
+PASO 4 (Después de la llamada):
+- Anota RESULTADO_LLAMADA ("Venta", "Follow-up", "Referencia", "No")
+- Anota OBSERVACIONES (qué dijo, qué necesita, cuál fue su problema)
+- Define PRÓXIMO_PASO (Propuesta, Llamar [FECHA], Esperar, Cerrado)
+
+---
+
+DÓNDE ENCONTRAR LOS 10 CONTACTOS:
+
+**Categoría 1: PERSONALES (2-3 contactos)**
+- Personas donde trabajaste (Clínica San Pablo, empresa anterior)
+- Gerentes que conoces personalmente
+- Clientes de tu familia (Hotel Bella Unión, agricultura)
+
+**Categoría 2: REFERENCIAS DE FAMILIA (2-3 contactos)**
+- Network de Denisse (educación, comunicación, gestión)
+- Amigos empresarios que conozcas
+- Contactos del mundo agrícola (tíos, primos con empresas)
+
+**Categoría 3: LINKEDIN (2 contactos)**
+- Busca: "Gerente General" + "Lima" + "empresa de [industria]"
+- Busca: "Jefe RRHH" + "empresas de servicios" + "Lima"
+- Conecta con un mensaje personalizado: "Hola [NOMBRE], vi tu perfil y me gustaría conversar sobre talleres de liderazgo. ¿Tienes 20 min?"
+
+**Categoría 4: DIRECTORIOS/GOOGLE (2-3 contactos)**
+- Busca: "Empresas 50-200 personas Lima"
+- Entra a websites, busca "Contacto" o "Quiénes somos"
+- Anota nombre del gerente (si aparece) o llama: "¿Hablo con [Gerente General / RR.HH.]?"
+
+**Categoría 5: COLD CALLING (1-2 contactos)**
+- Retail/restaurantes en tu zona (tienden a tener muchos supervisores)
+- Empresas de servicios (limpieza, seguridad, etc.)
+- Llama directo: "Hola, soy Daniel de E&T. ¿Quién es el jefe de RRHH / Operaciones?"
+
+---
+
+TIMELINE RECOMENDADO:
+
+**Lunes 8 Sept (TARDE):**
+- Llena ORDEN 1-5 (personales + referencias)
+- Copia estos contactos a Google Sheets o Excel para tener en vivo
+
+**Martes 9 Sept (TODO EL DÍA):**
+- Llena ORDEN 6-10 (LinkedIn + directorios + cold calling)
+- Verifica emails y teléfonos (búsqueda Google rápida)
+
+**Miércoles 10 Sept:**
+- Envía emails a los 10
+- Actualiza STATUS_EMAIL a "Enviado"
+
+**Jueves-Viernes 12-14 Sept:**
+- Llama a los que respondieron
+- Actualiza RESULTADO_LLAMADA
+
+**Fin de semana:**
+- CIERRE DE VENTA (AL MENOS 1)
+
+---
+
+MÉTRICAS CLAVE:
+
+- Email enviado: 10
+- Tasa de respuesta esperada: 30-50% (3-5 respuestas)
+- Llamadas confirmadas: 3-5
+- Conversión esperada: 20-30% (1-2 ventas de 5 llamadas)
+- **MÍNIMO ACEPTABLE: 1 VENTA EN 14 DÍAS**
+
+Si en el día 10 tienes 0 ventas y 0 seguimiento prometedor, DOBLA LISTA (otros 10 contactos).
+
+---
+
+GUARDAR ESTE ARCHIVO:
+
+Opción A: Google Sheets (compartido, editable en vivo)
+Opción B: Excel en tu compu
+Opción C: Notion (si usas)
+
+**CRÍTICO:** Actualiza este tracker CADA DÍA. Es tu fuente de verdad de dónde está cada oportunidad.

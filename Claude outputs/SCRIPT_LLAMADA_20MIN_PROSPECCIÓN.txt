@@ -1,0 +1,212 @@
+SCRIPT DE LLAMADA — 20 MINUTOS
+Taller de Liderazgo para Supervisores
+
+DURACIÓN: 20 minutos máximo
+OBJETIVO: Cerrar la llamada con UNA de estas opciones:
+  A) "Sí, quiero el taller" → Agenda fecha/lugar/hora
+  B) "Quizás, me llamas en X fecha" → Agenda follow-up
+  C) "No es el momento" → Pide referencia → Gracias y corta
+
+---
+
+## MINUTO 0-1: APERTURA Y CONTEXTO
+
+TÚ: "Hola [NOMBRE], soy Daniel Espinoza, de E&T. ¿Tienes 20 minutos ahora o te llamo después?"
+
+[PAUSA. Espera confirmación]
+
+TÚ: "Perfecto. Te llamo porque vimos que ustedes tienen un equipo de supervisores, y hace poco diseñamos un taller que muchas empresas estaban buscando. ¿Tienes 2 minutos para que te cuente de qué va?"
+
+[PAUSA. Escucha]
+
+---
+
+## MINUTO 1-3: CONTEXTO (PROBLEMA)
+
+TÚ: "Casi siempre el desafío es el mismo: Supervisores que saben MUCHO de operación, pero no tienen herramientas claras para dirigir personas. Entonces:
+- No saben cómo dar feedback sin que la gente se cierre
+- No saben cómo motivar sin estar encima
+- Cuando hay conflicto, se va de las manos
+
+¿Te suena familiar?"
+
+[PAUSA. Escucha respuesta. Si dice "sí", continúa. Si dice "no", salta a Minuto 8]
+
+---
+
+## MINUTO 3-7: DIAGNÓSTICO (PREGUNTAS)
+
+TÚ: "Déjame hacerte 2-3 preguntas rápidas para ver si la solución que tenemos te sirve.
+
+**Pregunta 1:** ¿Cuántos supervisores tienen ahorita?"
+
+[ESCUCHA. Anota número]
+
+TÚ: "¿Y cuál sería el desafío NÚMERO 1 que ves en ellos? ¿Qué es lo que más dolores de cabeza te causa?"
+
+[ESCUCHA CON ATENCIÓN. Apunta la respuesta EXACTA. Este es tu HOOK.]
+
+[Si dice: "No saben dar feedback" → perfecto, es uno de nuestros módulos]
+[Si dice: "Baja motivación" → perfecto, es nuestro módulo 3]
+[Si dice: "Conflictos sin resolver" → perfecto, es nuestro módulo 3]
+[Si dice: "No hay accountability" → perfecto, es nuestro módulo 4]
+
+TÚ: "Exacto, eso es lo que escucho muy seguido. Por eso diseñamos un taller que DIRECTAMENTE va al módulo de [REPITE LO QUE DIJO]. Está dividido en 4 partes:
+
+**1. Liderazgo Situacional** — cómo adaptar tu estilo según el momento
+**2. Feedback Efectivo** — cómo conversar sin que la gente se cierre
+**3. Motivación y Conflictos** — cómo mantener equipos energizados
+**4. Accountability** — cómo hacer seguimiento sin micromanagment
+
+Todo en 8 horas, con dinámicas, rol-play, y herramientas que usan el mismo día."
+
+[PAUSA]
+
+---
+
+## MINUTO 7-12: OFERTA
+
+TÚ: "La inversión es S/1,200 por taller (para hasta 25 supervisores).
+
+Puede ser:
+- Un día completo (8am-5pm)
+- O dos días de 4 horas
+
+¿Cuál de esas opciones te hace más sentido?"
+
+[ESPERA RESPUESTA. Si dice opción, ANUTAR: "Día completo" o "Dos días"]
+
+TÚ: "Perfecto. Y en cuanto a contenido: ¿Qué tan alineado está esto con lo que necesitas?"
+
+[ESPERA RESPUESTA]
+
+---
+
+## MINUTO 12-17: CIERRE (DECISIÓN)
+
+**ESCENARIO A: Cliente dice "Sí, quiero hacerlo"**
+
+TÚ: "Excelente. Algunos detalles rápidos:
+- ¿Cuántos supervisores participarían?
+- ¿Qué mes te hace mejor?
+- ¿Sábado, viernes, o entre semana?"
+
+[ANOTA RESPUESTAS]
+
+TÚ: "Perfecto. Te envío mañana la propuesta con fechas exactas, qué incluye, y la forma de pago. La idea es que revises, y nos juntamos 10 minutos para confirmar los detalles últimos. ¿Email o WhatsApp?"
+
+[ANOTA EMAIL/WHATSAPP]
+
+TÚ: "Listo, nos hablamos mañana. Gracias por el tiempo, [NOMBRE]."
+
+**→ LLAMADA CIERRE: Venta agendada ✅**
+
+---
+
+**ESCENARIO B: Cliente dice "Suena interesante pero necesito pensarlo"**
+
+TÚ: "Perfecto, es lo normal. ¿Cuál sería el timming? ¿Me llamas en 1 semana? ¿En 2 semanas? ¿O prefieres que te llame yo?"
+
+[ANOTA FECHA]
+
+TÚ: "Listo, nos hablamos el [FECHA]. Mientras, te envío la propuesta para que la revises tranquilo. ¿Puedo enviarte algo a [EMAIL/WHATSAPP]?"
+
+[ANOTA CONTACTO]
+
+TÚ: "Perfecto. Gracias por el tiempo, [NOMBRE], hablamos pronto."
+
+**→ LLAMADA CIERRE: Follow-up agendado ✅**
+
+---
+
+**ESCENARIO C: Cliente dice "No es el momento" O "No tenemos presupuesto"**
+
+TÚ: "Entiendo. Los presupuestos son limitados. Una pregunta antes de colgar: ¿Hay alguien en tu red que PODRÍA beneficiarse de esto? (Otro gerente, jefe de operaciones, alguien que conozcas)"
+
+[SI DICE SÍ: Toma nombre y contacto. Luego: "¿Puedo mencionar que tú me los recomendaste?" CIERRA]
+
+[SI DICE NO: "Listo, perfecto. Nos mantenemos en contacto. Gracias, [NOMBRE]." CIERRA]
+
+**→ LLAMADA CIERRE: Referencia o descarte limpio ✅**
+
+---
+
+## MINUTO 17-20: CIERRE FINAL (TODOS LOS ESCENARIOS)
+
+TÚ: "[Según escenario, repite lo que va a pasar]
+
+Te envío [PROPUESTA / CONTACTO DE REFERENCIA / NADA] mañana.
+
+Gracias por el tiempo, [NOMBRE]. Un placer."
+
+[CUELGA]
+
+---
+
+## CHECKLIST ANTES DE LLAMAR
+
+- [ ] Nombre pronunciado correctamente
+- [ ] Número de teléfono anotado
+- [ ] Contexto empresarial anotado (tamaño, industria si la conoces)
+- [ ] Estoy en lugar tranquilo (sin ruido)
+- [ ] Tengo papel + pen para anotar
+
+---
+
+## REGLAS DE ORO
+
+❌ NO hables más de 30 segundos sin pausar
+❌ NO menciones precio hasta minuto 10+
+❌ NO suenes como vendedor de seguros (suena natural)
+❌ NO digas "Es que...". Solo declara.
+❌ NO premura. Si dice "no", está bien.
+
+✅ SIENTAS que es UNA CONVERSACIÓN, no un pitch
+✅ REPITE LO QUE EL CLIENTE DICE (validation)
+✅ TOMA NOTAS DETALLADAS (parecerá profesional)
+✅ TRATA COMO SI TUVIERAS 10 CLIENTES MÁS (no es tu única oportunidad)
+
+---
+
+## DESPUÉS DE LA LLAMADA
+
+**Inmediatamente después (5 min):**
+- Anota TODO lo que dijo el cliente (frases exactas)
+- Anota qué frase tuya funcionó mejor
+- Anota qué frase tuya NO funcionó
+
+**Mismo día o al día siguiente:**
+- Envía propuesta / confirmación
+- Muestra profesionalismo (sin typos, bien formateado)
+- Incluye links / documentos claros
+
+---
+
+## TRACKER DE LLAMADAS
+
+Usa este formato para anotar cada llamada:
+
+```
+LLAMADA 1
+- Nombre: [NOMBRE COMPLETO]
+- Empresa: [NOMBRE]
+- Industria: [INDUSTRIA]
+- Supervisores: [NÚMERO]
+- Problema principal: [LO QUE DIJO]
+- Resultado: [VENTA / FOLLOW-UP / REFERENCIA / NO]
+- Próximo paso: [QUÉ PASA AHORA]
+- Email/WhatsApp: [CONTACTO VÁLIDO]
+```
+
+Copia este template 10 veces (una por cada llamada) y diligencia mientras hablas.
+
+---
+
+**IMPORTANTE:** Este script es tu ANDAMIAJE.
+
+No es para leer palabra por palabra. Es para:
+- Saber qué PREGUNTAR en cada momento
+- Saber cuándo CALLARTE y ESCUCHAR
+- Saber cómo CERRAR sin presión
+
+Con 3-4 llamadas prácticas, ya no lo necesitarás. Tu instinto tomará el relevo.
