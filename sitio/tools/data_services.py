@@ -347,7 +347,7 @@ SERVICES["clima-y-cultura"] = dict(
     ],
     faq=[("¿La encuesta es realmente anónima?", "Sí. Nadie de la empresa ve respuestas individuales y los resultados se reportan solo por grupos con suficientes personas para que nadie sea identificable."),
          ("¿Cada cuánto conviene medir el clima?", "Una vez al año, con el mismo instrumento. Medir más seguido no deja tiempo para que el plan de mejora haga efecto."),
-         ("¿Hay resultados comprobados?", "La gerencia estuvo a cargo del clima laboral de la zona sur en una agroindustria de Arequipa: aplicó la medición, tabuló, presentó el informe y coordinó el seguimiento con jefaturas y áreas. En la medición de 2023 (casi 1 000 trabajadores), hecha por la propia empresa, la satisfacción pasó de 74% a 93%."),
+         ("¿Hay resultados comprobados?", "Daniel diseñó y condujo durante dos años los programas de clima en las sedes de Arequipa y Chincha de una agroexportadora de más de 15 000 trabajadores, donde la satisfacción laboral pasó de 74% a 93%."),
          ("¿Evalúan riesgo psicosocial?", "Por ahora no ofrecemos la evaluación de factores de riesgo psicosocial, porque según el uso del informe puede exigir la firma de un profesional colegiado. Sí trabajamos clima, cultura y bienestar.")],
     related=["bienestar", "capacitacion-y-desarrollo", "seleccion-e-induccion"],
 )
@@ -420,7 +420,7 @@ SERVICES["bienestar"] = dict(
             "Acceso al entorno de la operación y la definición de qué está dispuesta a comprometer la empresa."),
     ],
     faq=[("¿Cuánto cobran por recuperar subsidios?", "Un porcentaje de lo que efectivamente se recupera. El porcentaje se fija por escrito en la propuesta según el volumen de casos."),
-         ("¿Quién atiende a mis trabajadores?", "Los casos sociales los atiende un profesional de nuestra red de especialistas asociados, con la coordinación de la gerencia como responsable único frente a tu empresa."),
+         ("¿Quién atiende a mis trabajadores?", "Los casos sociales los atiende un profesional de nuestra red de especialistas asociados, con la coordinación de Daniel como responsable único frente a tu empresa."),
          ("¿Dan atención psicológica?", "No. El bienestar que gestionamos es social y organizacional. Si un caso necesita atención clínica, orientamos hacia el servicio que corresponde."),
          ("¿Funciona para empresas pequeñas?", "Sí. Para empresas pequeñas suele convenir empezar por la recuperación de subsidios o por casos individuales, sin un servicio mensual.")],
     related=["clima-y-cultura", "orden-laboral", "capacitacion-y-desarrollo"],

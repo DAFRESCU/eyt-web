@@ -3,15 +3,15 @@
 @font-face{font-family:"Inter";src:url("/fonts/inter-latin-wght-normal.woff2") format("woff2-variations");font-weight:100 900;font-style:normal;font-display:swap}
 
 :root{
-  --navy:#1B2A4A;
-  --navy-deep:#14203A;
-  --wine:#6E2438;
-  --wine-ink:#5A1C2D;
-  --rose:#E4A6B4;
+  --navy:#19294B;
+  --navy-deep:#111C35;
+  --wine:#7E243C;
+  --wine-ink:#621B2E;
+  --rose:#E8C9D1;
   --bone:#F3EEE6;
   --paper:#FAF7F2;
   --ink:#211D18;
-  --ink-soft:#4A433B;
+  --ink-soft:#545454;
   --rule:#D9D0C2;
   --serif:"Fraunces", Georgia, "Times New Roman", serif;
   --sans:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -340,3 +340,8 @@ html.lenis,html.lenis body{height:auto}
   .wa-float,.result{transform:none!important}
   .progress-bar,.bar-fill{transition:none}
 }
+
+.grupos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:1rem;margin-top:1.5rem}
+.grupo{background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--wine);border-radius:12px;padding:1.25rem 1.25rem 1.1rem}
+.grupo h3{font-size:1.35rem;color:var(--navy);margin-bottom:.4rem}
+.grupo p{margin:0;color:var(--ink-soft);font-size:.98rem}

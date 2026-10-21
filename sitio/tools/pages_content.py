@@ -91,13 +91,12 @@ CAPS = [
 ]
 HOME_FAQ = [
     ("¿Con qué tamaño de empresa trabajan?", "Sobre todo con empresas de Arequipa de 20 a 500 trabajadores que no tienen un área de recursos humanos o la tienen pequeña. También trabajamos con corporaciones por proyecto o programa."),
-    ("¿El diagnóstico de 45 minutos tiene algún costo?", "No. Es una reunión sin costo y sin compromiso: partimos de las herramientas gratis (por ejemplo, el Termómetro de Riesgo Laboral) y al terminar sabes cuáles son tus dos o tres prioridades reales."),
+    ("¿El diagnóstico de 45 minutos tiene algún costo?", "No. Es una reunión sin costo y sin compromiso: aplicamos el Termómetro Laboral y al terminar sabes cuáles son tus dos o tres prioridades reales."),
     ("¿Cuánto cuesta trabajar con ustedes?", "Depende del número de trabajadores y del alcance. La inversión se calcula según el número de trabajadores y siempre queda por escrito en la propuesta, antes de que firmes nada."),
     ("¿Trabajan fuera de Arequipa?", "Sí. Nuestra sede es Arequipa; Cusco e Ica van por proyecto, y el resto del Perú en remoto o híbrido."),
     ("¿Entregan constancias de capacitación?", "Sí. Cada participante recibe una constancia con las horas cronológicas, y la empresa se queda con la lista de asistencia firmada y el informe de cierre."),
-    ("¿Trabajan con colegios, instituciones o grupos?", "Sí. Además de empresas, trabajamos con instituciones públicas y privadas, colegios, equipos deportivos, grupos y familias: liderazgo juvenil, exploración vocacional, escuela de padres y dinámicas de juego serio. Cada programa se arma a medida."),
     ("¿Son un estudio de abogados?", "No. Somos consultores de gestión de personas. Ordenamos tu gestión laboral de forma preventiva y podemos acompañarte en una inspección, pero no damos representación legal ni patrocinio."),
-    ("¿Quién hace el trabajo?", "La gerencia conduce cada proyecto. Cuando un servicio necesita a otro especialista, como en bienestar o casos sociales, lo ejecuta nuestra red de especialistas asociados con la misma coordinación."),
+    ("¿Quién hace el trabajo?", "Daniel Espinoza conduce cada proyecto. Cuando un servicio necesita a otro especialista, como en bienestar o casos sociales, lo ejecuta nuestra red de especialistas asociados con la misma coordinación."),
     ("¿Qué pasa después de la entrega?", "A los 30 días hacemos una reunión de verificación sin costo para revisar que lo entregado se esté usando. Si algo no se implementó, también lo reportamos."),
 ]
 
@@ -120,7 +119,7 @@ def home(B):
     caps = "".join(f'<div class="reel-layer reel-cap" aria-hidden="true"><p class="k">{k}</p><p class="say">{s}</p></div>' for k, s in CAPS)
     chips = "".join(f'<span class="chip"><span>{r}</span></span>' for _, r, _ in REEL[:-1])
     cycle = "".join(f"<li>{x}</li>" for x in ["Diseño", "Atracción", "Integración", "Desarrollo", "Cultura", "Bienestar", "Cumplimiento", "Liderazgo"])
-    WA_HELLO = "Hola Espinoza T, vi la web de Espinoza T Personas y quiero agendar el diagnóstico de 45 minutos sin costo."
+    WA_HELLO = "Hola Daniel, vi la web de Espinoza T Personas y quiero agendar el diagnóstico de 45 minutos sin costo."
     reel = f'''<section class="reel" id="inicio" aria-label="Personas que trabajan en distintos rubros">
   <div class="reel-stage">
     <div class="reel-media" aria-hidden="true">{"".join(imgs)}</div>
@@ -135,11 +134,11 @@ def home(B):
           </h1>
           <div class="reel-layers">
             <div class="reel-layer reel-intro on">
-              <p class="k">Tu aliado en todo el ciclo de vida del colaborador</p>
-              <p class="hero-lede">Capacitación, desarrollo, cultura y clima para empresas de Arequipa, desde 20 trabajadores hasta corporaciones.</p>
+              <p class="k">Diagnóstico, formación y acompañamiento que se pueden medir</p>
+              <p class="hero-lede">Trabajamos con personas y con los grupos que forman: organizaciones, comunidades, sector público, personas y familias.</p>
               <div class="hero-actions">
                 {B.wa_btn(WA_HELLO, "Agenda tu diagnóstico de 45 minutos sin costo")}
-                <a class="textlink" href="#termometro">Mide tu riesgo laboral en 3 minutos</a>
+                <a class="textlink" href="#termometro">Haz el Termómetro Laboral en 3 minutos</a>
               </div>
             </div>
             {caps}
@@ -159,7 +158,7 @@ def home(B):
     proof = '''<section class="proof" id="despues" aria-label="Trayectoria">
   <div class="wrap">
     <div class="hero-meta">
-      <p><strong>+10 años</strong>de experiencia de la dirección en gestión de personas, en Arequipa y el sur.</p>
+      <p><strong>+10 años</strong>trabajando con personas, dentro de organizaciones grandes del sur y como consultor.</p>
       <p><strong>+18 000 colaboradores</strong>en las empresas de agroindustria, industria, retail, sector financiero y salud donde ha trabajado Daniel.</p>
       <p><strong>74% → 93%</strong>de satisfacción laboral en una agroexportadora de más de 15 000 trabajadores, con los programas que él diseñó y condujo.</p>
     </div>
@@ -279,7 +278,7 @@ def home(B):
       <div class="about-body">
         <h2 class="reveal" id="quien-title">Daniel Franco Espinoza Cuadra</h2>
         <p class="role">Gerente General · Psicología (UCSM) · Candidato a Magíster en Gerencia del Talento Humano (UTP)</p>
-        <p>Más de diez años de experiencia en gestión de personas, como consultor y dentro de empresas: capacitación de mandos medios, clima laboral, evaluación de desempeño, planes de sucesión e integración de equipos, en operaciones de 800 a más de 15 000 trabajadores.</p>
+        <p>Más de diez años trabajando con personas desde dentro de empresas grandes: capacitación de mandos medios, clima laboral, evaluación de desempeño, planes de sucesión e integración de equipos, en operaciones de 800 a más de 15 000 trabajadores.</p>
         <p>Entre sus resultados: programas de salud mental que bajaron el estrés y el ausentismo en agroindustria, y vacantes cubiertas en menos tiempo que el promedio del sector en retail.</p>
         <p>Espinoza T Personas nace en Arequipa para llevar ese mismo rigor a empresas que no tienen un área de recursos humanos y que, igual, necesitan que su gente funcione.</p>
         <p><a class="textlink" href="/nosotros">Conocer la trayectoria completa</a></p>
@@ -293,7 +292,7 @@ def home(B):
     <h2 class="reveal" id="close-title">Conversemos 45 minutos.</h2>
     <p class="close-lede">Cuéntanos qué está pasando con tu equipo. Si no podemos ayudarte, te lo diremos en la primera reunión.</p>
     <div class="close-actions">
-      {B.wa_btn("Hola Espinoza T, quiero agendar el diagnóstico de 45 minutos sin costo.", "Agenda tu diagnóstico sin costo")}
+      {B.wa_btn("Hola Daniel, quiero agendar el diagnóstico de 45 minutos sin costo.", "Agenda tu diagnóstico sin costo")}
       <a class="textlink" href="/contacto">Prefiero dejar mis datos</a>
     </div>
     <div class="contact-grid">
@@ -304,10 +303,21 @@ def home(B):
   </div>
 </section>'''
 
-    body = reel + proof + termometro(B) + voices + doors + plan + services + method + about + B.faq_block(HOME_FAQ, "Lo que más nos preguntan", "faq") + close
+    grupos = '''<section class="band" aria-labelledby="grupos-t">
+  <div class="wrap">
+    <div class="head"><p class="kicker">Con quién trabajamos</p><h2 class="reveal" id="grupos-t">Personas, y los grupos que forman.</h2><p>Una planta, un concejo, un colegio, un club, una comunidad, una familia. Cuando un grupo humano funciona mejor, todo lo demás también.</p></div>
+    <div class="grupos">
+      <div class="grupo"><h3>Organizaciones</h3><p>Empresas e instituciones que necesitan que sus equipos y sus jefes funcionen.</p></div>
+      <div class="grupo"><h3>Comunidades</h3><p>Grupos que viven un cambio grande y necesitan organizarse y entenderse.</p></div>
+      <div class="grupo"><h3>Sector público</h3><p>Equipos y autoridades que sirven al ciudadano y necesitan hacerlo mejor.</p></div>
+      <div class="grupo"><h3>Personas y familias</h3><p>Decisiones que marcan una vida: elegir, empezar, volver a empezar.</p></div>
+    </div>
+  </div>
+</section>'''
+    body = reel + proof + grupos + termometro(B) + voices + doors + plan + services + method + about + B.faq_block(HOME_FAQ, "Lo que más nos preguntan", "faq") + close
     graph = [B.faq_ld(HOME_FAQ), {"@type": "WebSite", "@id": B.SITE + "/#web", "url": B.SITE + "/", "name": "Espinoza T Personas", "inLanguage": "es-PE", "publisher": {"@id": B.SITE + "/#empresa"}}]
-    out = B.page("/", "Espinoza T Personas | Capacitación, desarrollo, cultura y clima laboral en Arequipa",
-                 "Consultora de gestión de personas en Arequipa: capacitación, desarrollo, cultura y clima laboral para empresas desde 20 trabajadores hasta corporaciones. Diagnóstico de 45 minutos sin costo.",
+    out = B.page("/", "Espinoza T Personas | Piensa en personas · Arequipa",
+                 "Piensa en personas. Espinoza T Personas trabaja con personas y con los grupos que forman: organizaciones, comunidades, sector público, personas y familias, en Arequipa y el sur del Perú. Conversemos 45 minutos sin costo.",
                  body, graph, scripts=("/vendor/motion.js", "/static/reel.js", "/static/termometro.js"), body_class="home", og_title="Piensa en personas. | Espinoza T Personas")
     pre = ('<link rel="preload" as="image" href="/personas/m/02-construccion.webp" media="(max-width:760px) and (orientation:portrait)" fetchpriority="high">\n'
            '<link rel="preload" as="image" href="/personas/02-construccion.webp" media="not all and (max-width:760px) and (orientation:portrait)" fetchpriority="high">\n')
@@ -365,7 +375,7 @@ def p_supervisores(B):
          ("¿Cuánto cuesta?", "Depende del número de sesiones y de participantes. La inversión queda por escrito en la propuesta.")],
         "Programa de supervisores y mandos medios en Arequipa",
         "Programa práctico de liderazgo para supervisores y mandos medios en Arequipa: cambio de rol, instrucciones, retroalimentación, conflictos y motivación. En tu empresa o en cohortes abiertas.",
-        "Hola Espinoza T, me interesa el programa de supervisores para mi empresa.", "Consultar el programa")
+        "Hola Daniel, me interesa el programa de supervisores para mi empresa.", "Consultar el programa")
 
 def p_hostigamiento(B):
     obligations = includes_grid([
@@ -383,14 +393,14 @@ def p_hostigamiento(B):
         "La Ley 27942 y su reglamento piden capacitar y difundir información a tu personal. La dictamos con casos de tu rubro y te dejamos la documentación lista para demostrar que cumpliste.",
         [("2 horas", "por sesión, presencial o virtual"), ("Hasta 25 personas", "por grupo"), ("Todo documentado", "registro firmado y constancias")],
         [sec("obl", "Lo que pide la norma.", obligations, "El reglamento de la Ley 27942 (D. S. 014-2019-MIMP) establece tres momentos. Armamos la capacitación para cubrir el que te falte.", sid="detalle"),
-         sec("inc", "Qué incluye cada sesión.", inc, "La conduce la gerencia o un especialista de nuestra red de especialistas asociados, con el mismo contenido y la misma documentación.", paper=True)],
+         sec("inc", "Qué incluye cada sesión.", inc, "La conduce Daniel o un especialista de nuestra red de especialistas asociados, con el mismo contenido y la misma documentación.", paper=True)],
         [("¿Aplica aunque seamos una empresa pequeña?", "Las obligaciones de prevención aplican a todo empleador. Lo que cambia según el tamaño es, por ejemplo, si corresponde un comité de intervención (20 o más trabajadores) o un delegado, y si estás exceptuado de la capacitación especializada anual por ser MYPE acreditada."),
          ("¿Puede ser virtual?", "Sí. La documentación es la misma: lista de asistencia y constancia por participante."),
          ("¿Pueden revisar también nuestra política y el canal de denuncia?", "Sí, como un servicio aparte de políticas internas. Lo vemos en la reunión de diagnóstico."),
          ("¿Se puede hacer el mismo día que la integración de fin de año?", "Sí, es justamente la propuesta de cierre de año: capacitación por la mañana e integración por la tarde.")],
         "Capacitación en prevención del hostigamiento sexual laboral en Arequipa",
         "Capacitación en prevención del hostigamiento sexual laboral según la Ley 27942 y su reglamento, con registro firmado y constancia por participante. Presencial en Arequipa o virtual.",
-        "Hola Espinoza T, quiero la capacitación en prevención del hostigamiento sexual laboral para mi empresa.")
+        "Hola Daniel, quiero la capacitación en prevención del hostigamiento sexual laboral para mi empresa.")
 
 def p_taller(B):
     topics = includes_grid([
@@ -411,7 +421,7 @@ def p_taller(B):
          ("¿Cuánto cuesta?", "Depende del tema y del número de grupos. La inversión queda por escrito en la propuesta.")],
         "Taller de capacitación de tres horas para empresas en Arequipa",
         "Talleres prácticos de tres horas para empresas de Arequipa: supervisores, conflictos, comunicación, servicio al cliente e inducción. Con casos de tu operación.",
-        "Hola Espinoza T, quiero un taller de tres horas para mi equipo.", "Elegir un tema")
+        "Hola Daniel, quiero un taller de tres horas para mi equipo.", "Elegir un tema")
 
 def p_integracion(B):
     formats = '<ul class="formats formats-lg"><li><b>Express</b><span>2 horas, hasta 25 personas. Un desafío de presentación y una construcción en equipo.</span></li><li><b>Media jornada</b><span>4 horas, hasta 40 personas. Cuatro dinámicas de cohesión y cierre con compromisos.</span></li><li><b>Jornada completa</b><span>6 horas, hasta 50 personas. Todo lo anterior más un mapa de cómo se siente el equipo hoy.</span></li></ul>'
@@ -429,7 +439,7 @@ def p_integracion(B):
          ("¿Cuánto cuesta?", "Depende del formato y del número de personas. La inversión queda por escrito en la propuesta.")],
         "Integración y team building con método para empresas en Arequipa",
         "Integraciones de equipo con método en Arequipa: formatos de 2, 4 y 6 horas, hasta 50 personas, con compromisos del equipo por escrito.",
-        "Hola Espinoza T, me interesa una integración para mi equipo.", "Reservar una fecha")
+        "Hola Daniel, me interesa una integración para mi equipo.", "Reservar una fecha")
 
 def p_cierre(B):
     day = modules([("Mañana", "Capacitación en prevención del hostigamiento sexual laboral, con registro firmado y constancias."),
@@ -447,7 +457,7 @@ def p_cierre(B):
          ("¿Sirve para empresas pequeñas?", "Sí. Para grupos pequeños se usan los formatos cortos.")],
         "Cierre de año 2026: capacitación e integración en una sola visita",
         "Capacitación en prevención del hostigamiento sexual laboral e integración de equipo en un solo día, en noviembre y diciembre de 2026, en Arequipa.",
-        "Hola Espinoza T, me interesa cerrar el año con la capacitación de hostigamiento y la integración en una sola visita.", "Ver fechas disponibles")
+        "Hola Daniel, me interesa cerrar el año con la capacitación de hostigamiento y la integración en una sola visita.", "Ver fechas disponibles")
 
 # ======================================================================= PLAN MENSUAL
 def p_plan(B):
@@ -480,11 +490,11 @@ def p_plan(B):
          sec("fit", "Para quién es.", fit)],
         faq, "Plan mensual: gerente de personas a tiempo parcial en Arequipa",
         "Gerente de personas a tiempo parcial para empresas de Arequipa: consultas, inducción, rotación, políticas, clima y capacitación con una tarifa mensual fija y alcance escrito.",
-        "Hola Espinoza T, me interesa el plan mensual de gerente de personas a tiempo parcial.", "Quiero mi plan")
+        "Hola Daniel, me interesa el plan mensual de gerente de personas a tiempo parcial.", "Quiero mi plan")
 
 # ======================================================================= TERMÓMETRO (página)
 def p_termometro(B):
-    hero = B.page_hero([("Termómetro de riesgo laboral", None)], "Herramienta gratuita",
+    hero = B.page_hero([("Termómetro Laboral", None)], "Herramienta gratuita",
         "Mide en tres minutos dónde está expuesta tu empresa.",
         "Doce preguntas de sí o no sobre orden laboral, talento y cultura. Al terminar ves tu puntaje, el frente por donde conviene empezar y, si quieres, lo revisamos juntos.",
         '<a class="btn btn-wine" href="#termometro">Empezar ahora</a>')
@@ -497,38 +507,36 @@ def p_termometro(B):
     faq = [("¿Mis respuestas se guardan?", "No. El cálculo ocurre en tu navegador y nada se envía a ningún servidor. Solo si tú decides, nos mandas el resultado por WhatsApp."),
            ("¿Reemplaza una auditoría?", "No. Es una primera foto para saber por dónde empezar. Una auditoría revisa documentos y casos reales."),
            ("¿Qué significa “No sé”?", "Cuenta igual que un “No”: si nadie en la empresa sabe la respuesta, ese frente no se está gestionando.")]
-    body = hero + termometro(B, title="Termómetro de Riesgo Laboral") + after + B.faq_block(faq) + B.cta_band()
-    return B.page("/termometro", "Termómetro de Riesgo Laboral gratis", "Mide en tres minutos la exposición laboral, de talento y de clima de tu empresa con 12 preguntas. Gratis, sin registro y sin guardar tus respuestas.",
+    body = hero + termometro(B, title="Termómetro Laboral") + after + B.faq_block(faq) + B.cta_band()
+    return B.page("/termometro", "Termómetro Laboral gratis", "Mide en tres minutos la exposición laboral, de talento y de clima de tu empresa con 12 preguntas. Gratis, sin registro y sin guardar tus respuestas.",
                   body, [B.crumbs_ld([("Inicio", "/"), ("Termómetro", "/termometro")]), B.faq_ld(faq),
-                         {"@type": "WebApplication", "name": "Termómetro de Riesgo Laboral", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "PEN"}, "provider": {"@id": B.SITE + "/#empresa"}, "url": B.SITE + "/termometro"}],
+                         {"@type": "WebApplication", "name": "Termómetro Laboral", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "PEN"}, "provider": {"@id": B.SITE + "/#empresa"}, "url": B.SITE + "/termometro"}],
                   scripts=("/static/termometro.js",))
 
 # ======================================================================= NOSOTROS
 def p_nosotros(B):
     hero = B.page_hero([("Nosotros", None)], "Quién está detrás",
         "Rigor de empresa grande, para empresas que todavía no tienen un área de RR. HH.",
-        "Espinoza T Personas nace en Arequipa de la experiencia de la dirección gestionando personas en agroindustria, retail, sector financiero, salud, restauración, minería, construcción, hotelería, educación, metalmecánica e industria.",
-        B.wa_btn("Hola Espinoza T, vi tu perfil en la web y quiero conversar sobre mi empresa.", "Conversar con la gerencia"))
+        "Espinoza T Personas nace en Arequipa de la experiencia de Daniel Espinoza gestionando personas dentro de agroindustria, industria, retail, sector financiero y salud, y como consultor en empresas de distintos rubros.",
+        B.wa_btn("Hola Daniel, vi tu perfil en la web y quiero conversar sobre mi empresa.", "Conversar con Daniel"))
     track = '''<div class="track">
-  <div><b>Agroindustria</b><span>Arequipa, casi 1 000 trabajadores activos (2021–2023). A cargo del clima laboral de la zona sur: aplicó la medición, tabuló, presentó el informe y coordinó con jefaturas y áreas el seguimiento. En la medición de 2023, realizada por la propia empresa, la satisfacción laboral pasó de 74% a 93%. Cargo: auxiliar de psicología, con funciones de psicología organizacional.</span></div>
-  <div><b>Retail y sector financiero</b><span>Una cadena de retail y una cooperativa de ahorro y crédito (2023–2024). Vacantes cubiertas en menos tiempo que el promedio del sector, plan anual de capacitación, MOF y perfiles de puesto, clima y estrategias de retención.</span></div>
-  <div><b>Salud</b><span>Arequipa, más de 800 trabajadores (2024–2026). Plan anual de capacitación, onboarding y períodos de prueba, evaluación de desempeño, sucesión y línea de carrera.</span></div>
-  <div><b>Restauración</b><span>Trabajo directo con el equipo de un restaurante de Arequipa en gestión de personas.</span></div>
-  <div><b>Consultoría</b><span>Proyectos independientes en minería, construcción, hotelería, educación, metalmecánica e industria.</span></div>
-  <div><b>Consultoría y capacitación externa</b><span>Desde 2016 en consultoras de RR. HH. y como independiente, con empresas de minería, construcción, hotelería, educación, metalmecánica e industria. Más de 200 capacitaciones, desde sesiones individuales hasta auditorios de 100 a 200 personas o más.</span></div>
-  <div><b>Formación</b><span>Bachiller en Psicología, Universidad Católica de Santa María. Candidato a Magíster en Gerencia del Talento Humano, Universidad Tecnológica del Perú.</span></div>
+  <div><b>Agroindustria e industria</b><span>Agroexportadora de más de 15 000 trabajadores, sedes de Arequipa y Chincha (2021–2023). Satisfacción laboral de 74% a 93%, programas de salud mental que redujeron el estrés y el ausentismo, cultura de comportamiento seguro y team building.</span></div>
+  <div><b>Retail y sector financiero</b><span>Una cadena de retail y una cooperativa de ahorro y crédito, más de 2 500 trabajadores (2023–2024). Vacantes cubiertas en menos tiempo que el promedio del sector, plan anual de capacitación, MOF y perfiles de puesto, clima y estrategias de retención.</span></div>
+  <div><b>Salud</b><span>Una clínica privada de Arequipa, más de 800 trabajadores (2024–2026). Plan anual de capacitación, onboarding y períodos de prueba, evaluación de desempeño, sucesión y línea de carrera.</span></div>
+  <div><b>Consultoría y capacitación externa</b><span>Desde 2016 en consultoras de RR. HH. y como independiente: capacitación en habilidades directivas y blandas para empresas de distintos rubros, y rediseño de la estrategia de talento humano en empresas de Arequipa.</span></div>
+  <div><b>Formación</b><span>Psicología, Universidad Católica de Santa María. Candidato a Magíster en Gerencia del Talento Humano, Universidad Tecnológica del Perú.</span></div>
 </div>'''
     about = f'''<section class="band" aria-labelledby="daniel">
   <div class="wrap">
     <div class="about">
       <div>
         <p class="figure-num" aria-label="De 74 por ciento a 93 por ciento">74%<span class="arrow" aria-hidden="true">→</span>93%</p>
-        <p class="figure-cap">Satisfacción laboral en la medición de clima 2023 de una agroindustria de Arequipa (casi 1 000 trabajadores activos). La midió la propia empresa; la gerencia estuvo a cargo del clima laboral de la zona sur.</p>
+        <p class="figure-cap">Satisfacción laboral que logró Daniel en las sedes de Arequipa y Chincha de una agroexportadora de más de 15 000 trabajadores, con los programas que diseñó y condujo durante dos años.</p>
       </div>
       <div class="about-body">
-        <h2 class="reveal" id="daniel">Quién está detrás.</h2>
-        <p class="role">Gerencia General · Bachiller en Psicología (UCSM) · Candidato a Magíster en Gerencia del Talento Humano (UTP)</p>
-        <p>Más de diez años de experiencia en gestión de personas, como consultor y dentro de las empresas: capacitación de mandos medios, clima laboral, evaluación de desempeño, planes de sucesión e integración de equipos, en operaciones de cientos de trabajadores.</p>
+        <h2 class="reveal" id="daniel">Daniel Franco Espinoza Cuadra</h2>
+        <p class="role">Gerente General</p>
+        <p>Más de diez años trabajando con personas desde dentro de empresas grandes: capacitación de mandos medios, clima laboral, evaluación de desempeño, planes de sucesión e integración de equipos, en operaciones de 800 a más de 15 000 trabajadores.</p>
         <p>Su firma es el diseño de experiencias de aprendizaje con juego serio: dinámicas con propósito que la gente recuerda y aplica, en lugar de diapositivas que se olvidan al salir.</p>
         {track}
       </div>
@@ -542,31 +550,31 @@ def p_nosotros(B):
     red = f'''<section class="band" aria-labelledby="red-t">
   <div class="wrap">
     <div class="plan">
-      <div><p class="kicker">Red de especialistas asociados</p><h2 id="red-t">Cuando un proyecto necesita más manos.</h2><p>Para servicios como bienestar, casos sociales o grupos grandes, trabajamos con una red de especialistas asociados. La coordinación y la responsabilidad frente a tu empresa siguen siendo de la gerencia.</p><div class="hero-actions"><a class="btn btn-wine" href="/red">Únete a la red</a></div></div>
+      <div><p class="kicker">Red de especialistas asociados</p><h2 id="red-t">Cuando un proyecto necesita más manos.</h2><p>Para servicios como bienestar, casos sociales o grupos grandes, trabajamos con una red de especialistas asociados. La coordinación y la responsabilidad frente a tu empresa siguen siendo de Daniel.</p><div class="hero-actions"><a class="btn btn-wine" href="/red">Únete a la red</a></div></div>
       <ul><li>Misma metodología y mismos formatos</li><li>Un solo responsable frente a tu empresa</li><li>Confidencialidad firmada</li></ul>
     </div>
   </div>
 </section>'''
     results = includes_grid([
-        ("Agroindustria", "74% → 93%", "Satisfacción laboral en la medición de clima 2023 de una sede de casi 1 000 trabajadores, medida por la propia empresa."),
+        ("Agroindustria", "74% → 93%", "Satisfacción laboral en dos sedes, con programas sostenidos durante dos años."),
         ("Salud", "Sucesión y carrera", "Evaluación de desempeño, planes de sucesión y línea de carrera en una clínica de más de 800 trabajadores."),
         ("Salud", "Plan anual de capacitación", "Diseño y conducción del plan anual de capacitación, con onboarding y seguimiento de períodos de prueba."),
         ("Retail y finanzas", "Vacantes más rápido", "Puestos cubiertos en menos tiempo que el promedio del sector."),
         ("Agroindustria", "Menos estrés y ausentismo", "Programas de salud mental que bajaron ambos indicadores."),
         ("Varios rubros", "Supervisores formados", "Programas de habilidades directivas para líderes y de habilidades blandas para personal operativo.")])
-    body = hero + about + sec("resultados", "Resultados reales, con su contexto.", results, "Cada cifra es verificable con referencias laborales. A los clientes de consultoría no los nombramos por confidencialidad.", paper=True) + sec("principios", "Tres reglas que no cambian.", principles) + red + B.cta_band()
-    person = {"@type": "Person", "@id": B.SITE + "/nosotros#daniel", "name": "Daniel Espinoza C.", "jobTitle": "Fundador y Gerente General", "worksFor": {"@id": B.SITE + "/#empresa"},
+    body = hero + about + sec("resultados", "Resultados reales, con el rubro y sin el nombre.", results, "Por confidencialidad no nombramos a las empresas. Cada cifra es verificable con referencias laborales.", paper=True) + sec("principios", "Tres reglas que no cambian.", principles) + red + B.cta_band()
+    person = {"@type": "Person", "@id": B.SITE + "/nosotros#daniel", "name": "Daniel Franco Espinoza Cuadra", "jobTitle": "Gerente General", "worksFor": {"@id": B.SITE + "/#empresa"},
               "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Universidad Católica de Santa María"}, {"@type": "CollegeOrUniversity", "name": "Universidad Tecnológica del Perú"}],
               "knowsAbout": ["Gestión del talento humano", "Clima laboral", "Capacitación de mandos medios", "Evaluación de desempeño"]}
-    return B.page("/nosotros", "Nosotros: la gerencia y el método de Espinoza T Personas", "La gerencia de Espinoza T Personas: bachiller en Psicología y candidato a magíster en Gerencia del Talento Humano, con más de diez años de experiencia en gestión de personas en Arequipa.",
+    return B.page("/nosotros", "Nosotros: Daniel Espinoza y Espinoza T Personas", "Daniel Franco Espinoza Cuadra, formado en Psicología y candidato a magíster en Gerencia del Talento Humano, con más de diez años trabajando con personas en agroindustria, retail, finanzas y salud en Arequipa.",
                   body, [B.crumbs_ld([("Inicio", "/"), ("Nosotros", "/nosotros")]), person])
 
 # ======================================================================= EMPRESAS GRANDES
 def p_grandes(B):
     hero = B.page_hero([("Empresas grandes", None)], "Para más de 500 trabajadores",
         "También trabajamos con corporaciones.",
-        "La gerencia ha trabajado dentro de operaciones de cientos de trabajadores. Con empresas grandes trabajamos por proyecto o por programa, junto a tu equipo de RR. HH.",
-        B.wa_btn("Hola Espinoza T, escribo de una empresa grande y quiero conversar sobre un proyecto.", "Conversar sobre un proyecto") + '<a class="textlink" href="#detalle">Ver qué hacemos</a>')
+        "Daniel se formó dentro de operaciones de 800 a más de 15 000 trabajadores. Con empresas grandes trabajamos por proyecto o por programa, junto a tu equipo de RR. HH.",
+        B.wa_btn("Hola Daniel, escribo de una empresa grande y quiero conversar sobre un proyecto.", "Conversar sobre un proyecto") + '<a class="textlink" href="#detalle">Ver qué hacemos</a>')
     cards = '<div class="cards3">' + "".join([
         B.card("/programas/supervisores", "Programa", "Escuela de supervisores por cohortes", "Formación de mandos medios por oleadas, con medición antes y después."),
         B.card("/servicios/clima-y-cultura", "U5", "Clima censal con línea base", "Diagnóstico por sede, área y antigüedad, con plan de mejora y medición de seguimiento."),
@@ -579,7 +587,7 @@ def p_grandes(B):
                    ("Contraparte única", "Un responsable de tu lado y uno del nuestro."),
                    ("Transferencia", "Todo en editable y tu equipo capacitado para sostenerlo."),
                    ("Verificación", "Revisión a los 30 días, incluida.")])
-    body = hero + sec("que", "Lo que más hacemos con empresas grandes.", cards, sid="detalle") + sec("como", "Cómo trabajamos con tu área de compras y de RR. HH.", how, paper=True) + B.cta_band(wa="Hola Espinoza T, escribo de una empresa grande y quiero conversar sobre un proyecto.")
+    body = hero + sec("que", "Lo que más hacemos con empresas grandes.", cards, sid="detalle") + sec("como", "Cómo trabajamos con tu área de compras y de RR. HH.", how, paper=True) + B.cta_band(wa="Hola Daniel, escribo de una empresa grande y quiero conversar sobre un proyecto.")
     return B.page("/empresas-grandes", "Consultoría de RR. HH. para empresas grandes en Arequipa", "Programas de supervisores, clima censal, desempeño, sucesión, escuela interna y valoración de puestos para empresas de más de 500 trabajadores en Arequipa y el sur del Perú.",
                   body, [B.crumbs_ld([("Inicio", "/"), ("Empresas grandes", "/empresas-grandes")])])
 
@@ -595,13 +603,13 @@ FAQ_GENERAL = HOME_FAQ
 
 def p_recursos(B):
     hero = B.page_hero([("Recursos", None)], "Recursos gratuitos", "Herramientas para ordenar la gestión de tu gente.",
-        "Una lista de verificación preventiva, el Termómetro de Riesgo Laboral y las preguntas que más nos hacen. Úsalos aunque nunca trabajemos juntos.",
+        "Una lista de verificación preventiva, el Termómetro Laboral y las preguntas que más nos hacen. Úsalos aunque nunca trabajemos juntos.",
         '<a class="btn btn-wine" href="/termometro">Hacer el Termómetro</a><a class="textlink" href="#checklist">Ver la lista de verificación</a>')
     groups = "".join(f'<div class="card check"><small>{i+1:02d}</small><h3>{t}</h3><ul class="checklist">' + "".join(f"<li>{E(x)}</li>" for x in items) + "</ul></div>" for i, (t, items) in enumerate(CHECK))
     check = f'''<div class="cards3">{groups}<a class="card" href="/calculadora-rotacion"><small>Gratis</small><h3>Calculadora de rotación</h3><p>Cuánto te cuesta cada renuncia, en soles, con tus propios números.</p><span class="go">Calcular {B.ARROW}</span></a><a class="card" href="/guias"><small>Gratis</small><h3>Guías prácticas</h3><p>Hostigamiento, rotación, clima, inducción y supervisores, explicados en simple.</p><span class="go">Leer {B.ARROW}</span></a><a class="card card-navy" href="/servicios/orden-laboral"><small>¿Te faltan varios?</small><h3>Hagamos una auditoría preventiva</h3><p>Revisamos tus documentos y te entregamos un plan de corrección priorizado.</p><span class="go">Ver el servicio {B.ARROW}</span></a></div>
 <p class="note">Lista orientativa y general, preparada con fines preventivos. No reemplaza una asesoría legal ni cubre todas las obligaciones de cada régimen o rubro. Revisada en octubre de 2026.</p>'''
     body = hero + sec("checklist-t", "Lista de verificación preventiva.", check, "Lo mínimo que conviene tener en orden antes de que alguien lo revise.", sid="checklist") + B.faq_block(FAQ_GENERAL, "Preguntas frecuentes", "faq") + B.cta_band()
-    return B.page("/recursos", "Recursos gratuitos: checklist laboral preventivo y preguntas frecuentes", "Lista de verificación laboral preventiva para empresas en Perú, Termómetro de Riesgo Laboral gratuito y respuestas a las preguntas más frecuentes sobre gestión de personas.",
+    return B.page("/recursos", "Recursos gratuitos: checklist laboral preventivo y preguntas frecuentes", "Lista de verificación laboral preventiva para empresas en Perú, Termómetro Laboral gratuito y respuestas a las preguntas más frecuentes sobre gestión de personas.",
                   body, [B.crumbs_ld([("Inicio", "/"), ("Recursos", "/recursos")]), B.faq_ld(FAQ_GENERAL)])
 
 # ======================================================================= CONTACTO
@@ -645,7 +653,7 @@ def p_contacto(B):
 def p_red(B):
     hero = B.page_hero([("Red de especialistas", None)], "Red de especialistas asociados", "Trabajemos juntos en proyectos de personas.",
         "Buscamos profesionales independientes de Arequipa y del sur con quienes trabajar por proyecto, con método y con reglas claras.",
-        B.wa_btn("Hola Espinoza T, quiero formar parte de la red de especialistas de Espinoza T Personas.", "Quiero ser parte"))
+        B.wa_btn("Hola Daniel, quiero formar parte de la red de especialistas de Espinoza T Personas.", "Quiero ser parte"))
     areas = '<div class="who">' + "".join(f'<span class="pill-l">{a}</span>' for a in ["Facilitación y capacitación", "Psicología organizacional", "Trabajo social", "Derecho laboral", "Seguridad y salud en el trabajo", "Selección y búsqueda de ejecutivos", "Coaching de líderes", "Diseño instruccional y e-learning", "Comunicación interna", "People analytics y datos", "Nutrición y bienestar", "Finanzas personales para trabajadores", "Producción audiovisual", "Eventos e integración"]) + "</div>"
     how = modules([("Nos escribes", "Con tu CV o tu perfil de LinkedIn y el área en la que trabajas."),
                    ("Conversamos", "Una reunión corta para conocer tu experiencia y tu forma de trabajar."),
@@ -653,7 +661,7 @@ def p_red(B):
                    ("Mismo método", "Trabajamos con los formatos y el estándar de Espinoza T."),
                    ("Confidencialidad", "Firmamos un acuerdo para proteger a los clientes.")])
     body = hero + sec("areas", "Áreas que buscamos.", areas, "Si tu especialidad no está en la lista pero trabaja con personas en empresas, igual escríbenos.") + sec("como", "Cómo funciona.", how, paper=True) + \
-        B.cta_band("Escríbenos.", "Mándanos tu CV a gerencia@espinozat.com o escríbenos por WhatsApp.", "Hola Espinoza T, quiero formar parte de la red de especialistas de Espinoza T Personas.")
+        B.cta_band("Escríbenos.", "Mándanos tu CV a gerencia@espinozat.com o escríbenos por WhatsApp.", "Hola Daniel, quiero formar parte de la red de especialistas de Espinoza T Personas.")
     return B.page("/red", "Únete a la red de especialistas", "Red de especialistas asociados de Espinoza T Personas en Arequipa: facilitadores, trabajadores sociales, psicólogos organizacionales y abogados laboralistas que trabajan por proyecto.",
                   body, [B.crumbs_ld([("Inicio", "/"), ("Red de especialistas", "/red")])])
 
@@ -679,9 +687,9 @@ def not_found(B):
 
 def llms(B):
     lines = ["# Espinoza T Personas", "",
-             "> Consultora de gestión de personas con sede en Arequipa, Perú. Capacitación, desarrollo, cultura y clima laboral para empresas desde 20 trabajadores hasta corporaciones. Lema: \"Piensa en personas.\"", "",
-             "- Gerencia General: bachiller en Psicología (Universidad Católica de Santa María). Candidato a Magíster en Gerencia del Talento Humano (Universidad Tecnológica del Perú).",
-             "- Experiencia: más de diez años de experiencia en gestión de personas, en agroindustria, retail, sector financiero, salud, restauración, minería, construcción, hotelería, educación, metalmecánica e industria. Más de 200 capacitaciones. Satisfacción laboral de 74% a 93% en la medición de clima 2023 de una agroindustria de Arequipa (casi 1 000 trabajadores), medida por la propia empresa.",
+             "> Espinoza T Personas trabaja con personas y con los grupos que forman: organizaciones, comunidades, sector público, personas y familias. Sede en Arequipa, Perú. Diagnóstico, formación y acompañamiento medibles. Lema: \"Piensa en personas.\"", "",
+             "- Gerente General: Daniel Franco Espinoza Cuadra. Formación en Psicología (Universidad Católica de Santa María). Candidato a Magíster en Gerencia del Talento Humano (Universidad Tecnológica del Perú).",
+             "- Experiencia: más de diez años trabajando con personas dentro de empresas de agroindustria, retail, finanzas y salud, en operaciones de 800 a más de 15 000 trabajadores. Satisfacción laboral de 74% a 93% en una agroexportadora de más de 15 000 trabajadores.",
              "- Zona: Arequipa (sede). Cusco e Ica por proyecto. Resto del Perú en remoto o híbrido.",
              "- Contacto: WhatsApp y teléfono +51 974 770 954 · gerencia@espinozat.com",
              "- Primer paso: diagnóstico de 45 minutos sin costo. Precios no públicos: la inversión se calcula según el número de trabajadores y queda por escrito en la propuesta.",
@@ -694,6 +702,6 @@ def llms(B):
     for h, t, dsc in B.PROGRAMS:
         lines.append(f"- [{t}]({B.SITE}{h}): {dsc}")
     lines += ["- [Plan mensual]({0}/plan-mensual): gerente de personas a tiempo parcial con tarifa mensual fija.".format(B.SITE), "",
-              "## Más", f"- [Termómetro de Riesgo Laboral]({B.SITE}/termometro): 12 preguntas, gratis, sin guardar respuestas.",
+              "## Más", f"- [Termómetro Laboral]({B.SITE}/termometro): 12 preguntas, gratis, sin guardar respuestas.",
               f"- [Calculadora del costo de la rotación]({B.SITE}/calculadora-rotacion): cuánto cuesta cada renuncia, en soles, gratis.", f"- [Guías gratuitas]({B.SITE}/guias): hostigamiento sexual (Ley 27942), cálculo de rotación, clima laboral en pymes, inducción 30-60-90 y formación de supervisores.", f"- [Verificar una constancia]({B.SITE}/certificado)", f"- [Nosotros]({B.SITE}/nosotros)", f"- [Empresas grandes]({B.SITE}/empresas-grandes)", f"- [Recursos]({B.SITE}/recursos)", f"- [Contacto]({B.SITE}/contacto)", ""]
     return "\n".join(lines)

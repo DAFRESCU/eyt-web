@@ -33,7 +33,7 @@ def calculadora(B, title="¿Cuánto te cuesta que se vaya un trabajador?", headi
         <p class="calc-sub" id="c-sub"></p>
         <ul class="calc-bars" id="c-bars"></ul>
         <div class="calc-tips"><h3>Por dónde empezar</h3><ul class="incl" id="c-tips"></ul></div>
-        <div class="hero-actions">{B.wa_btn("Hola Espinoza T, hice la calculadora de rotación y quiero conversar.", "Revisemos mi resultado")}</div>
+        <div class="hero-actions">{B.wa_btn("Hola Daniel, hice la calculadora de rotación y quiero conversar.", "Revisemos mi resultado")}</div>
         <p class="note">Estimación del costo de reemplazo y de productividad. No incluye liquidaciones ni beneficios sociales. Es una referencia, no un informe.</p>
       </div>
     </div>
@@ -79,11 +79,11 @@ def p_reunion(B):
   <div class="wrap">
     <div class="head"><h2 id="m4-t">Cómo seguimos.</h2><p>Cinco pasos, siempre los mismos. Los dos primeros no tienen costo.</p></div>
     {B.steps_mini()}
-    <div class="hero-actions" style="margin-top:1.5rem">{B.wa_btn("Hola Espinoza T, gracias por la reunión. Quedo atento a la propuesta.", "Recibir la propuesta hoy")}</div>
+    <div class="hero-actions" style="margin-top:1.5rem">{B.wa_btn("Hola Daniel, gracias por la reunión. Quedo atento a la propuesta.", "Recibir la propuesta hoy")}</div>
   </div>
 </section>'''
     hero = '''<section class="page-hero meet-hero"><div class="wrap"><p class="kicker">Reunión de diagnóstico · 45 minutos</p><h1>Veamos tu empresa juntos.</h1><p class="lede">Cuatro pasos: lo que te preocupa, tu Termómetro, el costo de tu rotación y el siguiente paso.</p>''' + tabs + "</div></section>"
-    body = hero + notes + PC.termometro(B, title="Termómetro de Riesgo Laboral") + calculadora(B, title="El costo de tu rotación", hid="calc-r") + nxt
+    body = hero + notes + PC.termometro(B, title="Termómetro Laboral") + calculadora(B, title="El costo de tu rotación", hid="calc-r") + nxt
     return B.page("/reunion", "Reunión de diagnóstico", "Herramienta de la reunión de diagnóstico de Espinoza T Personas.", body,
                   scripts=("/static/termometro.js", "/static/calculadora.js"), robots="noindex")
 
@@ -94,11 +94,11 @@ def qr_svg(url):
     buf = io.BytesIO(); img.save(buf)
     svg = buf.getvalue().decode("utf-8")
     svg = svg[svg.find("<svg"):]
-    return svg.replace("<svg ", '<svg role="img" aria-label="Código QR de la tarjeta de Daniel Espinoza C." ', 1)
+    return svg.replace("<svg ", '<svg role="img" aria-label="Código QR de la tarjeta de Daniel Espinoza" ', 1)
 
 VCARD = "\r\n".join([
-    "BEGIN:VCARD", "VERSION:3.0", "N:Espinoza Cuadra;Daniel Franco;;;", "FN:Daniel Espinoza C.", "ORG:Espinoza T Personas",
-    "TITLE:Fundador y Gerente General", "TEL;TYPE=CELL,VOICE:+51974770954", "EMAIL;TYPE=WORK:gerencia@espinozat.com",
+    "BEGIN:VCARD", "VERSION:3.0", "N:Espinoza Cuadra;Daniel Franco;;;", "FN:Daniel Espinoza", "ORG:Espinoza T Personas",
+    "TITLE:Gerente General", "TEL;TYPE=CELL,VOICE:+51974770954", "EMAIL;TYPE=WORK:gerencia@espinozat.com",
     "URL:https://espinozat.com", "ADR;TYPE=WORK:;;;Arequipa;Arequipa;;Perú",
     "NOTE:Capacitación, desarrollo, cultura y clima laboral. Piensa en personas.", "END:VCARD", ""])
 
@@ -106,40 +106,39 @@ def p_daniel(B):
     body = f'''<section class="band vcard-band">
   <div class="wrap">
     <div class="vcard">
-      <div class="vcard-mono" aria-hidden="true"><img src="/monograma-claro.svg" width="62" height="42" alt=""></div>
-      <h1>Daniel Espinoza C.</h1>
-      <p class="vcard-role">Fundador y Gerente General · Espinoza T Personas</p>
-      <p class="vcard-tag">Maestría en Gerencia del Talento Humano · UTP</p>
-      <p class="vcard-tag">Capacitación, desarrollo, cultura y clima laboral. Piensa en personas.</p>
+      <div class="vcard-mono" aria-hidden="true">DE</div>
+      <h1>Daniel Espinoza</h1>
+      <p class="vcard-role">Mg. (c) · Gerente General · Espinoza T Personas</p>
+      <p class="vcard-tag">Piensa en personas. Trabajamos con personas y con los grupos que forman.</p>
       <div class="vcard-actions">
         <a class="btn btn-wine" href="/daniel.vcf" download>Guardar contacto</a>
-        {B.wa_btn("Hola Espinoza T, te escribo desde tu tarjeta digital.", "WhatsApp", "btn btn-outline")}
+        {B.wa_btn("Hola Daniel, te escribo desde tu tarjeta digital.", "WhatsApp", "btn btn-outline")}
         <a class="btn btn-outline" href="tel:+51974770954">Llamar</a>
         <a class="btn btn-outline" href="mailto:gerencia@espinozat.com">Correo</a>
       </div>
       <div class="vcard-qr">{qr_svg(B.SITE + "/daniel")}<p>Escanea para guardar esta tarjeta</p></div>
-      <ul class="vcard-links"><li><a href="/termometro">Termómetro de riesgo laboral gratis</a></li><li><a href="/calculadora-rotacion">Calculadora del costo de la rotación</a></li><li><a href="/">espinozat.com</a></li></ul>
+      <ul class="vcard-links"><li><a href="/termometro">Termómetro Laboral gratis</a></li><li><a href="/calculadora-rotacion">Calculadora del costo de la rotación</a></li><li><a href="/">espinozat.com</a></li></ul>
     </div>
   </div>
 </section>'''
-    return B.page("/daniel", "Daniel Espinoza C., Fundador y Gerente General", "Tarjeta digital de Daniel Espinoza C., fundador y Gerente General de Espinoza T Personas. Guarda el contacto, escribe por WhatsApp o agenda una reunión.",
-                  body, [B.crumbs_ld([("Inicio", "/"), ("Daniel Espinoza C.", "/daniel")])])
+    return B.page("/daniel", "Daniel Espinoza, Gerente General", "Tarjeta digital de Daniel Espinoza, Gerente General de Espinoza T Personas. Guarda el contacto, escribe por WhatsApp o agenda una reunión.",
+                  body, [B.crumbs_ld([("Inicio", "/"), ("Daniel Espinoza", "/daniel")])])
 
 # ======================================================================= ENLACES
 def p_links(B):
     items = [("/cierre-2026", "Cierre de año 2026", "Capacitación e integración en una sola visita"),
-             ("/termometro", "Termómetro de riesgo laboral", "Gratis, 3 minutos"),
+             ("/termometro", "Termómetro Laboral", "Gratis, 3 minutos"),
              ("/calculadora-rotacion", "¿Cuánto te cuesta la rotación?", "Calculadora gratis en soles"),
              ("/programas/supervisores", "Programa de supervisores", "De buen técnico a buen jefe"),
              ("/plan-mensual", "Plan mensual", "Tu gerente de personas a tiempo parcial"),
-             ("/nosotros", "Quiénes somos", "La gerencia y el método")]
+             ("/nosotros", "Quiénes somos", "Daniel Espinoza y el método")]
     links = "".join(f'<a class="link-row" href="{h}"><b>{t}</b><span>{d}</span></a>' for h, t, d in items)
     body = f'''<section class="band links-band">
   <div class="wrap">
     <div class="links">
       <p class="kicker">Espinoza T Personas</p>
       <h1>Piensa en personas.</h1>
-      {B.wa_btn("Hola Espinoza T, te encontré en redes y quiero conversar sobre mi empresa.", "Escríbenos por WhatsApp", "btn btn-wine link-cta")}
+      {B.wa_btn("Hola Daniel, te encontré en redes y quiero conversar sobre mi empresa.", "Escríbenos por WhatsApp", "btn btn-wine link-cta")}
       {links}
     </div>
   </div>
@@ -194,7 +193,7 @@ def p_plan(B):
          PC.sec("fit", "Para quién es.", fit)],
         faq, "Plan mensual: gerente de personas a tiempo parcial en Arequipa",
         "Gerente de personas a tiempo parcial para empresas de Arequipa en tres niveles: consultas, inducción, rotación, clima, capacitación y una sesión mensual de decisiones con el dueño. Tarifa mensual fija.",
-        "Hola Espinoza T, me interesa el plan mensual de gerente de personas a tiempo parcial.", "Quiero mi plan")
+        "Hola Daniel, me interesa el plan mensual de gerente de personas a tiempo parcial.", "Quiero mi plan")
 
 # ======================================================================= CIERRE 2026 (tres formatos)
 def p_cierre(B):
@@ -220,7 +219,7 @@ def p_cierre(B):
          ("¿Hasta cuándo hay fechas?", "Mientras queden cupos en noviembre y diciembre. Escríbenos para ver la disponibilidad de tu semana.")],
         "Cierre de año 2026: integración con juego serio en Arequipa",
         "Cierre de año 2026 para empresas de Arequipa: integración con juego serio en formatos de 2, 4 o 6 horas, compromisos del equipo para 2027 y capacitación de hostigamiento opcional el mismo día.",
-        "Hola Espinoza T, me interesa el cierre de año 2026 para mi equipo.", "Ver fechas disponibles")
+        "Hola Daniel, me interesa el cierre de año 2026 para mi equipo.", "Ver fechas disponibles")
 
 # ======================================================================= registro
 NEW_PAGES = [

@@ -3,7 +3,7 @@
 Cada guía: respuesta corta arriba, pasos, preguntas frecuentes, herramienta gratuita y CTA."""
 import pages_content as PC
 
-AUTHOR = {"@type": "Person", "name": "Daniel Espinoza C.", "jobTitle": "Fundador y Gerente General",
+AUTHOR = {"@type": "Person", "name": "Daniel Franco Espinoza Cuadra", "jobTitle": "Gerente General",
           "description": "Psicología (UCSM). Candidato a Magíster en Gerencia del Talento Humano (UTP).",
           "worksFor": {"@id": "https://espinozat.com/#empresa"}}
 DATE = "2026-10-12"
@@ -14,9 +14,9 @@ GUIDES = []  # (path, short title, description) para el índice y llms.txt
 def guide(B, path, crumb, kicker, h1, answer, blocks, faq, title, meta, wa_msg, tool=None):
     """answer: respuesta en 2-3 frases (lo que Google o una IA puede citar). blocks: lista de (h2, html)."""
     hero = B.page_hero([("Guías", "/guias"), (crumb, None)], kicker, h1, answer,
-                       B.wa_btn(wa_msg, "Conversarlo con la gerencia") + '<a class="textlink" href="#guia">Leer la guía</a>')
+                       B.wa_btn(wa_msg, "Conversarlo con Daniel") + '<a class="textlink" href="#guia">Leer la guía</a>')
     inner = "".join(f'<h2 id="g{i}">{h}</h2>{c}' for i, (h, c) in enumerate(blocks))
-    byline = f'<p class="note">Por la gerencia de Espinoza T Personas · Actualizado en octubre de 2026. Guía general y preventiva: no reemplaza una asesoría legal.</p>'
+    byline = f'<p class="note">Por Daniel Espinoza · Psicología (UCSM) · Actualizado en octubre de 2026. Guía general y preventiva: no reemplaza una asesoría legal.</p>'
     art = f'<section class="band" id="guia" aria-label="Guía"><div class="wrap"><article class="prose">{inner}{byline}</article></div></section>'
     tool_html = ""
     if tool:
@@ -68,7 +68,7 @@ def g_hostigamiento(B):
          ("¿Ustedes llevan los casos de denuncia?", "No hacemos representación legal. Capacitamos, ayudamos a ordenar la política y el canal, y si hace falta te derivamos a un abogado laboralista.")],
         "Hostigamiento sexual laboral: qué le pide la Ley 27942 a tu empresa (guía 2026)",
         "Guía clara de las obligaciones de la Ley 27942 y su reglamento para empresas en Perú: capacitación al ingreso, capacitación anual especializada, difusión, comité o delegado y canal de denuncia.",
-        "Hola Espinoza T, leí la guía de hostigamiento y quiero revisar si mi empresa cumple.",
+        "Hola Daniel, leí la guía de hostigamiento y quiero revisar si mi empresa cumple.",
         ("/programas/hostigamiento", "Programa", "Capacitación en prevención del hostigamiento", "2 horas, presencial o virtual, con registro firmado y constancias.", "Ver el programa"))
 
 
@@ -101,7 +101,7 @@ def g_rotacion(B):
          ("¿Cada cuánto conviene medirla?", "Cada mes para tenerla a la vista y cada trimestre para analizar causas.")],
         "Cómo calcular la rotación de personal y su costo (fórmula y ejemplo)",
         "Fórmula de la rotación de personal, ejemplo con números, cómo separar rotación voluntaria y temprana, y cómo estimar el costo de cada renuncia. Con calculadora gratuita en soles.",
-        "Hola Espinoza T, leí la guía de rotación y quiero entender por qué se va mi gente.",
+        "Hola Daniel, leí la guía de rotación y quiero entender por qué se va mi gente.",
         ("/calculadora-rotacion", "Gratis", "Calculadora del costo de la rotación", "Cuatro datos de tu empresa y ves cuánto te cuesta la rotación al año.", "Calcular"))
 
 
@@ -132,7 +132,7 @@ def g_clima(B):
          ("¿Qué hago si salen resultados malos?", "Agradecer la honestidad, priorizar dos o tres temas y contar qué se va a hacer. Un mal resultado bien gestionado mejora la confianza.")],
         "Cómo medir el clima laboral en una pyme: guía paso a paso",
         "Guía práctica para medir el clima laboral en una pequeña o mediana empresa: qué preguntar, cómo garantizar el anonimato, cómo aplicar la encuesta y cómo devolver resultados.",
-        "Hola Espinoza T, leí la guía de clima laboral y quiero medir el clima de mi empresa.",
+        "Hola Daniel, leí la guía de clima laboral y quiero medir el clima de mi empresa.",
         ("/servicios/clima-y-cultura", "Servicio", "Clima y cultura", "Medición con línea base, devolución al equipo y plan de acción.", "Ver el servicio"))
 
 
@@ -160,7 +160,7 @@ def g_induccion(B):
          ("¿Y si el nuevo no encaja?", "Las conversaciones de 30 y 60 días te lo dirán a tiempo, mientras todavía hay espacio para corregir.")],
         "Plan de inducción 30-60-90 días para personal nuevo (con plantilla)",
         "Cómo armar un plan de inducción de 30, 60 y 90 días para el personal nuevo: qué hacer antes del primer día, metas por etapa y conversaciones de seguimiento. Para reducir renuncias tempranas.",
-        "Hola Espinoza T, leí la guía de inducción y quiero armar el plan para mi empresa.",
+        "Hola Daniel, leí la guía de inducción y quiero armar el plan para mi empresa.",
         ("/servicios/seleccion-e-induccion", "Servicio", "Selección e inducción", "Perfiles, proceso de ingreso y plan de inducción para tu empresa.", "Ver el servicio"))
 
 
@@ -188,7 +188,7 @@ def g_supervisores(B):
          ("¿Se puede hacer con supervisores de varias empresas?", "Sí, en cohortes abiertas. Compartir casos con otros rubros suele enriquecer la conversación.")],
         "Cómo formar supervisores y mandos medios: guía práctica",
         "Qué necesita aprender un supervisor ascendido por ser buen técnico: instrucciones claras, seguimiento, retroalimentación y manejo de conflictos. Cómo formarlo y cómo medir si funcionó.",
-        "Hola Espinoza T, leí la guía de supervisores y quiero formar a los míos.",
+        "Hola Daniel, leí la guía de supervisores y quiero formar a los míos.",
         ("/programas/supervisores", "Programa", "Programa de supervisores", "Sesiones prácticas de 3 horas, en tu empresa o en cohorte abierta.", "Ver el programa"))
 
 
@@ -207,7 +207,7 @@ def p_guias(B):
         "Guías cortas y prácticas sobre gestión de personas en empresas peruanas. Sin registro y sin letra chica.",
         '<a class="btn btn-wine" href="#lista">Ver las guías</a><a class="textlink" href="/calculadora-rotacion">Calculadora de rotación</a>')
     cards = '<div class="cards3">' + "".join(B.card(h, "Guía", t, d, "Leer") for h, t, d in META) + \
-            B.card("/termometro", "Herramienta", "Termómetro de Riesgo Laboral", "12 preguntas para ver dónde está expuesta tu empresa.", "Hacerlo") + "</div>"
+            B.card("/termometro", "Herramienta", "Termómetro Laboral", "12 preguntas para ver dónde está expuesta tu empresa.", "Hacerlo") + "</div>"
     body = hero + PC.sec("lista-t", "Guías.", cards, sid="lista") + B.cta_band()
     graph = [B.crumbs_ld([("Inicio", "/"), ("Guías", "/guias")]),
              {"@type": "CollectionPage", "name": "Guías de gestión de personas", "url": B.SITE + "/guias", "inLanguage": "es-PE",

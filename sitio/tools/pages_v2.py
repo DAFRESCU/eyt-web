@@ -10,18 +10,18 @@ WA_HELLO = "Hola Espinoza T, vi la web de Espinoza T Personas y quiero conversar
 # ======================================================================= HERO EN CARRUSEL
 # (foto, palabra tachada, nombre corto, unidad completa, frase)
 SLIDES = [
-    ("02-construccion", "estructuras", "Estrategia", "Estrategia y diseño organizacional",
-     "Antes de crecer, cada puesto necesita sentido: quién decide, quién responde y para qué existe."),
-    ("06-hoteleria", "vacantes", "Atracción", "Atracción y gestión del talento",
-     "Las personas correctas, en el momento correcto y con una razón para quedarse."),
-    ("04-contact-center", "cursos", "Formación", "Formación y desarrollo del talento",
-     "Aprender es lo que convierte a alguien capaz en alguien que lidera."),
-    ("08-agroindustria", "resultados", "Cultura", "Cultura y experiencia organizacional",
-     "La cultura es cómo se logran los resultados, todos los días, cuando nadie mira."),
-    ("05-salud", "asistencia", "Bienestar", "Bienestar y gestión social y comunitaria",
-     "Más que asistir al trabajo: cuidar a la persona, a su familia y al entorno donde vive."),
-    ("10-legal", "multas", "Cumplimiento", "Cumplimiento y auditoría laboral",
-     "Hacerlo bien y poder demostrarlo, antes de que alguien lo pregunte."),
+    ("02-construccion", "organigramas", "Estrategia", "Estrategia y diseño organizacional",
+     "Cada puesto con un porqué, un dueño y un rumbo."),
+    ("06-hoteleria", "perfiles", "Atracción", "Atracción y gestión del talento",
+     "Atraer a quien encaja, y darle una razón para quedarse."),
+    ("04-contact-center", "certificados", "Formación", "Formación y desarrollo del talento",
+     "Del que sabe hacer al que sabe liderar."),
+    ("08-agroindustria", "indicadores", "Cultura", "Cultura y experiencia organizacional",
+     "Cómo se trabaja cuando nadie está mirando."),
+    ("05-salud", "beneficios", "Bienestar", "Bienestar y gestión social y comunitaria",
+     "Cuidar a la persona, a su familia y al lugar donde vive."),
+    ("10-legal", "inspecciones", "Cumplimiento", "Cumplimiento y auditoría laboral",
+     "Hacerlo bien, y poder demostrarlo."),
 ]
 END_WORD = "rubros"
 SCENES = [  # descripción oculta (solo para lectores de pantalla)
@@ -47,7 +47,7 @@ def reel(B):
     # cierre: mosaico con todas las personas
     tiles = "".join(f'<img data-src="/personas/{s[0]}.webp" alt="" width="800" height="450" decoding="async" loading="lazy">' for s in SLIDES)
     imgs.append(f'<div class="reel-slide reel-collage" data-word="{END_WORD}">{tiles}</div>')
-    caps.append('<div class="reel-layer reel-cap" aria-hidden="true"><p class="k">Espinoza T Personas</p><p class="say">Cambia el rubro, cambia el puesto, cambia la época. Lo que no cambia es que detrás de cada puesto hay una persona.</p></div>')
+    caps.append('<div class="reel-layer reel-cap" aria-hidden="true"><p class="k">Espinoza T Personas</p><p class="say">Cambia el rubro, cambia el puesto. Detrás de cada uno hay una persona.</p></div>')
     dots.append('<li><button type="button" aria-label="Ir al cierre: Piensa en personas"><span>Personas</span></button></li>')
     scenes = "".join(f"<li>{E(s)}</li>" for s in SCENES)
     return f'''<section class="reel" id="inicio" aria-roledescription="carrusel" aria-label="Seis frentes de la gestión de personas">
@@ -65,7 +65,6 @@ def reel(B):
           <div class="reel-layers" aria-live="off">{"".join(caps)}</div>
           <div class="hero-actions">
             {B.wa_btn("Hola Espinoza T, vi la web de Espinoza T Personas y quiero agendar el diagnóstico de 45 minutos sin costo.", "Agenda tu diagnóstico de 45 minutos sin costo")}
-            <a class="textlink" href="#herramientas">Prueba las herramientas gratis</a>
           </div>
         </div>
       </div>
@@ -407,7 +406,7 @@ def home(B):
     <div class="hero-meta">
       <p><strong>74% → 93%</strong>de satisfacción laboral en la medición de clima 2023 de una agroindustria de Arequipa (casi 1 000 trabajadores). La midió la propia empresa; la gerencia estuvo a cargo del clima laboral de la zona sur.</p>
       <p><strong>+200 capacitaciones</strong>desde sesiones individuales hasta auditorios de 100 a 200 personas o más.</p>
-      <p><strong>+10 años</strong>de experiencia de la dirección en gestión de personas, en agroindustria, retail, sector financiero, salud, restauración, minería, construcción, hotelería, educación, metalmecánica e industria.</p>
+      <p><strong>+10 años</strong>gestionando personas, desde dentro de las empresas y como consultor, en rubros muy distintos.</p>
     </div>
   </div>
 </section>'''
@@ -416,7 +415,7 @@ def home(B):
   <div class="wrap">
     <div class="head"><h2 class="reveal" id="quien-hoy">¿Quién eres hoy?</h2><p>Cambia el público, no el criterio: pensar en las personas primero. Elige tu puerta.</p></div>
     <div class="who-grid">
-      <a class="who-card" href="/empresas"><small>01</small><h3>Empresas</h3><p>Equipos que rinden, jefes que saben dirigir y una gestión laboral en regla, desde 20 trabajadores hasta corporaciones.</p><ul><li>Capacitación y supervisores</li><li>Clima, cultura y bienestar</li><li>Selección y orden laboral</li></ul><span class="go">Ver lo que hacemos {B.ARROW}</span></a>
+      <a class="who-card" href="/empresas"><small>01</small><h3>Empresas</h3><p>Equipos que rinden, jefes que saben dirigir y una gestión laboral en regla, de cualquier tamaño.</p><ul><li>Capacitación y supervisores</li><li>Clima, cultura y bienestar</li><li>Selección y orden laboral</li></ul><span class="go">Ver lo que hacemos {B.ARROW}</span></a>
       <a class="who-card" href="/instituciones"><small>02</small><h3>Instituciones</h3><p>Municipalidades, gobiernos regionales, universidades, gremios y organizaciones que trabajan con y para personas.</p><ul><li>Liderazgo para equipos directivos</li><li>Capacitación a servidores y socios</li><li>Cultura y cumplimiento institucional</li></ul><span class="go">Ver lo que hacemos {B.ARROW}</span></a>
       <a class="who-card" href="/comunidades"><small>03</small><h3>Comunidades</h3><p>Colegios, equipos deportivos, grupos, familias y personas que quieren crecer, decidir mejor o jugar en equipo.</p><ul><li>Liderazgo juvenil y orientación vocacional</li><li>Escuela de padres y jornadas en familia</li><li>Dinámicas de juego serio para equipos</li></ul><span class="go">Ver lo que hacemos {B.ARROW}</span></a>
     </div>
@@ -470,11 +469,10 @@ def home(B):
       </div>
       <div class="about-body">
         <h2 class="reveal" id="quien-title">Quién está detrás.</h2>
-        <p class="role">Gerencia General · Bachiller en Psicología (UCSM) · Candidato a Magíster en Gerencia del Talento Humano (UTP)</p>
-        <p>Ha trabajado dentro de empresas y como consultor en agroindustria, retail, sector financiero, salud, restauración, minería, construcción, hotelería, educación, metalmecánica e industria.</p>
-        <p>En el clima laboral de una agroindustria aplicó la medición, tabuló, presentó el informe y coordinó con jefaturas y áreas el seguimiento para que lo medido se convirtiera en acciones. Ha conducido más de 200 capacitaciones.</p>
-        <p>Espinoza T Personas nace en Arequipa para llevar ese rigor a empresas, instituciones y comunidades que lo necesitan, con una firma propia: aprender jugando en serio.</p>
-        <p><a class="textlink" href="/nosotros">Conocer la trayectoria completa</a></p>
+        <p class="role">Fundador y Gerente General · Psicología (UCSM) · Maestría en Gerencia del Talento Humano (UTP)</p>
+        <p>Daniel Espinoza ha trabajado dentro de empresas y como consultor, gestionando personas en rubros muy distintos. De ahí salió una convicción: el método importa más que la moda, y lo que no queda por escrito no existe.</p>
+        <p>Espinoza T Personas nace en Arequipa para llevar ese rigor a empresas, instituciones y comunidades, con una firma propia: aprender jugando en serio.</p>
+        <p><a class="textlink" href="/nosotros">Conocer la forma de trabajar</a></p>
       </div>
     </div>
   </div>
@@ -500,7 +498,7 @@ def home(B):
     <div class="contact-grid">
       <p><b>WhatsApp y teléfono</b><a href="tel:+51974770954">974 770 954</a></p>
       <p><b>Correo</b><a href="mailto:gerencia@espinozat.com">gerencia@espinozat.com</a></p>
-      <p><b>Dónde trabajamos</b><span>Sede en Arequipa. Cusco e Ica por proyecto. Todo el Perú en remoto o híbrido.</span></p>
+      <p><b>Dónde trabajamos</b><span>Proyectos presenciales en Arequipa, Cusco e Ica, y en todo el Perú en distintas modalidades.</span></p>
     </div>
   </div>
 </section>'''
@@ -521,7 +519,7 @@ def offer_cards(B, items):
 def p_empresas(B):
     hero = B.page_hero([("Empresas", None)], "Para empresas",
         "Personas que funcionan, en cualquier rubro.",
-        "Capacitación, desarrollo, cultura y clima para empresas de Arequipa y del sur, desde 20 trabajadores hasta corporaciones. Con método, por escrito y con tu equipo adentro.",
+        "Capacitación, desarrollo, cultura y clima para empresas de Arequipa y del sur, de cualquier tamaño. Con método, por escrito y con tu equipo adentro.",
         B.wa_btn("Hola Espinoza T, soy de una empresa y quiero conversar sobre mi equipo.", "Agenda tu diagnóstico sin costo") + '<a class="textlink" href="#entradas">Por dónde empezar</a>')
     hero = hero.replace('<span aria-current="page">Empresas</span>', '<span>Empresas</span>')
     entradas = offer_cards(B, [
@@ -537,7 +535,7 @@ def p_empresas(B):
             + sec("unidades-t", "Y cuando hay confianza, el trabajo de fondo.", unidades, "Las seis unidades cubren todo el ciclo de vida de una persona en tu organización.", paper=True)
             + sec("herr-t", "Mide antes de decidir.", herr, "Herramientas gratis que te dicen dónde estás parado.")
             + B.cta_band(wa="Hola Espinoza T, soy de una empresa y quiero conversar sobre mi equipo."))
-    return B.page("/empresas", "Consultoría de personas para empresas en Arequipa", "Capacitación, supervisores, clima, cultura, selección y orden laboral para empresas de Arequipa y el sur del Perú, desde 20 trabajadores hasta corporaciones.", body, [B.crumbs_ld([("Inicio", "/"), ("Empresas", "/empresas")])])
+    return B.page("/empresas", "Consultoría de personas para empresas en Arequipa", "Capacitación, supervisores, clima, cultura, selección y orden laboral para empresas de Arequipa y el sur del Perú, de cualquier tamaño.", body, [B.crumbs_ld([("Inicio", "/"), ("Empresas", "/empresas")])])
 
 def p_instituciones(B):
     hero = B.page_hero([("Instituciones", None)], "Para instituciones",
