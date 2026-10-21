@@ -20,10 +20,11 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/static/site.css?v=9de23509">
+<link rel="stylesheet" href="/static/site.css?v=c111de70">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://espinozat.com/pulso-del-concejo#pagina", "url": "https://espinozat.com/pulso-del-concejo", "name": "Pulso del concejo · herramienta gratis | Espinoza T Personas", "description": "Doce preguntas para alcaldes, regidores y gerentes: qué tan bien trabajan juntos el concejo y la gestión.", "inLanguage": "es-PE", "isPartOf": {"@id": "https://espinozat.com/#web"}, "publisher": {"@id": "https://espinozat.com/#empresa"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://espinozat.com/"}, {"@type": "ListItem", "position": 2, "name": "Pulso del concejo · herramienta gratis", "item": "https://espinozat.com/pulso-del-concejo"}]}, {"@type": "WebApplication", "name": "Pulso del concejo", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "PEN"}, "url": "https://espinozat.com/pulso-del-concejo"}]}</script>
 </head>
 <body class="">
+<div class="read-bar" aria-hidden="true"><span></span></div>
 <a class="skip" href="#main">Saltar al contenido</a>
 <header class="top" id="top">
   <div class="wrap">
@@ -76,7 +77,7 @@
       </div>
       <div><h2 class="foot-h">Clientes</h2><ul><li><a href="/organizaciones">Organizaciones</a></li><li><a href="/sector-publico">Sector público</a></li><li><a href="/comunidades">Comunidades</a></li><li><a href="/personas-y-familias">Personas y familias</a></li></ul></div>
       <div><h2 class="foot-h">Unidades de servicio</h2><ul><li><a href="/servicios/estructura-y-puestos">Estrategia y diseño organizacional</a></li><li><a href="/servicios/capacitacion-y-desarrollo">Formación y desarrollo del talento</a></li><li><a href="/servicios/clima-y-cultura">Cultura y experiencia organizacional</a></li><li><a href="/servicios/bienestar">Bienestar y sostenibilidad social</a></li><li><a href="/servicios/orden-laboral">Cumplimiento y auditoría laboral</a></li><li><a href="/servicios/seleccion-e-induccion">Atracción y gestión del talento</a></li><li><a href="/servicios/gestion-publica">Gestión pública y autoridades</a></li><li><a href="/servicios/desarrollo-comunitario">Desarrollo comunitario</a></li><li><a href="/servicios/impacto-social">Impacto social y sostenibilidad</a></li><li><a href="/servicios/desarrollo-personal">Desarrollo personal y empleabilidad</a></li><li><a href="/servicios/familias">Familias</a></li></ul></div>
-      <div><h2 class="foot-h">Temporada</h2><ul><li><a href="/cierre-2026">Cierre 2026</a></li><li><a href="/arranque-2027">Arranca tu 2027</a></li></ul><h2 class="foot-h foot-h2">Gratis</h2><ul><li><a href="/herramientas">16 herramientas</a></li><li><a href="/guias">Guías</a></li><li><a href="/recursos">Recursos</a></li><li><a href="/certificado">Verificar constancia</a></li></ul></div>
+      <div><h2 class="foot-h">Temporada</h2><ul><li><a href="/cierre-2026">Cierre 2026</a></li><li><a href="/arranque-2027">Arranca tu 2027</a></li></ul><h2 class="foot-h foot-h2">Gratis</h2><ul><li><a href="/herramientas">16 herramientas</a></li><li><a href="/guias">Guías</a></li><li><a href="/certificado">Verificar constancia</a></li></ul></div>
       <div><h2 class="foot-h">Espinoza T</h2><ul><li><a href="/nosotros">Nosotros</a></li><li><a href="/contacto">Contacto</a></li><li><a href="/red">Únete a la red de especialistas</a></li><li><a href="/privacidad">Privacidad</a></li></ul></div>
     </div>
     <div class="foot-bottom"><span>© <span data-year>2026</span> Espinoza T Personas. Piensa en personas.</span><span>Las fotos de personas son imágenes ilustrativas generadas con IA.</span></div>
@@ -84,14 +85,13 @@
 </footer>
 <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="Menú">
   <div class="sheet-top"><a class="brand" href="/" aria-label="Espinoza T Personas, inicio"><img class="brand-logo" src="/logo-horizontal-claro.svg" width="265" height="40" alt="Espinoza T Personas"></a><button class="sheet-close" type="button" aria-label="Cerrar menú"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button></div>
-  <nav class="sheet-body" aria-label="Menú del celular">
+  <nav class="sheet-body" aria-label="Menú del celular" data-lenis-prevent>
     <button class="sheet-search" type="button" data-search><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Buscar un servicio</button>
     <a href="/">Inicio</a>
     <details><summary>Clientes y servicios <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><div class="sheet-sub"><a class="sheet-g" href="/organizaciones"><b>Organizaciones</b></a><a class="sheet-u" href="/servicios/estructura-y-puestos">Estrategia y diseño organizacional</a><a class="sheet-u" href="/servicios/capacitacion-y-desarrollo">Formación y desarrollo del talento</a><a class="sheet-u" href="/servicios/clima-y-cultura">Cultura y experiencia organizacional</a><a class="sheet-u" href="/servicios/bienestar">Bienestar y sostenibilidad social</a><a class="sheet-u" href="/servicios/orden-laboral">Cumplimiento y auditoría laboral</a><a class="sheet-u" href="/servicios/seleccion-e-induccion">Atracción y gestión del talento</a><a class="sheet-g" href="/sector-publico"><b>Sector público</b></a><a class="sheet-u" href="/servicios/gestion-publica">Gestión pública y autoridades</a><a class="sheet-u" href="/sector-publico/capacitacion-y-desarrollo">Formación y desarrollo del talento</a><a class="sheet-u" href="/sector-publico/clima-y-cultura">Cultura y experiencia organizacional</a><a class="sheet-u" href="/sector-publico/bienestar">Bienestar del personal</a><a class="sheet-g" href="/comunidades"><b>Comunidades</b></a><a class="sheet-u" href="/servicios/desarrollo-comunitario">Desarrollo comunitario</a><a class="sheet-u" href="/servicios/impacto-social">Impacto social y sostenibilidad</a><a class="sheet-g" href="/personas-y-familias"><b>Personas y familias</b></a><a class="sheet-u" href="/servicios/desarrollo-personal">Desarrollo personal y empleabilidad</a><a class="sheet-u" href="/servicios/familias">Familias</a></div></details>
     <details><summary>Cierre 2026 <svg class="chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary><div class="sheet-sub"><a href="/cierre-2026">Programas destacados del cierre 2026</a><a href="/arranque-2027">Arranca tu 2027</a></div></details>
     <a href="/herramientas">Herramientas <span class="tag-free">gratis</span></a>
     <a href="/nosotros">Nosotros</a>
-    <a href="/recursos">Recursos</a>
     <a href="/contacto">Contacto</a>
   </nav>
   <div class="sheet-foot">
@@ -107,6 +107,6 @@
 <script src="/static/site.js?v=0d98d593" defer></script>
 <script src="/static/quiz.js?v=c0e55902" defer></script>
 <script src="/_vercel/insights/script.js" defer></script>
-<script src="/static/extras.js?v=c2a21ef5" defer></script>
+<script src="/static/extras.js?v=a8d2a6de" defer></script>
 </body>
 </html>

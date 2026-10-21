@@ -852,3 +852,34 @@ details.svc.svc-hit{box-shadow:0 0 0 2px var(--wine);border-radius:1rem}
 .proof-mini .proof-num{margin:.9rem 0 0;font:600 2.2rem/1 var(--serif,Georgia);color:var(--navy)}
 .proof-mini .proof-num:first-child{margin-top:0}
 .proof-mini p:not(.proof-num){margin:0;color:var(--ink-soft)}
+
+/* ---- 21-oct: menú del celular desplazable, ruta, unidades, grupos y barra de avance ---- */
+.sheet-body{min-height:0;-webkit-overflow-scrolling:touch;touch-action:pan-y}
+.crumbs{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.15rem .35rem;margin-bottom:1.1rem;padding:.25rem .9rem;border:1px solid var(--rule);border-radius:999px;background:rgba(255,255,255,.7);font-size:.85rem}
+.crumbs a,.crumbs span{min-height:36px;display:inline-flex;align-items:center;color:var(--ink-soft);text-decoration:none}
+.crumbs a:hover{color:var(--wine)}
+.crumbs [aria-current="page"]{color:var(--navy);font-weight:600}
+.crumb-sep{width:12px;height:12px;color:var(--wine);flex:none}
+.unit-chips-h{margin:1.6rem 0 .5rem;font:700 .72rem/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;color:var(--wine)}
+.unit-chips{list-style:none;display:flex;flex-wrap:wrap;gap:.45rem;margin:0;padding:0;max-width:52rem}
+.unit-chips a{display:inline-flex;align-items:center;min-height:36px;padding:.35rem .8rem;border:1px solid var(--rule);border-radius:999px;background:#fff;color:var(--navy);font-size:.88rem;text-decoration:none;transition:border-color .2s ease,background .2s ease}
+.unit-chips a:hover{border-color:var(--wine);background:var(--bone)}
+.btn-big{min-height:54px;padding:.95rem 1.5rem;font-size:1.02rem;gap:.5rem}
+.btn-big svg{width:1.1rem;height:1.1rem}
+.unit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));gap:1rem}
+.unit-card{border:1px solid var(--rule);border-radius:1.1rem;background:#fff;overflow:hidden}
+.unit-card-h{display:flex;flex-direction:column;gap:.25rem;padding:1rem 1.2rem;background:var(--navy);color:#fff;text-decoration:none}
+.unit-card-h h3{margin:0;font:600 1.15rem/1.25 var(--serif,Georgia);color:#fff}
+.unit-card-h span{display:inline-flex;align-items:center;gap:.35rem;font-size:.8rem;color:#F2C4CF}
+.unit-card-h span svg{width:.9rem;height:.9rem}
+.unit-card ul{list-style:none;margin:0;padding:.4rem .6rem .7rem}
+.unit-card li a{display:flex;min-height:40px;align-items:center;padding:.35rem .6rem;border-radius:.6rem;color:var(--ink);font-size:.93rem;text-decoration:none}
+.unit-card li a:hover{background:var(--bone);color:var(--wine)}
+.read-bar{position:fixed;top:0;left:0;right:0;height:3px;z-index:120;pointer-events:none}
+.read-bar span{display:block;height:100%;width:100%;background:var(--wine);transform:scaleX(0);transform-origin:0 50%}
+@media (prefers-reduced-motion:reduce){.read-bar{display:none}}
+@media (max-width:720px){.crumbs{border-radius:.9rem;font-size:.8rem}.unit-chips{gap:.35rem}.unit-chips a{min-height:32px;padding:.25rem .65rem;font-size:.8rem}
+ .band{padding:2.8rem 0}.page-hero{padding-bottom:2.2rem}.head{margin-bottom:1.4rem}
+ .foot-grid-5>div:nth-child(3){display:none}
+ #cuando .card p,.tools-grid .card p,#mas-pedido .card p{display:none}
+ #cuando .cards3,#retos .cards3{gap:.6rem}}

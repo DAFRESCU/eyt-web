@@ -101,6 +101,11 @@
       "source": "/programas/integracion",
       "destination": "/jornada-de-proposito",
       "permanent": true
+    },
+    {
+      "source": "/recursos",
+      "destination": "/herramientas",
+      "permanent": true
     }
   ]
 }
