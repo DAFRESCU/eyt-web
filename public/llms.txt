@@ -12,13 +12,17 @@
 - [Estrategia y diseño organizacional](https://espinozat.com/servicios/estructura-y-puestos): Puestos, funciones, líneas de mando y el plan de personas que sostiene todo lo demás.
 - [Formación y desarrollo del talento](https://espinozat.com/servicios/capacitacion-y-desarrollo): Capacitar, evaluar y hacer crecer a quienes ya están.
 - [Cultura y experiencia organizacional](https://espinozat.com/servicios/clima-y-cultura): Clima, valores, comunicación y la experiencia diaria de trabajar ahí.
-- [Bienestar y gestión social](https://espinozat.com/servicios/bienestar): La persona, su familia y su entorno, antes y después del horario.
+- [Bienestar y sostenibilidad social](https://espinozat.com/servicios/bienestar): Cuidar a tu gente y a su familia, y crecer de la mano de la comunidad que te rodea.
 - [Cumplimiento y auditoría laboral](https://espinozat.com/servicios/orden-laboral): Reglas claras, registros al día y todo demostrable.
 - [Atracción y gestión del talento](https://espinozat.com/servicios/seleccion-e-induccion): Encontrar, elegir e integrar a las personas correctas.
 - [Gestión pública y autoridades](https://espinozat.com/servicios/gestion-publica): Autoridades, concejos y equipos de gestión que trabajan bien juntos y atienden mejor.
 - [Desarrollo comunitario](https://espinozat.com/servicios/desarrollo-comunitario): Líderes, diálogo, convivencia y organización para grupos que comparten un territorio o un propósito.
+- [Impacto social y sostenibilidad](https://espinozat.com/servicios/impacto-social): Programas sociales con la comunidad, bien diseñados y medidos, para empresas, ONG y municipios.
 - [Desarrollo personal y empleabilidad](https://espinozat.com/servicios/desarrollo-personal): Elegir carrera, conseguir trabajo, hablar en público y crecer como persona.
 - [Familias](https://espinozat.com/servicios/familias): Padres, hijos y familias que quieren acompañarse mejor.
+
+## Destacado
+- [Jornada de Propósito](https://espinozat.com/jornada-de-proposito): reunión estratégica gamificada, a medida de cada empresa
 
 ## Temporada
 - [Cierre 2026](https://espinozat.com/cierre-2026)

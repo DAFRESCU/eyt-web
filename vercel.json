@@ -96,6 +96,11 @@
       "source": "/plan-mensual",
       "destination": "/organizaciones",
       "permanent": false
+    },
+    {
+      "source": "/programas/integracion",
+      "destination": "/jornada-de-proposito",
+      "permanent": true
     }
   ]
 }

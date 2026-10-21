@@ -96,6 +96,16 @@
     if (c > 0) act(c);
   });
 
+  /* ---------- un enlace a /servicios/x#servicio abre ese servicio ---------- */
+  function abrirServicio() {
+    var h = decodeURIComponent((location.hash || "").slice(1)); if (!h) return;
+    var d = document.getElementById(h); if (!d || d.tagName !== "DETAILS") return;
+    $$("details.svc").forEach(function (x) { if (x !== d) x.open = false; });
+    d.open = true; d.classList.add("svc-hit");
+    setTimeout(function () { d.scrollIntoView({ block: "start" }); }, 80);
+  }
+  abrirServicio(); window.addEventListener("hashchange", abrirServicio);
+
   /* ---------- menú de pestañas ---------- */
   var nav = $(".nav"), pill = $(".nav-pill");
   var items = $$(".nav-item.has-menu");
