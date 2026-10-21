@@ -134,3 +134,36 @@
   window.addEventListener("scroll", function () { if (!tick) { tick = true; requestAnimationFrame(upd); } }, { passive: true });
   window.addEventListener("resize", upd); upd();
 })();
+
+/* tarjetas que aparecen al bajar y cifras que cuentan */
+(function () {
+  var rm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var els = [].slice.call(document.querySelectorAll(".rv"));
+  if (rm || !("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("in"); }); }
+  else {
+    var vh = window.innerHeight;
+    els.forEach(function (e) { if (e.getBoundingClientRect().top < vh) e.classList.add("in"); });
+    document.documentElement.classList.add("rv-on");
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target, sib = el.parentNode ? [].slice.call(el.parentNode.children).filter(function (c) { return c.classList.contains("rv"); }) : [];
+        el.style.transitionDelay = Math.min(sib.indexOf(el), 5) * 80 + "ms";
+        el.classList.add("in"); io.unobserve(el);
+      });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    els.forEach(function (e) { io.observe(e); });
+  }
+  var nums = [].slice.call(document.querySelectorAll("[data-count]"));
+  if (rm || !nums.length || !("IntersectionObserver" in window)) return;
+  function fmt(n) { return n >= 1000 ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u00a0") : String(n); }
+  var io2 = new IntersectionObserver(function (es) {
+    es.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      var el = en.target, to = +el.getAttribute("data-count"), t0 = null; io2.unobserve(el);
+      function step(t) { if (!t0) t0 = t; var p = Math.min(1, (t - t0) / 1400), e = 1 - Math.pow(1 - p, 3); el.textContent = fmt(Math.round(to * e)); if (p < 1) requestAnimationFrame(step); }
+      el.textContent = "0"; requestAnimationFrame(step);
+    });
+  }, { threshold: .6 });
+  nums.forEach(function (n) { io2.observe(n); });
+})();
