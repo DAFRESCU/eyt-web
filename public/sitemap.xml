@@ -1,36 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://espinozat.com/</loc><lastmod>2026-10-15</lastmod><priority>1.0</priority></url>
-  <url><loc>https://espinozat.com/servicios/estructura-y-puestos</loc><lastmod>2026-10-15</lastmod><priority>0.9</priority></url>
-  <url><loc>https://espinozat.com/servicios/seleccion-e-induccion</loc><lastmod>2026-10-15</lastmod><priority>0.9</priority></url>
-  <url><loc>https://espinozat.com/servicios/capacitacion-y-desarrollo</loc><lastmod>2026-10-15</lastmod><priority>0.9</priority></url>
-  <url><loc>https://espinozat.com/servicios/clima-y-cultura</loc><lastmod>2026-10-15</lastmod><priority>0.9</priority></url>
-  <url><loc>https://espinozat.com/servicios/bienestar</loc><lastmod>2026-10-15</lastmod><priority>0.9</priority></url>
-  <url><loc>https://espinozat.com/servicios/orden-laboral</loc><lastmod>2026-10-15</lastmod><priority>0.9</priority></url>
-  <url><loc>https://espinozat.com/empresas</loc><lastmod>2026-10-15</lastmod><priority>0.9</priority></url>
-  <url><loc>https://espinozat.com/instituciones</loc><lastmod>2026-10-15</lastmod><priority>0.9</priority></url>
-  <url><loc>https://espinozat.com/personas-y-familias</loc></url><url><loc>https://espinozat.com/comunidades</loc><lastmod>2026-10-15</lastmod><priority>0.9</priority></url>
-  <url><loc>https://espinozat.com/herramientas</loc><lastmod>2026-10-15</lastmod><priority>0.9</priority></url>
-  <url><loc>https://espinozat.com/termometro</loc><lastmod>2026-10-15</lastmod><priority>0.9</priority></url>
-  <url><loc>https://espinozat.com/cumple-ley-27942</loc><lastmod>2026-10-15</lastmod><priority>0.9</priority></url>
-  <url><loc>https://espinozat.com/brujula</loc><lastmod>2026-10-15</lastmod><priority>0.9</priority></url>
-  <url><loc>https://espinozat.com/programas/supervisores</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
-  <url><loc>https://espinozat.com/programas/hostigamiento</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
-  <url><loc>https://espinozat.com/programas/taller-3-horas</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
-  <url><loc>https://espinozat.com/programas/integracion</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
-  <url><loc>https://espinozat.com/cierre-2026</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
-  
-  <url><loc>https://espinozat.com/nosotros</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
-  <url><loc>https://espinozat.com/recursos</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
-  <url><loc>https://espinozat.com/contacto</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
-  <url><loc>https://espinozat.com/red</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
-  <url><loc>https://espinozat.com/calculadora-rotacion</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://espinozat.com/certificado</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://espinozat.com/daniel</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://espinozat.com/guias</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://espinozat.com/guias/hostigamiento-sexual-obligaciones-empresa</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://espinozat.com/guias/como-calcular-rotacion-de-personal</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://espinozat.com/guias/como-medir-clima-laboral-pyme</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://espinozat.com/guias/plan-de-induccion-30-60-90-dias</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-  <url><loc>https://espinozat.com/guias/como-formar-supervisores</loc><lastmod>2026-10-15</lastmod><priority>0.7</priority></url>
-<url><loc>https://espinozat.com/privacidad</loc></url></urlset>
+<url><loc>https://espinozat.com/</loc></url>
+<url><loc>https://espinozat.com/organizaciones</loc></url>
+<url><loc>https://espinozat.com/sector-publico</loc></url>
+<url><loc>https://espinozat.com/comunidades</loc></url>
+<url><loc>https://espinozat.com/personas-y-familias</loc></url>
+<url><loc>https://espinozat.com/servicios/estructura-y-puestos</loc></url>
+<url><loc>https://espinozat.com/servicios/capacitacion-y-desarrollo</loc></url>
+<url><loc>https://espinozat.com/servicios/clima-y-cultura</loc></url>
+<url><loc>https://espinozat.com/servicios/bienestar</loc></url>
+<url><loc>https://espinozat.com/servicios/orden-laboral</loc></url>
+<url><loc>https://espinozat.com/servicios/seleccion-e-induccion</loc></url>
+<url><loc>https://espinozat.com/servicios/gestion-publica</loc></url>
+<url><loc>https://espinozat.com/servicios/desarrollo-comunitario</loc></url>
+<url><loc>https://espinozat.com/servicios/desarrollo-personal</loc></url>
+<url><loc>https://espinozat.com/servicios/familias</loc></url>
+<url><loc>https://espinozat.com/cierre-2026</loc></url>
+<url><loc>https://espinozat.com/arranque-2027</loc></url>
+<url><loc>https://espinozat.com/herramientas</loc></url>
+<url><loc>https://espinozat.com/termometro</loc></url>
+<url><loc>https://espinozat.com/radar-del-jefe</loc></url>
+<url><loc>https://espinozat.com/pulso-de-clima</loc></url>
+<url><loc>https://espinozat.com/listo-para-asumir</loc></url>
+<url><loc>https://espinozat.com/gestion-de-personas-publica</loc></url>
+<url><loc>https://espinozat.com/atencion-al-ciudadano</loc></url>
+<url><loc>https://espinozat.com/pulso-del-concejo</loc></url>
+<url><loc>https://espinozat.com/salud-de-tu-organizacion</loc></url>
+<url><loc>https://espinozat.com/asambleas-con-acuerdos</loc></url>
+<url><loc>https://espinozat.com/termometro-de-convivencia</loc></url>
+<url><loc>https://espinozat.com/voluntariado-que-se-sostiene</loc></url>
+<url><loc>https://espinozat.com/listo-para-tu-entrevista</loc></url>
+<url><loc>https://espinozat.com/pantallas-en-casa</loc></url>
+<url><loc>https://espinozat.com/mis-habilidades-blandas</loc></url>
+<url><loc>https://espinozat.com/calculadora-rotacion</loc></url>
+<url><loc>https://espinozat.com/brujula</loc></url>
+<url><loc>https://espinozat.com/nosotros</loc></url>
+<url><loc>https://espinozat.com/contacto</loc></url>
+<url><loc>https://espinozat.com/guias</loc></url>
+<url><loc>https://espinozat.com/recursos</loc></url>
+<url><loc>https://espinozat.com/red</loc></url>
+<url><loc>https://espinozat.com/certificado</loc></url>
+<url><loc>https://espinozat.com/privacidad</loc></url>
+<url><loc>https://espinozat.com/guias/como-medir-clima-laboral-pyme</loc></url>
+<url><loc>https://espinozat.com/guias/como-calcular-rotacion-de-personal</loc></url>
+<url><loc>https://espinozat.com/guias/como-formar-supervisores</loc></url>
+<url><loc>https://espinozat.com/guias/hostigamiento-sexual-obligaciones-empresa</loc></url>
+<url><loc>https://espinozat.com/guias/plan-de-induccion-30-60-90-dias</loc></url>
+<url><loc>https://espinozat.com/programas/taller-3-horas</loc></url>
+<url><loc>https://espinozat.com/programas/integracion</loc></url>
+<url><loc>https://espinozat.com/programas/supervisores</loc></url>
+<url><loc>https://espinozat.com/programas/hostigamiento</loc></url>
+</urlset>

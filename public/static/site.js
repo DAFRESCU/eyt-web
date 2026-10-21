@@ -84,6 +84,18 @@
   addEventListener("resize", onScroll);
   onScroll();
 
+  /* ---------- menú Clientes y servicios: cada grupo muestra sus unidades ---------- */
+  $$(".menu-mega").forEach(function (m) {
+    var gs = $$(".mega-g", m), ps = $$(".mega-p", m);
+    function act(i) { gs.forEach(function (g, k) { g.classList.toggle("on", k === i); }); ps.forEach(function (p, k) { p.classList.toggle("on", k === i); }); }
+    gs.forEach(function (g, i) {
+      g.addEventListener("pointerenter", function () { act(i); });
+      g.addEventListener("focus", function () { act(i); });
+    });
+    var c = gs.findIndex ? gs.findIndex(function (g) { return g.getAttribute("aria-current") === "page"; }) : -1;
+    if (c > 0) act(c);
+  });
+
   /* ---------- menú de pestañas ---------- */
   var nav = $(".nav"), pill = $(".nav-pill");
   var items = $$(".nav-item.has-menu");

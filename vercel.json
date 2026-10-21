@@ -70,5 +70,32 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/empresas",
+      "destination": "/organizaciones",
+      "permanent": true
+    },
+    {
+      "source": "/instituciones",
+      "destination": "/sector-publico",
+      "permanent": true
+    },
+    {
+      "source": "/cumple-ley-27942",
+      "destination": "/herramientas",
+      "permanent": true
+    },
+    {
+      "source": "/empresas-grandes",
+      "destination": "/organizaciones",
+      "permanent": true
+    },
+    {
+      "source": "/plan-mensual",
+      "destination": "/organizaciones",
+      "permanent": false
+    }
   ]
 }
