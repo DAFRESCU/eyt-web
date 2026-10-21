@@ -14,9 +14,10 @@ body{width:1200px;height:630px;background:#F3EEE6;color:#1B2A4A;position:relativ
 .h{position:absolute;left:88px;top:150px;right:88px;font-family:"Fraunces";font-weight:450;font-size:%(fs)dpx;line-height:1.04;letter-spacing:-.03em;font-variation-settings:"SOFT" 50,"WONK" 0}
 .bar{position:absolute;left:88px;top:92px;width:0}
 .foot{position:absolute;left:88px;right:88px;bottom:60px;display:flex;justify-content:space-between;align-items:baseline;font-size:23px;color:#4A433B;border-top:2px solid #D9D0C2;padding-top:24px}
+.lg{display:block;height:44px;width:auto}
 .b{font-family:"Fraunces";font-weight:600;font-size:34px;color:#1B2A4A;letter-spacing:-.02em}.b span{color:#6E2438}.b small{font-family:"Inter";font-weight:500;font-size:20px;color:#4A433B;letter-spacing:.06em;margin-left:10px}
 </style></head><body><div class="k">%(k)s</div><div class="h">%(h)s</div>
-<div class="foot"><span class="b">Espinoza <span>T</span><small>Personas</small></span><span>espinozat.com · Arequipa</span></div></body></html>"""
+<div class="foot"><img class="lg" src="http://localhost:%(p)d/logo-horizontal.svg" height="44"><span>espinozat.com · Arequipa</span></div></body></html>"""
 
 def strip(t): return html.unescape(re.sub(r"<[^>]+>", "", t)).strip()
 

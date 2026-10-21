@@ -15,6 +15,7 @@
       var trab = Math.max(1, num(q("c-trab"), 30));
       var sueldo = num(q("c-sueldo"), 1500);
       var ren = num(q("c-ren"), 0);
+      if (ren > 0 && window.ET && ET.track) ET.track("herramienta-calculadora", true);
       var dias = num(q("c-dias"), 30);
       var vac = Math.min(100, num(q("c-vac"), 50)) / 100;
       var meses = num(q("c-meses"), 3);

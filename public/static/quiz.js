@@ -114,6 +114,7 @@
 
   /* ---------- resultados ---------- */
   function finish() {
+    if (window.ET && ET.track) ET.track("herramienta-" + (location.pathname.split("/")[1] || "inicio"));
     if (C.mode === "likert") resultLikert(); else resultRisk();
     show("out"); focusTop(out);
   }

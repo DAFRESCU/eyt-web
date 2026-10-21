@@ -10,6 +10,24 @@
   window.ET = window.ET || {};
   ET.wa = function (text) { return WA + "?text=" + encodeURIComponent(text); };
 
+  /* ---------- medición (Vercel Web Analytics, sin cookies) ----------
+     Cada evento se registra como una visita a /evento/<nombre> y, si el plan lo permite, como evento propio.
+     Así se ven en el panel de Analytics: clics a WhatsApp y herramientas completadas. */
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  var sent = {};
+  ET.track = function (name, once) {
+    if (once && sent[name]) return; sent[name] = 1;
+    var from = location.pathname.replace(/\/$/, "") || "/inicio";
+    try {
+      window.va("event", { name: name, data: { pagina: from } });
+      window.va("pageview", { route: "/evento/" + name, path: "/evento/" + name + from });
+    } catch (e) {}
+  };
+  doc.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="https://wa.me"]');
+    if (a) ET.track("whatsapp");
+  }, true);
+
   /* ---------- enlaces de WhatsApp con mensaje listo ---------- */
   $$("[data-wa]").forEach(function (a) {
     a.href = ET.wa(a.getAttribute("data-wa"));

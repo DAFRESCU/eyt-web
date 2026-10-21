@@ -94,6 +94,7 @@
     var btn = document.getElementById("wa-result");
     btn.href = wa(msg); btn.target = "_blank"; btn.rel = "noopener";
 
+    if (window.ET && ET.track) ET.track("herramienta-termometro");
     result.hidden = false;
     result.focus({ preventScroll: true });
     go(result, -90);
