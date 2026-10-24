@@ -120,7 +120,7 @@ def footer():
       <div><h2 class="foot-h">Programas</h2><ul>{prog}</ul></div>
       <div><h2 class="foot-h">Espinoza T</h2><ul><li><a href="/nosotros">Nosotros</a></li><li><a href="/empresas">Empresas</a></li><li><a href="/instituciones">Instituciones</a></li><li><a href="/comunidades">Comunidades</a></li><li><a href="/herramientas">Herramientas gratis</a></li><li><a href="/termometro">Termómetro de riesgo</a></li><li><a href="/cumple-ley-27942">¿Cumples la Ley 27942?</a></li><li><a href="/brujula">Brújula vocacional</a></li><li><a href="/calculadora-rotacion">Calculadora de rotación</a></li><li><a href="/certificado">Verificar constancia</a></li><li><a href="/empresas-grandes">Empresas grandes</a></li><li><a href="/recursos">Recursos</a></li><li><a href="/guias">Guías</a></li><li><a href="/contacto">Contacto</a></li><li><a href="/red">Únete a la red de especialistas</a></li></ul></div>
     </div>
-    <div class="foot-bottom"><span>© <span data-year>2026</span> Espinoza T Personas. Piensa en personas.</span><span>Las fotos de personas son imágenes ilustrativas generadas con IA.</span></div>
+    <div class="foot-bottom"><span>© <span data-year>2026</span> Espinoza T Personas. Piensa en personas.</span><span>Las fotos de personas son imágenes ilustrativas generadas con IA. Las cifras y logros citados son experiencia profesional previa del gerente general.</span></div>
   </div>
 </footer>'''
 

@@ -138,12 +138,14 @@
       if (v > 0) { sub[it.g] += 1; gaps.push({ it: it, unknown: answers[i] === (C.unknownIndex), g: it.g }); }
     });
     var total = sub.reduce(function (a, b) { return a + b; }, 0);
-    var lead = 0; for (var b = 1; b < G; b++) if (sub[b] > sub[lead]) lead = b;
+    var lead = -1; for (var b = 0; b < G; b++) { if (C.groups[b].comp) continue; if (lead < 0 || sub[b] > sub[lead]) lead = b; }
+    var compI = -1; C.groups.forEach(function (g, i) { if (g.comp) compI = i; });
+    if (lead < 0 || (sub[lead] === 0 && compI >= 0 && sub[compI] > 0)) lead = compI >= 0 ? compI : 0;
     var vd = C.verdicts[C.verdicts.length - 1];
     for (var k = 0; k < C.verdicts.length; k++) if (total <= C.verdicts[k].max) { vd = C.verdicts[k]; break; }
     var where = C.groups[lead].name.toLowerCase();
     var h = '<div class="tr-head" data-focus><p class="kicker kicker-light">' + esc(C.reportTitle || "Tu informe") + ' · ' + today() + (size ? ' · ' + esc((C.sizeLabel || 'Organización de {} trabajadores').replace('{}', size)) : '') + '</p>' +
-      '<div class="tr-score"><p class="tr-num">' + total + '<small> de ' + N + '</small></p><div><p class="tr-verdict">' + esc(vd.t) + '</p><p class="tr-adv">' + esc(vd.a.replace("{donde}", where)) + '</p></div></div></div>';
+      '<div class="tr-score"><p class="tr-num">' + total + '<small> de ' + N + '</small></p><div><p class="tr-verdict">' + esc(vd.t) + '</p><p class="tr-adv">' + esc(vd.a.replace("{donde}", where) + (compI >= 0 && lead !== compI && sub[compI] > 0 ? " Como complemento, revisa también " + C.groups[compI].name.toLowerCase() + "." : "")) + '</p></div></div></div>';
     h += '<div class="tr-bars">';
     C.groups.forEach(function (g, i) {
       var pc = Math.round(sub[i] / cnt[i] * 100);

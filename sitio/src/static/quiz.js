@@ -88,7 +88,7 @@
     h += '</div>';
     if (it.why) h += '<details class="tq-why"><summary>' + esc(C.whyLabel || "¿Por qué importa?") + '</summary><p>' + esc(it.why) + '</p></details>';
     h += '<div class="tq-nav"><button type="button" class="linkbtn" data-back' + (idx === 0 ? " hidden" : "") + '>← Atrás</button>' +
-         (C.mode === "risk" ? '<p class="tq-hint">«No sé» también cuenta: lo que no puedes comprobar, no te protege.</p>' : '<p class="tq-hint">No hay respuestas buenas ni malas.</p>') + '</div>';
+         (C.hint ? '<p class="tq-hint">' + esc(C.hint) + '</p>' : (C.mode === "risk" ? '<p class="tq-hint">«No sé» también cuenta: lo que no puedes comprobar, no te protege.</p>' : '<p class="tq-hint">No hay respuestas buenas ni malas.</p>')) + '</div>';
     stage.innerHTML = h;
     stage.querySelectorAll(".tq-opt").forEach(function (b) { b.addEventListener("click", function () { pick(parseInt(b.getAttribute("data-k"), 10)); }); });
     var back = stage.querySelector("[data-back]");
@@ -114,6 +114,7 @@
 
   /* ---------- resultados ---------- */
   function finish() {
+    if (window.ET && ET.track) ET.track("herramienta-" + (location.pathname.split("/")[1] || "inicio"));
     if (C.mode === "likert") resultLikert(); else resultRisk();
     show("out"); focusTop(out);
   }
@@ -137,12 +138,14 @@
       if (v > 0) { sub[it.g] += 1; gaps.push({ it: it, unknown: answers[i] === (C.unknownIndex), g: it.g }); }
     });
     var total = sub.reduce(function (a, b) { return a + b; }, 0);
-    var lead = 0; for (var b = 1; b < G; b++) if (sub[b] > sub[lead]) lead = b;
+    var lead = -1; for (var b = 0; b < G; b++) { if (C.groups[b].comp) continue; if (lead < 0 || sub[b] > sub[lead]) lead = b; }
+    var compI = -1; C.groups.forEach(function (g, i) { if (g.comp) compI = i; });
+    if (lead < 0 || (sub[lead] === 0 && compI >= 0 && sub[compI] > 0)) lead = compI >= 0 ? compI : 0;
     var vd = C.verdicts[C.verdicts.length - 1];
     for (var k = 0; k < C.verdicts.length; k++) if (total <= C.verdicts[k].max) { vd = C.verdicts[k]; break; }
     var where = C.groups[lead].name.toLowerCase();
-    var h = '<div class="tr-head" data-focus><p class="kicker kicker-light">' + esc(C.reportTitle || "Tu informe") + ' · ' + today() + (size ? ' · Empresa de ' + esc(size) + ' trabajadores' : '') + '</p>' +
-      '<div class="tr-score"><p class="tr-num">' + total + '<small> de ' + N + '</small></p><div><p class="tr-verdict">' + esc(vd.t) + '</p><p class="tr-adv">' + esc(vd.a.replace("{donde}", where)) + '</p></div></div></div>';
+    var h = '<div class="tr-head" data-focus><p class="kicker kicker-light">' + esc(C.reportTitle || "Tu informe") + ' · ' + today() + (size ? ' · ' + esc((C.sizeLabel || 'Organización de {} trabajadores').replace('{}', size)) : '') + '</p>' +
+      '<div class="tr-score"><p class="tr-num">' + total + '<small> de ' + N + '</small></p><div><p class="tr-verdict">' + esc(vd.t) + '</p><p class="tr-adv">' + esc(vd.a.replace("{donde}", where) + (compI >= 0 && lead !== compI && sub[compI] > 0 ? " Como complemento, revisa también " + C.groups[compI].name.toLowerCase() + "." : "")) + '</p></div></div></div>';
     h += '<div class="tr-bars">';
     C.groups.forEach(function (g, i) {
       var pc = Math.round(sub[i] / cnt[i] * 100);
