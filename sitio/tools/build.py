@@ -222,7 +222,7 @@ def steps_mini():
   <li><b>Propuesta escrita</b>Alcance, lo que queda fuera, plazos e inversión. Sin costo.</li>
   <li class="paid"><b>Ejecución</b>Empieza con la firma, con una contraparte de tu empresa.</li>
   <li class="paid"><b>Entrega</b>Todo en editable, con una sesión para tu equipo.</li>
-  <li class="paid"><b>Verificación</b>A los 30 días revisamos que se esté usando. Incluida.</li>
+  <li class="paid"><b>Verificación</b>A los 30 días revisamos cómo se está usando lo entregado. Incluida.</li>
 </ol>'''
 
 def faq_block(faq, title="Preguntas frecuentes", hid="faq"):
@@ -294,7 +294,7 @@ def service_page(slug):
 </section>'''
     method = f'''<section class="band" aria-labelledby="como">
   <div class="wrap">
-    <div class="head"><h2 class="reveal" id="como">Cómo trabajamos.</h2><p>Cinco pasos, siempre los mismos. Sabes qué vas a recibir antes de pagar un sol.</p></div>
+    <div class="head"><h2 class="reveal" id="como">Cómo trabajamos.</h2><p>Cinco pasos estandarizados para la excelencia del servicio. Sabes qué vas a recibir antes de pagar un sol.</p></div>
     {steps_mini()}
   </div>
 </section>'''

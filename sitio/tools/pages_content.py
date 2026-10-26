@@ -98,7 +98,7 @@ HOME_FAQ = [
     ("¿Trabajan con colegios, instituciones o grupos?", "Sí. Además de empresas, trabajamos con instituciones públicas y privadas, colegios, equipos deportivos, grupos y familias: liderazgo juvenil, exploración vocacional, escuela de padres y dinámicas de juego serio. Cada programa se arma a medida."),
     ("¿Son un estudio de abogados?", "No. Somos consultores de gestión de personas. Ordenamos tu gestión laboral de forma preventiva y podemos acompañarte en una inspección, pero no damos representación legal ni patrocinio."),
     ("¿Quién hace el trabajo?", "La gerencia conduce cada proyecto. Cuando un servicio necesita a otro especialista, como en bienestar o casos sociales, lo ejecuta nuestra red de especialistas asociados con la misma coordinación."),
-    ("¿Qué pasa después de la entrega?", "A los 30 días hacemos una reunión de verificación sin costo para revisar que lo entregado se esté usando. Si algo no se implementó, también lo reportamos."),
+    ("¿Qué pasa después de la entrega?", "A los 30 días hacemos una reunión de verificación sin costo para revisar cómo se está usando lo entregado. Si algo no se implementó, también lo reportamos."),
 ]
 
 def split_claim(text):
@@ -256,7 +256,7 @@ def home(B):
 
     method = '''<section class="band band-paper" id="metodo" aria-labelledby="metodo-title">
   <div class="wrap">
-    <div class="head"><h2 class="reveal" id="metodo-title">Cómo trabajamos.</h2><p>Cinco pasos, siempre los mismos. Sabes qué vas a recibir antes de pagar un sol.</p></div>
+    <div class="head"><h2 class="reveal" id="metodo-title">Cómo trabajamos.</h2><p>Cinco pasos estandarizados para la excelencia del servicio. Sabes qué vas a recibir antes de pagar un sol.</p></div>
     <div class="steps-line" aria-hidden="true"><span></span></div>
     <ol class="steps">
       <li class="step"><h3>Diagnóstico</h3><p>45 minutos sin costo. Aplicamos el Termómetro y ubicamos las prioridades reales.</p></li>

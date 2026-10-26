@@ -77,7 +77,7 @@ def p_reunion(B):
 </section>'''
     nxt = f'''<section class="band band-paper" id="m4" aria-labelledby="m4-t">
   <div class="wrap">
-    <div class="head"><h2 id="m4-t">Cómo seguimos.</h2><p>Cinco pasos, siempre los mismos. Los dos primeros no tienen costo.</p></div>
+    <div class="head"><h2 id="m4-t">Cómo seguimos.</h2><p>Cinco pasos estandarizados para la excelencia del servicio. Los dos primeros no tienen costo.</p></div>
     {B.steps_mini()}
     <div class="hero-actions" style="margin-top:1.5rem">{B.wa_btn("Hola Espinoza T, gracias por la reunión. Quedo atento a la propuesta.", "Recibir la propuesta hoy")}</div>
   </div>
