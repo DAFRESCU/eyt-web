@@ -10,6 +10,24 @@
   window.ET = window.ET || {};
   ET.wa = function (text) { return WA + "?text=" + encodeURIComponent(text); };
 
+  /* ---------- medición (Vercel Web Analytics, sin cookies) ----------
+     Cada evento se registra como una visita a /evento/<nombre> y, si el plan lo permite, como evento propio.
+     Así se ven en el panel de Analytics: clics a WhatsApp y herramientas completadas. */
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  var sent = {};
+  ET.track = function (name, once) {
+    if (once && sent[name]) return; sent[name] = 1;
+    var from = location.pathname.replace(/\/$/, "") || "/inicio";
+    try {
+      window.va("event", { name: name, data: { pagina: from } });
+      window.va("pageview", { route: "/evento/" + name, path: "/evento/" + name + from });
+    } catch (e) {}
+  };
+  doc.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="https://wa.me"]');
+    if (a) ET.track("whatsapp");
+  }, true);
+
   /* ---------- enlaces de WhatsApp con mensaje listo ---------- */
   $$("[data-wa]").forEach(function (a) {
     a.href = ET.wa(a.getAttribute("data-wa"));
@@ -65,6 +83,28 @@
   addEventListener("scroll", onScroll, { passive: true });
   addEventListener("resize", onScroll);
   onScroll();
+
+  /* ---------- menú Clientes y servicios: cada grupo muestra sus unidades ---------- */
+  $$(".menu-mega").forEach(function (m) {
+    var gs = $$(".mega-g", m), ps = $$(".mega-p", m);
+    function act(i) { gs.forEach(function (g, k) { g.classList.toggle("on", k === i); }); ps.forEach(function (p, k) { p.classList.toggle("on", k === i); }); }
+    gs.forEach(function (g, i) {
+      g.addEventListener("pointerenter", function () { act(i); });
+      g.addEventListener("focus", function () { act(i); });
+    });
+    var c = gs.findIndex ? gs.findIndex(function (g) { return g.getAttribute("aria-current") === "page"; }) : -1;
+    if (c > 0) act(c);
+  });
+
+  /* ---------- un enlace a /servicios/x#servicio abre ese servicio ---------- */
+  function abrirServicio() {
+    var h = decodeURIComponent((location.hash || "").slice(1)); if (!h) return;
+    var d = document.getElementById(h); if (!d || d.tagName !== "DETAILS") return;
+    $$("details.svc").forEach(function (x) { if (x !== d) x.open = false; });
+    d.open = true; d.classList.add("svc-hit");
+    setTimeout(function () { d.scrollIntoView({ block: "start" }); }, 80);
+  }
+  abrirServicio(); window.addEventListener("hashchange", abrirServicio);
 
   /* ---------- menú de pestañas ---------- */
   var nav = $(".nav"), pill = $(".nav-pill");
@@ -194,4 +234,27 @@
 
   /* ---------- año en el pie ---------- */
   $$("[data-year]").forEach(function (n) { n.textContent = new Date().getFullYear(); });
+})();
+
+/* 26-oct · fondos que cambian al bajar: cada sección clara trae su propio tono y la página entera se tiñe al llegar a ella */
+(function () {
+  var root = document.documentElement;
+  var secs = Array.prototype.slice.call(document.querySelectorAll("main > section"));
+  if (!secs.length || !("IntersectionObserver" in window)) return;
+  var TONES = ["#FAF7F2", "#E9EEF6", "#F6E8EC", "#EFE6D8", "#FFFFFF"];
+  function lum(c) { var m = c.match(/\d+(\.\d+)?/g); if (!m) return 1; if (m.length > 3 && +m[3] === 0) return 1; return (0.299 * m[0] + 0.587 * m[1] + 0.114 * m[2]) / 255; }
+  var light = [], k = 0;
+  secs.forEach(function (s) {
+    if (/\b(reel|ident)\b/.test(s.className)) return;
+    var bg = getComputedStyle(s).backgroundColor, img = getComputedStyle(s).backgroundImage;
+    if (lum(bg) < 0.6 || (img && img !== "none" && !/band-paper/.test(s.className))) return;
+    s.dataset.tone = TONES[k++ % TONES.length]; s.classList.add("tone"); light.push(s);
+  });
+  if (light.length < 2) return;
+  root.classList.add("tones");
+  document.body.style.backgroundColor = light[0].dataset.tone;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) document.body.style.backgroundColor = e.target.dataset.tone; });
+  }, { rootMargin: "-45% 0px -45% 0px" });
+  light.forEach(function (s) { io.observe(s); });
 })();

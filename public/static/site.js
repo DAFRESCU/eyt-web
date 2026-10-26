@@ -235,3 +235,26 @@
   /* ---------- año en el pie ---------- */
   $$("[data-year]").forEach(function (n) { n.textContent = new Date().getFullYear(); });
 })();
+
+/* 26-oct · fondos que cambian al bajar: cada sección clara trae su propio tono y la página entera se tiñe al llegar a ella */
+(function () {
+  var root = document.documentElement;
+  var secs = Array.prototype.slice.call(document.querySelectorAll("main > section"));
+  if (!secs.length || !("IntersectionObserver" in window)) return;
+  var TONES = ["#FAF7F2", "#E9EEF6", "#F6E8EC", "#EFE6D8", "#FFFFFF"];
+  function lum(c) { var m = c.match(/\d+(\.\d+)?/g); if (!m) return 1; if (m.length > 3 && +m[3] === 0) return 1; return (0.299 * m[0] + 0.587 * m[1] + 0.114 * m[2]) / 255; }
+  var light = [], k = 0;
+  secs.forEach(function (s) {
+    if (/\b(reel|ident)\b/.test(s.className)) return;
+    var bg = getComputedStyle(s).backgroundColor, img = getComputedStyle(s).backgroundImage;
+    if (lum(bg) < 0.6 || (img && img !== "none" && !/band-paper/.test(s.className))) return;
+    s.dataset.tone = TONES[k++ % TONES.length]; s.classList.add("tone"); light.push(s);
+  });
+  if (light.length < 2) return;
+  root.classList.add("tones");
+  document.body.style.backgroundColor = light[0].dataset.tone;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) document.body.style.backgroundColor = e.target.dataset.tone; });
+  }, { rootMargin: "-45% 0px -45% 0px" });
+  light.forEach(function (s) { io.observe(s); });
+})();
