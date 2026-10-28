@@ -6,6 +6,7 @@ const NOTION_VERSION = "2022-06-28";
 const CLIENTES_DB = "45f2dacfbbc2497495ef159bc4f1d3f7";
 const TAREAS_DB = "00f85fc61d664e0a92738b21d9a878ff";
 const DANIEL = "3c9d872b-594c-8147-beeb-0002fa88945a";
+const RECIENTES = new Map();
 const TEMAS = ["Talento", "Cultura y bienestar", "Liderazgo y dirección", "Orden laboral"];
 
 const clip = (s, n) => String(s == null ? "" : s).replace(/\s+/g, " ").trim().slice(0, n);
@@ -41,6 +42,15 @@ export default async function handler(req, res) {
 
   // trampa para bots: el campo oculto debe venir vacío
   if (b.web) return res.status(200).json({ ok: true });
+
+  // límite de envíos: máximo 5 cada 10 minutos por conexión (mejor esfuerzo, en memoria)
+  const ip = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim() || "anon";
+  const ahora = Date.now();
+  const previos = (RECIENTES.get(ip) || []).filter((t) => ahora - t < 10 * 60 * 1000);
+  if (previos.length >= 5) return res.status(429).json({ ok: false, error: "espera" });
+  previos.push(ahora);
+  RECIENTES.set(ip, previos);
+  if (RECIENTES.size > 500) RECIENTES.clear();
 
   const nombre = clip(b.nombre, 80), empresa = clip(b.empresa, 120), telefono = clip(b.telefono, 30);
   const correo = clip(b.correo, 120), cargo = clip(b.cargo, 80);
