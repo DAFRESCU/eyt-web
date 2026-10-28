@@ -1,7 +1,7 @@
 /* Espinoza T Personas — motor de herramientas (una pregunta por pantalla).
    Lee la configuración de <script id="quiz-data" type="application/json"> y arma la experiencia.
    Modos: "risk" (Sí/No/No sé con informe de puntos críticos) y "likert" (intereses, para la Brújula).
-   No guarda nada: todo ocurre en el navegador. */
+   No guarda nada por su cuenta: solo envía el resultado si la persona llena el formulario y da su consentimiento (/api/resultado → Notion). */
 (function () {
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var WA = "51974770954";
@@ -166,11 +166,68 @@
     if (C.links && gaps.length) {
       h += '<p class="tr-next">Si quieres ordenar este frente con acompañamiento: <a class="textlink" href="' + C.links[lead] + '">ver cómo trabajamos ' + esc(where) + '</a>.</p>';
     }
-    h += '<p class="tr-note">' + esc(C.note) + '</p>';
+    h += '<p class="tr-note">' + esc(noteText()) + '</p>';
     var msg = C.waIntro + "\n" + (size ? "Somos " + size + " trabajadores.\n" : "") + "Resultado: " + total + " de " + N + " (" + vd.t.toLowerCase() + ").\n" +
       C.groups.map(function (g, i) { return g.name + " " + sub[i] + "/" + cnt[i]; }).join(", ") + ".\nMe gustaría revisarlo contigo.";
+    var SIN_FORM = ["mis-habilidades-blandas", "pantallas-en-casa", "listo-para-tu-entrevista"];
+    var conForm = SIN_FORM.indexOf(C.id) < 0;
+    if (conForm) h += sendForm();
     h += actions(msg);
     out.innerHTML = h; bindResult();
+    if (conForm) bindSend({
+      id: C.id, herramienta: (document.querySelector("h1") || {}).textContent || C.reportTitle, total: total, n: N,
+      veredicto: vd.t, tema: C.groups[lead].name, tamano: size || "",
+      grupos: C.groups.map(function (g, i) { return { nombre: g.name, puntos: sub[i], de: cnt[i] }; }),
+      brechas: gaps.map(function (x) { return { grupo: C.groups[x.g].name, punto: x.it.gap, nose: !!x.unknown }; })
+    });
+  }
+
+  /* ---------- enviar el resultado (solo si la persona quiere) ---------- */
+  function noteText() {
+    return String(C.note || "").replace("Tus respuestas no se guardaron ni se enviaron a ningún lado.",
+      "Tus respuestas no se guardan ni se envían, salvo que tú decidas enviarlas con el formulario de abajo.");
+  }
+  function sendForm() {
+    return '<form class="tr-send" novalidate data-send>' +
+      '<h2 class="tr-h">¿Lo revisamos juntos?</h2>' +
+      '<p class="tr-sub">Déjanos tus datos y te escribimos en menos de un día hábil para revisar este resultado contigo, sin costo.</p>' +
+      '<div class="tr-send-grid">' +
+      '<label>Tu nombre<input name="nombre" autocomplete="name" required maxlength="80"></label>' +
+      '<label>Tu cargo<input name="cargo" autocomplete="organization-title" maxlength="80"></label>' +
+      '<label>Organización<input name="empresa" autocomplete="organization" required maxlength="120"></label>' +
+      '<label>WhatsApp<input name="telefono" type="tel" inputmode="tel" autocomplete="tel" required maxlength="30"></label>' +
+      '<label>Correo (opcional)<input name="correo" type="email" autocomplete="email" maxlength="120"></label>' +
+      '<fieldset><legend>¿Cómo prefieres conversar?</legend>' +
+      '<label class="tr-radio"><input type="radio" name="modalidad" value="Presencial" checked> Presencial</label>' +
+      '<label class="tr-radio"><input type="radio" name="modalidad" value="Virtual"> Virtual</label></fieldset>' +
+      '</div>' +
+      '<input name="web" tabindex="-1" autocomplete="off" class="tr-hp" aria-hidden="true">' +
+      '<label class="tr-consent"><input type="checkbox" name="consentimiento" required><span>Autorizo a Espinoza T Personas a guardar mis datos y este resultado para contactarme sobre él. Más en la <a class="textlink" href="/privacidad">política de privacidad</a>.</span></label>' +
+      '<button type="submit" class="btn btn-light">Enviar mi resultado</button>' +
+      '<p class="tr-send-msg" aria-live="polite"></p></form>';
+  }
+  function bindSend(payload) {
+    var f = out.querySelector("[data-send]"); if (!f) return;
+    var msgEl = f.querySelector(".tr-send-msg"), btn = f.querySelector("button[type=submit]");
+    f.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var d = {}; ["nombre", "cargo", "empresa", "telefono", "correo", "web"].forEach(function (k) { d[k] = (f.elements[k].value || "").trim(); });
+      var mod = f.querySelector("input[name=modalidad]:checked"); d.modalidad = mod ? mod.value : "";
+      d.consentimiento = f.elements.consentimiento.checked;
+      if (!d.nombre || !d.empresa || !d.telefono) { msgEl.textContent = "Completa tu nombre, tu organización y tu WhatsApp."; return; }
+      if (!d.consentimiento) { msgEl.textContent = "Para enviarlo necesitamos tu autorización."; return; }
+      Object.keys(payload).forEach(function (k) { d[k] = payload[k]; });
+      btn.disabled = true; msgEl.textContent = "Enviando…";
+      fetch("/api/resultado", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d) })
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return r.ok && j.ok; }); })
+        .then(function (ok) {
+          if (ok) {
+            f.innerHTML = '<h2 class="tr-h">Listo, lo recibimos.</h2><p class="tr-sub">Te escribimos por WhatsApp en menos de un día hábil, de lunes a viernes.</p>';
+            if (window.ET && ET.track) ET.track("resultado-enviado-" + (C.id || "herramienta"));
+          } else { btn.disabled = false; msgEl.textContent = "No se pudo enviar. Usa el botón de WhatsApp de abajo y lo vemos por ahí."; }
+        })
+        .catch(function () { btn.disabled = false; msgEl.textContent = "No se pudo enviar. Usa el botón de WhatsApp de abajo y lo vemos por ahí."; });
+    });
   }
 
   function resultLikert() {
@@ -191,6 +248,7 @@
         '<dl><div><dt>Cómo eres cuando estás en lo tuyo</dt><dd>' + esc(T[k].desc) + '</dd></div><div><dt>Áreas para explorar</dt><dd>' + T[k].areas.map(function (a) { return '<span class="chip-l">' + esc(a) + '</span>'; }).join("") + '</dd></div><div><dt>Para probarlo esta semana</dt><dd>' + esc(T[k].try) + '</dd></div></dl></li>';
     });
     h += '</ol><p class="tr-note">' + esc(C.note) + '</p>';
+    // La Brújula y las herramientas para personas no piden datos: pueden usarlas menores de edad.
     var msg = C.waIntro + "\nMi mapa: " + top.map(function (k) { return T[k].name; }).join(", ") + ".\nMe gustaría conversar sobre orientación vocacional.";
     h += actions(msg);
     out.innerHTML = h; bindResult();
